@@ -4,10 +4,21 @@
   	max-width: 640px;
   	padding: 20px 10px;
   	margin: 0 auto;
-	text-align: center;
 	display: block;
 	background-color: #fff;
-	foot{
+	#title{
+		font-size: 20px;
+		font-family: 'Times New Roman';
+		margin-left: 5px;
+	}
+	#text_entrada{
+		font-size: 17px;
+		font-family: 'Times New Roman';
+		margin-left: 5px;
+	}
+	#foot{
+
+		font-family: 'Times New Roman';
 		margin-top: 10px;
 	}
 	
