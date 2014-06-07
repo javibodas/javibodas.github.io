@@ -1,20 +1,48 @@
 /*--------------------------
+          MIXINS
+----------------------------*/
+/*--------------------------
           GENERALES
 ----------------------------*/
 a {
   text-decoration: none; }
 
+/*-------------------------
+        CUERPO
+---------------------------*/
+body {
+  background-color: #463F3F; }
+
 /*--------------------------
           HEADER
 ----------------------------*/
+.header {
+  box-shadow: 5px 5px 0px 0px #4d4d4d;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  max-width: 1000px;
+  position: relative;
+  margin: 0 auto;
+  background-color: #CCCCCC;
+  padding: 1px 0 1px 0;
+  text-align: center; }
+  .header h1 {
+    font-size: 52px; }
+
 /*--------------------------
           NAVEGADOR
 ----------------------------*/
 nav {
-  margin-bottom: 10px;
+  box-shadow: 5px 5px 0px 0px black;
   margin-left: 100px;
   margin-right: 100px;
-  border-radius: 10px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  max-width: 1000px;
+  position: relative;
+  margin: 0 auto;
   background-color: #0090ff; }
   nav ul {
     list-style: none; }
@@ -30,24 +58,32 @@ nav {
         ENTRADAS
 ---------------------------*/
 .entrada {
+  box-shadow: 5px 5px 0px 0px #808080;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-radius: 7px;
   margin-bottom: 10px;
+  max-width: 1000px;
   position: relative;
-  max-width: 640px;
-  padding: 20px 10px;
   margin: 0 auto;
-  display: block;
+  padding: 20px 10px;
+  display: grid;
   background-color: #fff;
   border-radius: 10px; }
-  .entrada #title {
-    font-size: 20px;
+  .entrada #titulo_entrada {
+    background-color: #CCCCCC;
+    border-radius: 7px;
+    padding: 1px;
+    font-size: 24px;
     font-family: 'Times New Roman';
     font-weight: bold;
-    margin-left: 5px; }
-  .entrada #text_entrada {
+    margin-left: 5px;
+    margin-bottom: 5px; }
+  .entrada #texto_entrada {
     font-size: 15px;
     font-family: 'Times New Roman';
     margin-left: 5px; }
-  .entrada #foot {
+  .entrada #pie_entrada {
     font-weight: lighter;
     font-size: 13px;
     font-family: 'Times New Roman';

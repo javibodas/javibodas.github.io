@@ -1,28 +1,28 @@
 /*-------------------------
         ENTRADAS
 ---------------------------*/
-
 .entrada{
-    margin-bottom: 10px;
-	position: relative;
-  	max-width: 640px;
+    @include pos($color_white);
   	padding: 20px 10px;
-  	margin: 0 auto;
-	display: block;
-	background-color: #fff;
+	display:grid;
+	background-color: $color_white;
 	border-radius: 10px;
-	#title{
-		font-size: 20px;
+	#titulo_entrada{
+        background-color:$color_grey_light;
+        border-radius: 7px;
+        padding: 1px;
+        font-size: 24px;
 		font-family: 'Times New Roman';
         font-weight:bold;
 		margin-left: 5px;
+        margin-bottom: 5px;
 	}
-	#text_entrada{
+	#texto_entrada{
 		font-size: 15px;
 		font-family: 'Times New Roman';
 		margin-left: 5px;
 	}
-	#foot{
+	#pie_entrada{
         font-weight: lighter;
         font-size: 13px;
 		font-family: 'Times New Roman';

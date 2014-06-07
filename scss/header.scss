@@ -1,3 +1,16 @@
 /*--------------------------
           HEADER
 ----------------------------*/
+
+.header{
+     @include pos($color_grey_light);
+     background-color:$color_grey_light;
+     padding: 1px 0 1px 0;
+     text-align: center;
+     header{
+       
+    }
+    h1{
+        font-size: 52px;
+    }
+}
