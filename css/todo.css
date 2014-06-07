@@ -1,3 +1,16 @@
+/*--------------------------
+          NAVEGADOR
+----------------------------*/
+.nav {
+  color: #0090ff;
+  border-radius: 10px; }
+  .nav ul {
+    text-decoration: none;
+    display: inline; }
+
+/*-------------------------
+        ENTRADAS
+---------------------------*/
 .entrada {
   position: relative;
   max-width: 640px;
@@ -20,3 +33,11 @@
     font-size: 13px;
     font-family: 'Times New Roman';
     margin-top: 10px; }
+
+/*-------------------------
+        BARRA LATERAL
+---------------------------*/
+.barra_lateral {
+  width: 100%;
+  margin-left: 10px;
+  position: relative; }

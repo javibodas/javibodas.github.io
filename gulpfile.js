@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 
     gulp.task('sass',function(){
 	 
-	return gulp.src('scss/entradas.scss')
+	return gulp.src('scss/todo.scss')
 	       .pipe(sass())
 	       .pipe(gulp.dest('css/')); 	
 	
