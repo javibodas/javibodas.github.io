@@ -3,8 +3,8 @@ $(document).ready(function() {
 	
 	/*--CONTENEDORES--*/
 	$('body').html('<div id="container" class="container"><div id="grid"></div><div id="options"></div></div>');
-	$('body').append('<div id="data"><label>Score: 0</label></div>');
-	
+	$('body').append('<div id="score" class="data"><label>Score: 0</label></div>');
+	$('body').append('<div id="highscore" class="data"><label>HighScore: 0</label></div>');
 
 	/*--MODE GAME--*/
 	var cols = 4;
@@ -40,9 +40,12 @@ $(document).ready(function() {
 	}
 	grid.frames = frames;
 
+	//Controlador
+	var controller = new Controller(grid,view);
+
 	/*--EVENTS--*/
 	$(this.getElementById('reload')).click(function (){
-		load(true,grid,view);
+		load(true,controller);
 	});
 
 	$(this).keydown(function(key) {
@@ -50,52 +53,50 @@ $(document).ready(function() {
 		var code = key.which;
 		switch(code){
 			case 37: 
-				moveFrames('left',grid,view);
+				moveFrames('left',controller,view,grid);
+				controller.addFrame();
 				break;
 			case 38: 
-				moveFrames('up',grid,view);
+				moveFrames('up',controller,view,grid);
+				controller.addFrame();
 				break
 			case 39: 
-				moveFrames('right',grid,view);
+				moveFrames('right',controller,view,grid);
+				controller.addFrame();
 				break;
 			case 40: 
-				moveFrames('down',grid,view);
+				moveFrames('down',controller,view,grid);
+				controller.addFrame();
 		}
-
-		var number = Math.floor(Math.random() * 16);
-		while(!grid.frames[number].isEmpty()){
-			number = Math.floor(Math.random() * 16);
-		}
-		view.paint(grid.frames[number],'html','2');
-		view.paint(grid.frames[number],'css','background-color','orange');
-		grid.frames[number].val = '2';
-		console.log('Posicion nuevo incluido: ' + number);
 	});
 
 	/*Init frames*/
-	load(false,grid,view);
+	load(false,controller);
 
 });
 
 
 /*Put first twos in grid, or reload the grid*/
-var load = function (reload,grid,view) {
-		
-		var controller = new Controller(grid,view);
+var load = function (reload,controller) {
 		controller.load(reload);
 };
 
 
 
-var moveFrames = function(way,grid,view){
+var moveFrames = function(way,controller,view,grid){
 		
-		var controller = new Controller(grid,view);
 		var framesToMove = controller.move();
-		console.log('Numero que se deben eliminar: ' + framesToMove.length);
+		//console.log('Numero que se deben eliminar: ' + framesToMove.length);
 		var framesUpdated = controller.dirToMove(way);
 		console.log('Numero que debe ser pintado: ' + framesUpdated.length);
-
+		if(framesToMove.length==grid.lines*grid.cols){
+			if(framesUpdated.length==grid.lines*grid.cols){
+				alert('Fin del juego');
+				return;
+			}
+		}
 		view.rePaint(framesToMove,framesUpdated);
+
 };
 
 

@@ -4,7 +4,6 @@ var Frame = function(pos,col,line,val,grid){
 	this.line = line;
 	this.val = val;
 	this.grid = grid;
-
 };
 
 Frame.prototype.isFinal = function(way){

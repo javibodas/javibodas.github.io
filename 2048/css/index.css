@@ -15,7 +15,7 @@
 	margin:0 auto;
 	margin-top:10px;
 }
-body #data{
+body .data{
 	border-color: green;
 	border-top: 10px;
 	max-width:1000px;

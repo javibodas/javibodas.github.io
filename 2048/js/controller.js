@@ -1,3 +1,4 @@
+var grid;
 var Controller = function(grid,view){
 	this.grid = grid;
 	this.view = view;
@@ -10,10 +11,10 @@ Controller.prototype.load = function(reload){
 		var remove = this.grid.getFramesNoEmpty();
 		this.view.rePaint(remove,[]);
 	}
-
+	
 	var number = Math.floor(Math.random() * 16);
-	this.view.paint(this.grid.frames[number],'html','2');
-	this.view.paint(this.grid.frames[number],'css','background-color','orange');
+	this.view.paint(this.grid.frames[number],'html','2',false);
+	this.view.paint(this.grid.frames[number],'css','background-color','orange',false);
 	this.grid.frames[number].val = '2';
 		
 	var number2 = Math.floor(Math.random() * 16);
@@ -21,11 +22,48 @@ Controller.prototype.load = function(reload){
 		number2 = Math.floor(Math.random() * 16);
 	} 
 
-	this.view.paint(this.grid.frames[number2],'html','2');
-	this.view.paint(this.grid.frames[number2],'css','background-color','orange');
+	this.view.paint(this.grid.frames[number2],'html','2',false);
+	this.view.paint(this.grid.frames[number2],'css','background-color','orange',false);
 	this.grid.frames[number2].val = '2';
+	
+	//Tests
+	/*
+	this.view.paint(this.grid.frames[1],'html','2');
+	this.view.paint(this.grid.frames[1],'css','background-color','orange');
+	this.grid.frames[1].val = '2';
 
+	this.view.paint(this.grid.frames[2],'html','2');
+	this.view.paint(this.grid.frames[2],'css','background-color','orange');
+	this.grid.frames[2].val = '2';
+
+	this.view.paint(this.grid.frames[3],'html','4');
+	this.view.paint(this.grid.frames[3],'css','background-color','orange');
+	this.grid.frames[3].val = '4';
+
+	this.view.paint(this.grid.frames[6],'html','2');
+	this.view.paint(this.grid.frames[6],'css','background-color','orange');
+	this.grid.frames[6].val = '2';
+	
+	this.view.paint(this.grid.frames[7],'html','8');
+	this.view.paint(this.grid.frames[7],'css','background-color','orange');
+	this.grid.frames[7].val = '8';
+	
+	this.view.paint(this.grid.frames[9],'html','2');
+	this.view.paint(this.grid.frames[9],'css','background-color','orange');
+	this.grid.frames[9].val = '2';
+
+	this.view.paint(this.grid.frames[11],'html','8');
+	this.view.paint(this.grid.frames[11],'css','background-color','orange');
+	this.grid.frames[11].val = '8';
+
+
+	this.view.paint(this.grid.frames[15],'html','4');
+	this.view.paint(this.grid.frames[15],'css','background-color','orange');
+	this.grid.frames[15].val = '4';
+	*/
+	grid = this.grid;
 };
+
 Controller.prototype.move = function(){
 
 	var framesToMove = this.grid.getFramesNoEmpty();
@@ -39,72 +77,102 @@ Controller.prototype.dirToMove = function(way){
 
 	if(way=='right'){
 		var line0 = this.grid.getFramesLine(0);
-		var dirs0 = toMoveFrames(line0,'+');
+		//console.log('Line:' + 0);
+		var dirs0 = toMoveFrames(line0,'+','right');
 
 		var line1 = this.grid.getFramesLine(1);
-		var dirs1 = toMoveFrames(line1,'+');
+		//console.log('Line:' + 1);
+		var dirs1 = toMoveFrames(line1,'+','right');
 		
 		var line2 = this.grid.getFramesLine(2);
-		var dirs2 = toMoveFrames(line2,'+');
+		//console.log('Line:' + 2);
+		var dirs2 = toMoveFrames(line2,'+','right');
 		
 		var line3 = this.grid.getFramesLine(3);
-		var dirs3 = toMoveFrames(line3,'+');
+		//console.log('Line:' + 3);
+		var dirs3 = toMoveFrames(line3,'+','right');
 		dirs = dirs0.concat(dirs1,dirs2,dirs3);
 	
 	}else if(way=='left'){
 		var line0 = this.grid.getFramesLine(0);
-		var dirs0 = toMoveFrames(line0,'-');
+		//console.log('Line:' + 0);
+		var dirs0 = toMoveFrames(line0,'-','left');
 		
 		var line1 = this.grid.getFramesLine(1);
-		var dirs1 = toMoveFrames(line1,'-');
+		//console.log('Line:' + 1);
+		var dirs1 = toMoveFrames(line1,'-','left');
 		
 		var line2 = this.grid.getFramesLine(2);
-		var dirs2 = toMoveFrames(line2,'-');
+		//console.log('Line:' + 2);
+		var dirs2 = toMoveFrames(line2,'-','left');
 		
 		var line3 = this.grid.getFramesLine(3);
-		var dirs3 = toMoveFrames(line3,'-');
+		//console.log('Line:' + 3);
+		var dirs3 = toMoveFrames(line3,'-','left');
 
 		dirs = dirs0.concat(dirs1,dirs2,dirs3);
 
 	}else if(way=='up'){
 		var col0 = this.grid.getFramesCol(0);
-		var dirs0 = toMoveFrames(col0,'-');
+		//console.log('Col:' + 0);
+		var dirs0 = toMoveFrames(col0,'-','up');
 		
 		var col1 = this.grid.getFramesCol(1);
-		var dirs1 = toMoveFrames(col1,'-');
+		//console.log('Col:' + 1);
+		var dirs1 = toMoveFrames(col1,'-','up');
 		
 		var col2 = this.grid.getFramesCol(2);
-		var dirs2 = toMoveFrames(col2,'-');
+		//console.log('Col:' + 2);
+		var dirs2 = toMoveFrames(col2,'-','up');
 		
 		var col3 = this.grid.getFramesCol(3);
-		var dirs3 = toMoveFrames(col3,'-');
+		//console.log('Col:' + 3);
+		var dirs3 = toMoveFrames(col3,'-','up');
 
 		dirs = dirs0.concat(dirs1,dirs2,dirs3);
 
 	}else if(way=='down'){
 		var col0 = this.grid.getFramesCol(0);
-		var dirs0 = toMoveFrames(col0,'+');
+		//console.log('Col:' + 0);
+		var dirs0 = toMoveFrames(col0,'+','down');
 
 		var col1 = this.grid.getFramesCol(1);
-		var dirs1 = toMoveFrames(col1,'+');
+		//console.log('Col:' + 1);
+		var dirs1 = toMoveFrames(col1,'+','down');
 		
 		var col2 = this.grid.getFramesCol(2);
-		var dirs2 = toMoveFrames(col2,'+');
+		//console.log('Col:' + 2);
+		var dirs2 = toMoveFrames(col2,'+','down');
 
 		var col3 = this.grid.getFramesCol(3);
-		var dirs3 = toMoveFrames(col3,'+');
+		//console.log('Col:' + 3);
+		var dirs3 = toMoveFrames(col3,'+','down');
 
 		dirs = dirs0.concat(dirs1,dirs2,dirs3);
 
 	}
 
+
 	return dirs;
+};
+
+Controller.prototype.addFrame = function(){
+
+	var number = Math.floor(Math.random() * 16);
+	while(!this.grid.frames[number].isEmpty()){
+		number = Math.floor(Math.random() * 16);
+	}
+		this.view.paint(this.grid.frames[number],'html','2',true);
+		this.view.paint(this.grid.frames[number],'css','background-color','orange',true);
+		this.grid.frames[number].val = '2';
+		console.log('Posicion nuevo incluido: ' + number);
+
 };
 
 var positionsOcupated = [];
 
 /*Esta función deberia devolver las posiciones que se pintaran de la linea que le hemos pasado con su valor*/
-var toMoveFrames = function(frames,dir){
+var toMoveFrames = function(frames,dir,way){
 
 	var dirs = [];
 	for(var i=0;i<frames.length;i++){
@@ -119,29 +187,30 @@ var toMoveFrames = function(frames,dir){
 			if(frames[i].isEmpty()){
 				continue;
 			}
+			//console.log('Pos in array:' + i + '-> Frame:' + frames[i].val + ' ' + frames[i].pos);
 			positionsOcupated[i] = true;
 
 			if(i!=frames.length-1){
 				/*Comprobamos los siguientes frames desde el que estamos hasta el ultimo para ver si estan vacios o no y asi
 				poder colocarlo en un sitio u otro, esta funcion nos devolvera un object con la posicion a la que ira y el valor*/
-				var o = checkNextFrames(frames[i],i,dir,frames.length-1);
+				var o = movePositive(frames[i],i,way,frames.length-1);
 				if(!o){
 					o = new Object();
 					o['pos'] = frames[i].pos;
 					o['value'] = frames[i].val;
 				}
-				frames[o.pos%frames.length].val = o.value; //Actualizo el valor del frame
+				this.grid.frames[o.pos].val = o.value;
 				
 				var update = jQuery.inArray(o.pos,dirs);
-				if(update){
+				if(update>0){
 					dirs.splice(update,1);
 				}
 				dirs.push(o);
 			}else{
-
 				var ob = new Object();
 				ob['pos'] = frames[i].pos;
 				ob['value'] = frames[i].val;
+
 				dirs.push(ob);
 			}
 		}
@@ -157,18 +226,18 @@ var toMoveFrames = function(frames,dir){
 			if(i!=0){
 				/*Comprobamos los siguientes frames desde el que estamos hasta el ultimo para ver si estan vacios o no y asi
 				poder colocarlo en un sitio u otro, esta funcion nos devolvera un object con la posicion a la que ira y el valor*/
-				var o = checkNextFrames(frames[i],i,dir,i);
+				var o = moveNegative(frames[i],i,way,i);
 				if(!o){
 					o = new Object();
 					o['pos'] = frames[i].pos;
 					o['value'] = frames[i].val;
 				}
-				frames[o.pos%frames.length].val = o.value; 
+				this.grid.frames[o.pos].val = o.value;
 				
 
 				//Compruebo que si ha sido introducido antes dicha posicion la elimino
 				var update = jQuery.inArray(o.pos,dirs);
-				if(update){
+				if(update>0){
 					dirs.splice(update,1);
 				}
 				dirs.push(o);
@@ -185,52 +254,102 @@ var toMoveFrames = function(frames,dir){
 
 };
 
-var checkNextFrames = function(frame,pos,dir,length){
+var movePositive = function(frame,pos,way,length){
 
 	/*El frame se moverá hasta el frame mas allá que este vacío, dependiendo hacia donde se mueva y demás*/
 
 	var o = new Object();
-	if(dir=='+'){	
-		for(var i = length;i>pos;i--){
-			if(positionsOcupated[i]==false){
-				console.log(i);
-				positionsOcupated[i] = true;
-				positionsOcupated[pos] = false;
+	for(var i = pos+1;i<=length;i++){
+		if(i==length && positionsOcupated[i]==false){
+			positionsOcupated[i] = true;
+			positionsOcupated[pos] = false;
+			if(way=='right'){
 				o['pos'] = frame.line*frame.grid.cols + i;
-				o['value'] = frame.val; 
-				frame.grid.frames[i].val = o.value;
-				return o;
 			}else{
-				console.log('Deberia entrar alguna vez');
-				var framePosInI = frame.grid.getFrame(i,'line',frame.line);
-				var valPosInI = framePosInI.val;
-				if(parseInt(frame.val)==valPosInI){
-					o['pos'] = framePosInI.pos;
-					o['value'] = String(parseInt(frame.val)*2);
-					framePosInI.val = o.value;
-					return o;
-				}
+				o['pos'] = frame.col + frame.grid.lines*i;
 			}
+			o['value'] = frame.val; 
+			return o;
 		}
-	}else{
-		for(var i = 0;i<pos;i++){
-			if(positionsOcupated[i]==false){
-				positionsOcupated[i] = true;
+		if(positionsOcupated[i]==false){
+			continue;
+		}else{
+			if(way=='right'){
+				var framePosInI = grid.getFrame(i,'line',frame.line);
+			}else{
+				var framePosInI = grid.getFrame(i,'col',frame.col);
+			}
+			var valPosInI = framePosInI.val;
+			if(parseInt(frame.val)==valPosInI){
 				positionsOcupated[pos] = false;
-				o['pos'] = frame.line*frame.grid.cols + i;
-				o['value'] = frame.val; 
-				frame.grid.frames[i].val = o.value;
+				o['pos'] = framePosInI.pos;
+				o['value'] = String(parseInt(frame.val)*2);
 				return o;
 			}else{
-				var framePosInI = frame.grid.getFrame(i,'line',frame.line);
-				var valPosInI = framePosInI.val;
-				if(parseInt(frame.val)==valPosInI){
-					o['pos'] = framePosInI.pos;
-					o['value'] = String(parseInt(frame.val)*2);
-					framePosInI.val = o.value;
-					return o;
+				positionsOcupated[i-1] = true;
+				if(pos!=i-1){
+					positionsOcupated[pos] = false;
 				}
+				if(way=='right'){
+					var frameFree = grid.getFrame(i-1,'line',frame.line);
+					o['pos'] = frame.line*frame.grid.cols + (i-1);
+				}else{
+					var frameFree = grid.getFrame(i-1,'col',frame.col);
+					o['pos'] = frame.col + frame.grid.lines*(i-1);
+				}
+				o['value'] = frame.val;
+				return o;
 			}
 		}
 	}
+};
+
+var moveNegative = function(frame,pos,way,length){
+
+	var o = new Object();
+	for(var i = pos - 1;i>=0;i--){
+			if(i==0 && positionsOcupated[i]==false){
+				positionsOcupated[i] = true;
+				positionsOcupated[pos] = false;
+				if(way=='left'){
+					o['pos'] = frame.line*frame.grid.cols + i;
+				}else if(way=='up'){
+					o['pos'] = frame.col + frame.grid.lines*i;
+				}
+				o['value'] = frame.val; 
+				return o;
+			}
+			if(positionsOcupated[i]==false){
+				continue;
+			}else{
+				if(way=='left'){
+					var framePosInI = frame.grid.getFrame(i,'line',frame.line);
+				}else{
+					var framePosInI = frame.grid.getFrame(i,'col',frame.col);
+				}
+				var valPosInI = framePosInI.val;
+				if(parseInt(frame.val)==valPosInI){
+					positionsOcupated[pos] = false;
+					o['pos'] = framePosInI.pos;
+					o['value'] = String(parseInt(frame.val)*2);
+					framePosInI.val = o.value;
+					return o;
+				}else{
+					positionsOcupated[i+1] = true;
+					if(pos!=i+1){
+						positionsOcupated[pos] = false;
+					}
+					if(way=='left'){
+						var frameFree = grid.getFrame(i+1,'line',frame.line);
+						o['pos'] = frame.line*frame.grid.cols + (i+1);
+					}else{
+						var frameFree = grid.getFrame(i+1,'col',frame.col);
+						o['pos'] = frame.col + frame.grid.lines*(i+1);
+					}
+					o['value'] = frame.val;
+					return o;
+				}
+			}
+		}
+
 };
