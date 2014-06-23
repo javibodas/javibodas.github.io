@@ -1,0 +1,46 @@
+.container{
+	max-width: 1000px;
+	position: relative;
+	margin:0 auto;
+}
+.container #grid{
+	max-width: 1000px;
+	position: relative;
+	margin:0 auto;
+	margin-top:10px;
+}
+.container #options{
+	max-width:1000px;
+	position: relative;
+	margin:0 auto;
+	margin-top:10px;
+}
+body .data{
+	border-color: green;
+	border-top: 10px;
+	max-width:1000px;
+	position: relative;
+	margin:0 auto;
+	margin-top:10px;
+}
+.frame{
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 30px;
+  color: red;
+  width: 50px;
+  height: 50px;
+  background-color: #C6A664;
+
+}
+#reload{
+	width: 50px;
+	border-radius: 7px;
+}
+#reload:hover{
+	background-color: #CCCCCC;
+}
+#reload:active{
+	background-color: green;
+}
