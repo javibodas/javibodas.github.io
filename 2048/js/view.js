@@ -22,12 +22,12 @@ View.prototype.paint = function(element,mode,value,value2,adding){
 	}
 };
 
-View.prototype.incrementScores = function(type,value){
+View.prototype.incrementScores = function(value){
 
-	if(type=='score'){
-		$('#score').html(value);
-	}else if(type=='highscore'){
-
+	var highscore = localStorage.getItem('highscore');
+	$('#score').html('Score: ' + value);
+	if(value > highscore){
+		$('#highscore').html('HighScore: ' + value);
 	}
 
 };

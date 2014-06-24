@@ -1,7 +1,10 @@
 var grid;
-var Controller = function(grid,view){
+var view;
+var score;
+var Controller = function(grid,view,score){
 	this.grid = grid;
 	this.view = view;
+	this.score = score;
 };
 
 
@@ -9,6 +12,7 @@ Controller.prototype.load = function(reload){
 	
 	if(reload){
 		var remove = this.grid.getFramesNoEmpty();
+		this.score.setValue(0);
 		this.view.rePaint(remove,[]);
 	}
 	
@@ -25,12 +29,13 @@ Controller.prototype.load = function(reload){
 	this.view.paint(this.grid.frames[number2],'html','2',false);
 	this.view.paint(this.grid.frames[number2],'css','background-color','orange',false);
 	this.grid.frames[number2].val = '2';
+	
 	//Tests
 	/*
-	this.view.paint(this.grid.frames[0],'html','2');
+	this.view.paint(this.grid.frames[0],'html','2048');
 	this.view.paint(this.grid.frames[0],'css','background-color','orange');
-	this.grid.frames[0].val = '2';
-
+	this.grid.frames[0].val = '4';
+	
 	this.view.paint(this.grid.frames[4],'html','2');
 	this.view.paint(this.grid.frames[4],'css','background-color','orange');
 	this.grid.frames[4].val = '2';
@@ -61,6 +66,8 @@ Controller.prototype.load = function(reload){
 	this.grid.frames[15].val = '4';
 	*/
 	grid = this.grid;
+	view = this.view;
+	score = this.score;
 };
 
 Controller.prototype.move = function(){
@@ -192,7 +199,7 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 			if(i!=frames.length-1){
 				/*Comprobamos los siguientes frames desde el que estamos hasta el ultimo para ver si estan vacios o no y asi
 				poder colocarlo en un sitio u otro, esta funcion nos devolvera un object con la posicion a la que ira y el valor*/
-				var o = movePositive(frames[i],i,way,frames.length-1);
+				var o = movePositive(frames[i],i,way,frames.length-1,score);
 				/*if(!o){
 					o = new Object();
 					o['pos'] = frames[i].pos;
@@ -236,7 +243,7 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 			if(i!=0){
 				/*Comprobamos los siguientes frames desde el que estamos hasta el ultimo para ver si estan vacios o no y asi
 				poder colocarlo en un sitio u otro, esta funcion nos devolvera un object con la posicion a la que ira y el valor*/
-				var o = moveNegative(frames[i],i,way,i);
+				var o = moveNegative(frames[i],i,way,i,score);
 				/*if(!o){
 					o = new Object();
 					o['pos'] = frames[i].pos;
@@ -271,11 +278,12 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 		}
 	}
 	positionsOcupated = [];
+	view.incrementScores(score.getValue());
 	return dirs;
 
 };
 
-var movePositive = function(frame,pos,way,length){
+var movePositive = function(frame,pos,way,length,score){
 
 	/*El frame se moverá hasta el frame mas allá que este vacío, dependiendo hacia donde se mueva y demás*/
 
@@ -305,6 +313,7 @@ var movePositive = function(frame,pos,way,length){
 				positionsOcupated[pos] = false;
 				o['pos'] = framePosInI.pos;
 				o['value'] = String(parseInt(frame.val)*2);
+				score.setValue(score.getValue() + parseInt(o.value));
 				return o;
 			}else{
 				positionsOcupated[i-1] = true;
@@ -325,7 +334,7 @@ var movePositive = function(frame,pos,way,length){
 	}
 };
 
-var moveNegative = function(frame,pos,way,length){
+var moveNegative = function(frame,pos,way,length,score){
 
 	var o = new Object();
 	for(var i = pos - 1;i>=0;i--){
@@ -353,7 +362,7 @@ var moveNegative = function(frame,pos,way,length){
 					positionsOcupated[pos] = false;
 					o['pos'] = framePosInI.pos;
 					o['value'] = String(parseInt(frame.val)*2);
-					framePosInI.val = o.value;
+					score.setValue(score.getValue() + parseInt(o.value));
 					return o;
 				}else{
 					positionsOcupated[i+1] = true;

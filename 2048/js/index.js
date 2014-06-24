@@ -4,6 +4,7 @@ $(document).ready(function() {
 	/*--CONTENEDORES--*/
 	$('body').html('<div id="container" class="container"><div id="grid"></div><div id="options"></div></div>');
 	$('body').append('<div id="score" class="data"><label>Score: 0</label></div>');
+	var score = new Score(0);
 
 	var highscore;
 	if(localStorage['highscore']){
@@ -48,7 +49,7 @@ $(document).ready(function() {
 	grid.frames = frames;
 
 	//Controlador
-	var controller = new Controller(grid,view);
+	var controller = new Controller(grid,view,score);
 
 	/*--EVENTS--*/
 	$(this.getElementById('reload')).click(function (){
@@ -61,19 +62,15 @@ $(document).ready(function() {
 		switch(code){
 			case 37: 
 				moveFrames('left',controller,view,grid);
-				controller.addFrame();
 				break;
 			case 38: 
 				moveFrames('up',controller,view,grid);
-				controller.addFrame();
 				break
 			case 39: 
 				moveFrames('right',controller,view,grid);
-				controller.addFrame();
 				break;
 			case 40: 
 				moveFrames('down',controller,view,grid);
-				controller.addFrame();
 		}
 	});
 
@@ -93,15 +90,15 @@ var load = function (reload,controller) {
 var moveFrames = function(way,controller,view,grid){
 		
 		var framesToMove = controller.move();
-		console.log('Frames para eliminar antes de moverlos: ' + framesToMove.length);
 		var framesUpdated = controller.dirToMove(way,framesToMove);
-		console.log('Frames para eliminar despues de moverlos: ' + framesToMove.length);
-		/*
+
 		if(framesToMove.length==0 && framesUpdated.length==0){
-				alert('Fin del juego');
-				return;
+				/*if(TodoLleno){
+					Juego ha terminado
+				}*/
+		}else{
+			controller.addFrame();
 		}
-		*/
 		
 		view.rePaint(framesToMove,framesUpdated);
 
