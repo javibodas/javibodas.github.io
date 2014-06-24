@@ -10,8 +10,8 @@ a {
 /*-------------------------
         CUERPO
 ---------------------------*/
-body {
-  background-color: #463F3F; }
+.body {
+  background-color: #f0ad4e; }
 
 /*--------------------------
           HEADER
@@ -19,15 +19,16 @@ body {
 .header {
   margin-left: 100px;
   margin-right: 100px;
-  border-radius: 7px;
+  border-radius: 0px 0px 7px 7px;
   margin-bottom: 10px;
   max-width: 1000px;
   position: relative;
   margin: 0 auto;
-  background-color: #CCCCCC;
+  background-color: #222;
   padding: 1px 0 1px 0;
   text-align: center; }
   .header h1 {
+    color: white;
     font-size: 52px; }
 
 /*--------------------------
@@ -42,41 +43,40 @@ nav {
   position: relative;
   margin: 0 auto;
   margin-top: 10px; }
-  #nav ul {}
-    #nav ul li {}
 
 /*-------------------------
         ENTRADAS
 ---------------------------*/
-.entrada {
+.entry {
   margin-left: 100px;
   margin-right: 100px;
-  border-radius: 7px;
   margin-bottom: 10px;
   max-width: 1000px;
   position: relative;
   margin: 0 auto;
   padding: 20px 10px;
   display: grid;
-  background-color: #CCCCCC;
+  background-color: #222;
   border-radius: 10px; }
-  .entrada #titulo_entrada {
-    border-radius: 7px;
-    padding: 1px;
-    font-size: 24px;
-    font-family: 'Times New Roman';
+  .entry .title_entry {
+    border-radius: 10px 10px 0px 0px;
+    font-size: 25px;
+    color: white;
     font-weight: bold;
-    margin-left: 5px;
-    margin-bottom: 5px; }
-  .entrada #texto_entrada {
-    display: block;
+    margin-left: -10px;
+    margin-top: -20px;
+    margin-right: -10px;
+    margin-bottom: 5px;
+    padding: 0 0 0 5px;
+    background-color: #080808; }
+  .entry .content_entry {
     font-size: 15px;
     font-family: 'Times New Roman';
     margin-left: 5px; }
-  .entrada #texto_entrada button{
+  .entry .content_entry .text{
+    margin-bottom: 5px;
+    color: white;
+  }
+  .entry .content_entry button{
     margin-top: 5px;}
-  .entrada #pie_entrada {
-    font-weight: lighter;
-    font-size: 13px;
-    font-family: 'Times New Roman';
-    margin-top: 10px; }
+  
