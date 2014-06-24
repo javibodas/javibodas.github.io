@@ -17,7 +17,6 @@ body {
           HEADER
 ----------------------------*/
 .header {
-  box-shadow: 5px 5px 0px 0px #4d4d4d;
   margin-left: 100px;
   margin-right: 100px;
   border-radius: 7px;
@@ -35,7 +34,6 @@ body {
           NAVEGADOR
 ----------------------------*/
 nav {
-  box-shadow: 5px 5px 0px 0px black;
   margin-left: 100px;
   margin-right: 100px;
   border-radius: 7px;
@@ -43,22 +41,14 @@ nav {
   max-width: 1000px;
   position: relative;
   margin: 0 auto;
-  background-color: #0090ff; }
-  nav ul {
-    list-style: none; }
-    nav ul li {
-      margin-right: 10px;
-      font-size: 23px;
-      display: inline;
-      font-weight: bold;
-      font-style: italic;
-      color: white; }
+  margin-top: 10px; }
+  #nav ul {}
+    #nav ul li {}
 
 /*-------------------------
         ENTRADAS
 ---------------------------*/
 .entrada {
-  box-shadow: 5px 5px 0px 0px #808080;
   margin-left: 100px;
   margin-right: 100px;
   border-radius: 7px;
@@ -68,10 +58,9 @@ nav {
   margin: 0 auto;
   padding: 20px 10px;
   display: grid;
-  background-color: #fff;
+  background-color: #CCCCCC;
   border-radius: 10px; }
   .entrada #titulo_entrada {
-    background-color: #CCCCCC;
     border-radius: 7px;
     padding: 1px;
     font-size: 24px;
@@ -80,20 +69,14 @@ nav {
     margin-left: 5px;
     margin-bottom: 5px; }
   .entrada #texto_entrada {
+    display: block;
     font-size: 15px;
     font-family: 'Times New Roman';
     margin-left: 5px; }
+  .entrada #texto_entrada button{
+    margin-top: 5px;}
   .entrada #pie_entrada {
     font-weight: lighter;
     font-size: 13px;
     font-family: 'Times New Roman';
     margin-top: 10px; }
-
-/*-------------------------
-        BARRA LATERAL
----------------------------*/
-.barra_lateral {
-  margin-bottom: 10px;
-  width: 100%;
-  margin-left: 10px;
-  position: relative; }

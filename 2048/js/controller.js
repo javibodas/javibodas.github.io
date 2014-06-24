@@ -25,12 +25,11 @@ Controller.prototype.load = function(reload){
 	this.view.paint(this.grid.frames[number2],'html','2',false);
 	this.view.paint(this.grid.frames[number2],'css','background-color','orange',false);
 	this.grid.frames[number2].val = '2';
-	/*
 	//Tests
-	
-	this.view.paint(this.grid.frames[0],'html','4');
+	/*
+	this.view.paint(this.grid.frames[0],'html','2');
 	this.view.paint(this.grid.frames[0],'css','background-color','orange');
-	this.grid.frames[0].val = '4';
+	this.grid.frames[0].val = '2';
 
 	this.view.paint(this.grid.frames[4],'html','2');
 	this.view.paint(this.grid.frames[4],'css','background-color','orange');
