@@ -79,86 +79,69 @@ Controller.prototype.move = function(){
 Controller.prototype.dirToMove = function(way,framesRemove){
 
 	var dirs = [];
-
+	var dirsaux = [];
+	var line = [];
+	var col = [];
 
 	if(way=='right'){
-		var line0 = this.grid.getFramesLine(0);
-		//console.log('Line:' + 0);
-		var dirs0 = toMoveFrames(line0,'+','right',framesRemove);
+		var count = 0;
+		for(var i =0;i<this.grid.lines;i++){
+		    line[i] = this.grid.getFramesLine(i);
+			if(line[i].length>0){
+				dirsaux[count] = toMoveFrames(line[i],'+','right',framesRemove);
+				count++;
+			}
+		}
 
-		var line1 = this.grid.getFramesLine(1);
-		//console.log('Line:' + 1);
-		var dirs1 = toMoveFrames(line1,'+','right',framesRemove);
-		
-		var line2 = this.grid.getFramesLine(2);
-		//console.log('Line:' + 2);
-		var dirs2 = toMoveFrames(line2,'+','right',framesRemove);
-		
-		var line3 = this.grid.getFramesLine(3);
-		//console.log('Line:' + 3);
-		var dirs3 = toMoveFrames(line3,'+','right',framesRemove);
-		dirs = dirs0.concat(dirs1,dirs2,dirs3);
-	
+		for(var i=0;i<dirsaux.length;i++){
+			dirs = dirs.concat(dirsaux[i]);
+		}
+
 	}else if(way=='left'){
-		var line0 = this.grid.getFramesLine(0);
-		//console.log('Line:' + 0);
-		var dirs0 = toMoveFrames(line0,'-','left',framesRemove);
-		
-		var line1 = this.grid.getFramesLine(1);
-		//console.log('Line:' + 1);
-		var dirs1 = toMoveFrames(line1,'-','left',framesRemove);
-		
-		var line2 = this.grid.getFramesLine(2);
-		//console.log('Line:' + 2);
-		var dirs2 = toMoveFrames(line2,'-','left',framesRemove);
-		
-		var line3 = this.grid.getFramesLine(3);
-		//console.log('Line:' + 3);
-		var dirs3 = toMoveFrames(line3,'-','left',framesRemove);
+		var count = 0;
+		for(var i =0;i<this.grid.lines;i++){
+		    line[i] = this.grid.getFramesLine(i);
+			if(line[i].length>0){
+				dirsaux[count] = toMoveFrames(line[i],'-','left',framesRemove);
+				count++;
+			}
+		}
 
-		dirs = dirs0.concat(dirs1,dirs2,dirs3);
+		for(var i=0;i<dirsaux.length;i++){
+			dirs = dirs.concat(dirsaux[i]);
+		}
 
 	}else if(way=='up'){
-		var col0 = this.grid.getFramesCol(0);
-		//console.log('Col:' + 0);
-		var dirs0 = toMoveFrames(col0,'-','up',framesRemove);
 		
-		var col1 = this.grid.getFramesCol(1);
-		//console.log('Col:' + 1);
-		var dirs1 = toMoveFrames(col1,'-','up',framesRemove);
-		
-		var col2 = this.grid.getFramesCol(2);
-		//console.log('Col:' + 2);
-		var dirs2 = toMoveFrames(col2,'-','up',framesRemove);
-		
-		var col3 = this.grid.getFramesCol(3);
-		//console.log('Col:' + 3);
-		var dirs3 = toMoveFrames(col3,'-','up',framesRemove);
+		var count = 0;
+		for(var i =0;i<this.grid.cols;i++){
+		    col[i] = this.grid.getFramesCol(i);
+			if(col[i].length>0){
+				dirsaux[count] = toMoveFrames(col[i],'-','up',framesRemove);
+				count++;
+			}
+		}
 
-		dirs = dirs0.concat(dirs1,dirs2,dirs3);
+		for(var i=0;i<dirsaux.length;i++){
+			dirs = dirs.concat(dirsaux[i]);
+		}
 
 	}else if(way=='down'){
-		var col0 = this.grid.getFramesCol(0);
-		//console.log('Col:' + 0);
-		var dirs0 = toMoveFrames(col0,'+','down',framesRemove);
+		var count = 0;
+		for(var i =0;i<this.grid.cols;i++){
+		    col[i] = this.grid.getFramesCol(i);
+			if(col[i].length>0){
+				dirsaux[count] = toMoveFrames(col[i],'+','down',framesRemove);
+				count++;
+			}
+		}
 
-		var col1 = this.grid.getFramesCol(1);
-		//console.log('Col:' + 1);
-		var dirs1 = toMoveFrames(col1,'+','down',framesRemove);
-		
-		var col2 = this.grid.getFramesCol(2);
-		//console.log('Col:' + 2);
-		var dirs2 = toMoveFrames(col2,'+','down',framesRemove);
-
-		var col3 = this.grid.getFramesCol(3);
-		//console.log('Col:' + 3);
-		var dirs3 = toMoveFrames(col3,'+','down',framesRemove);
-
-		dirs = dirs0.concat(dirs1,dirs2,dirs3);
-
+		for(var i=0;i<dirsaux.length;i++){
+			dirs = dirs.concat(dirsaux[i]);
+		}
 	}
 
-
+	console.log(dirs);
 	return dirs;
 };
 
