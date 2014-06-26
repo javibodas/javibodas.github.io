@@ -21,10 +21,10 @@ Controller.prototype.load = function(reload){
 	this.view.paint(this.grid.frames[number],'css','background-color','orange',false);
 	this.grid.frames[number].val = '2';
 		
-	var number2 = Math.floor(Math.random() * 16);
-	while(number2==number){
-		number2 = Math.floor(Math.random() * 16);
-	} 
+	
+	do{
+		var number2 = Math.floor(Math.random() * 16);
+	}while(number2==number);
 
 	this.view.paint(this.grid.frames[number2],'html','2',false);
 	this.view.paint(this.grid.frames[number2],'css','background-color','orange',false);
@@ -141,26 +141,36 @@ Controller.prototype.dirToMove = function(way,framesRemove){
 		}
 	}
 
-	console.log(dirs);
 	return dirs;
 };
 
-Controller.prototype.addFrame = function(){
-
-	var number = Math.floor(Math.random() * 16);
-	while(!this.grid.frames[number].isEmpty()){
-		number = Math.floor(Math.random() * 16);
+Controller.prototype.addFrame = function(way){
+	/*
+	var ran = [];
+	if(way=='right'){
+		ran = [0,1,4,5,8,9,12,13]
+	}else if(way=='left'){
+		ran = [2,3,6,7,10,11,14,15];
+	}else if(way=='up'){
+		ran = [8,9,10,11,12,13,14,15];
+	}else if(way=='down'){
+		ran = [0,1,2,3,4,5,6,7];
 	}
-		this.view.paint(this.grid.frames[number],'html','2',true);
-		this.view.paint(this.grid.frames[number],'css','background-color','orange',true);
-		this.grid.frames[number].val = '2';
-		console.log('Posicion nuevo incluido: ' + number);
+	*/
+	do{
+		var number = Math.floor(Math.random() * 8);
+	}while(!this.grid.frames[number].isEmpty());
+
+	this.view.paint(this.grid.frames[number],'html','2',true);
+	this.view.paint(this.grid.frames[number],'css','background-color','orange',true);
+	this.grid.frames[number].val = '2';
+	console.log('Posicion nuevo incluido: ' + number);
 
 };
 
 var positionsOcupated = [];
 
-/*Esta función deberia devolver las posiciones que se pintaran de la linea que le hemos pasado con su valor*/
+/*This function should give the position which must be painted of the line that receives*/
 var toMoveFrames = function(frames,dir,way,framesRemove){
 
 	var dirs = [];
@@ -169,25 +179,16 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 	}
 
 	count = 0;
-	if(dir=='+'){
-
-		/* Si es mas,comenzaremos desde la ultima posicion del array de frames ya que los frames irán hacia allá */
+	if(dir=='+'){//More means that his moves is to position bigger than the current
+		/* Begin from the last position of array because the frames move to there and the last frames are join*/
 		for(var i=frames.length-1;i>=0;i--){
 			if(frames[i].isEmpty()){
 				continue;
 			}
-			//console.log('Pos in array:' + i + '-> Frame:' + frames[i].val + ' ' + frames[i].pos);
 			positionsOcupated[i] = true;
 
 			if(i!=frames.length-1){
-				/*Comprobamos los siguientes frames desde el que estamos hasta el ultimo para ver si estan vacios o no y asi
-				poder colocarlo en un sitio u otro, esta funcion nos devolvera un object con la posicion a la que ira y el valor*/
 				var o = movePositive(frames[i],i,way,frames.length-1,score);
-				/*if(!o){
-					o = new Object();
-					o['pos'] = frames[i].pos;
-					o['value'] = frames[i].val;
-				}*/
 				this.grid.frames[o.pos].val = o.value;
 				
 				if(frames[i].pos==o.pos && frames[i].val==o.value){
@@ -205,18 +206,11 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 
 				var index = jQuery.inArray(frames[i],framesRemove);
 				framesRemove.splice(index,1);
-				/*
-				var ob = new Object();
-				ob['pos'] = frames[i].pos;
-				ob['value'] = frames[i].val;
-
-				dirs.push(ob);
-				*/
 			}
 		}
-	}else{
+	}else{//Less means that his moves is to position smaller than the current
 
-		/* Si es menos,comenzaremos desde la primera posicion del array de frames ya que los frames irán hacia allá */
+		/* Begin from first position of array because frames moves to there and the first frames are join */
 		for(var i=0;i<frames.length;i++){
 			if(frames[i].isEmpty()){
 				continue;
@@ -224,15 +218,7 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 			positionsOcupated[i] = true;
 
 			if(i!=0){
-				/*Comprobamos los siguientes frames desde el que estamos hasta el ultimo para ver si estan vacios o no y asi
-				poder colocarlo en un sitio u otro, esta funcion nos devolvera un object con la posicion a la que ira y el valor*/
 				var o = moveNegative(frames[i],i,way,i,score);
-				/*if(!o){
-					o = new Object();
-					o['pos'] = frames[i].pos;
-					o['value'] = frames[i].val;
-				}
-				*/
 				this.grid.frames[o.pos].val = o.value;
 				
 				if(frames[i].pos==o.pos && frames[i].val==o.value){
@@ -241,7 +227,6 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 						continue;
 				}
 
-				//Compruebo que si ha sido introducido antes dicha posicion la elimino
 				var update = jQuery.inArray(o.pos,dirs);
 				if(update>0){
 					dirs.splice(update,1);
@@ -250,13 +235,6 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 			}else{
 				var index = jQuery.inArray(frames[i],framesRemove);
 				framesRemove.splice(index,1);
-				/*
-				var ob = new Object();
-				ob['pos'] = frames[i].pos;
-				ob['value'] = frames[i].val;
-
-				dirs.push(ob);
-				*/
 			}
 		}
 	}
@@ -267,8 +245,6 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 };
 
 var movePositive = function(frame,pos,way,length,score){
-
-	/*El frame se moverá hasta el frame mas allá que este vacío, dependiendo hacia donde se mueva y demás*/
 
 	var o = new Object();
 	for(var i = pos+1;i<=length;i++){

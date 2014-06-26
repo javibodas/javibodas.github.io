@@ -32,6 +32,7 @@ View.prototype = {
 	},
 
 	rePaint : function(framesToRemove,framesToPaint){
+		console.log('Llega aqui');
 		var view = this;
 		if(framesToRemove.length>0){
 			$.each(framesToRemove,function (){
