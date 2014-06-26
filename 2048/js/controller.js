@@ -158,7 +158,7 @@ Controller.prototype.addFrame = function(way){
 	}
 	*/
 	do{
-		var number = Math.floor(Math.random() * 8);
+		var number = Math.floor(Math.random() * 16);
 	}while(!this.grid.frames[number].isEmpty());
 
 	this.view.paint(this.grid.frames[number],'html','2',true);
