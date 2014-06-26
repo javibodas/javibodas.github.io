@@ -29,6 +29,7 @@ a {
   text-align: center; }
   .header h1 {
     color: white;
+    font-family: 'Times New Roman';
     font-size: 52px; }
 
 /*--------------------------
@@ -41,6 +42,8 @@ nav {
   margin-bottom: 10px;
   max-width: 1000px;
   position: relative;
+  font-family: 'Times New Roman';
+  font-size: 15px;
   margin: 0 auto;
   margin-top: 10px; }
 
@@ -60,6 +63,7 @@ nav {
   .entry .title_entry {
     border-radius: 10px 10px 0px 0px;
     font-size: 25px;
+    font-family: 'Times New Roman';
     color: #428bca;
     font-weight: bold;
     margin-left: -10px;
