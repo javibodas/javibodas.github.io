@@ -17,11 +17,11 @@ a {
           HEADER
 ----------------------------*/
 .header {
-  margin-left: 100px;
-  margin-right: 100px;
+  width: 84.5%;
+  /*margin-left: 100px;
+  margin-right: 100px;*/
   border-radius: 0px 0px 7px 7px;
   margin-bottom: 10px;
-  max-width: 1000px;
   position: relative;
   margin: 0 auto;
   background-color: #222;
@@ -40,7 +40,7 @@ nav {
   margin-right: 100px;
   border-radius: 7px;
   margin-bottom: 10px;
-  max-width: 1000px;
+  width: 84.5%;
   position: relative;
   font-family: 'Times New Roman';
   font-size: 15px;
@@ -54,7 +54,7 @@ nav {
   margin-left: 100px;
   margin-right: 100px;
   margin-bottom: 10px;
-  max-width: 1000px;
+  width: 84.5%;
   position: relative;
   margin: 0 auto;
   padding: 20px 10px;
