@@ -3,7 +3,7 @@ $(document).ready(function() {
 	
 	/*--CONTENEDORES--*/
 	$('body').html('<div id="container" class="container"><div id="grid"></div><div id="options"></div></div>');
-	$('body').append('<div id="score" class="data"><label>Score: 0</label></div>');
+	$('#container').append('<div id="score" class="data"><label>Score: 0</label></div>');
 	var score = new Score(0);
 
 	var highscore;
@@ -12,7 +12,7 @@ $(document).ready(function() {
 	}else{
 		highscore = 0;
 	}
-	$('body').append('<div id="highscore" class="data"><label>HighScore: '+highscore+'</label></div>');
+	$('#container').append('<div id="highscore" class="data"><label>HighScore: '+highscore+'</label></div>');
 
 	/*--MODE GAME--*/
 	var cols = 4;
@@ -50,6 +50,12 @@ $(document).ready(function() {
 
 	//Controlador
 	var controller = new Controller(grid,view,score);
+
+	//Check browser
+	$('body').append('<div id="browser">' + navigator.platform + '</div>');
+	 if(navigator.platform.indexOf('Linux')>=0){
+	 	console.log('Yeah');
+	 }
 
 	/*--EVENTS--*/
 	$(this.getElementById('reload')).click(function (){
