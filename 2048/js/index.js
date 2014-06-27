@@ -105,7 +105,9 @@ var moveFrames = function(way,controller,view,grid,score){
 			var framesOcupated = grid.getFramesNoEmpty();
 				if(framesOcupated.length==grid.lines*grid.cols){
 					alert('El juego ha terminado');
-					localStorage['highscore'] =  score.getValue();
+					if(localStorage.getItem('highscore') < score.getValue()){
+						localStorage['highscore'] =  score.getValue();
+					}
 					controller.load(reload);
 				}
 		}else{

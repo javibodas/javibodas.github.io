@@ -13,6 +13,12 @@ Controller.prototype.load = function(reload){
 	if(reload){
 		var remove = this.grid.getFramesNoEmpty();
 		this.score.setValue(0);
+		$('#score').html('Score: ' + 0);
+		if(localStorage.getItem('highscore')){
+			$('#highscore').html('HighScore: ' + localStorage.getItem('highscore'));
+		}else{
+			$('#highscore').html('HighScore: ' + 0);
+		}
 		this.view.rePaint(remove,[]);
 	}
 	
