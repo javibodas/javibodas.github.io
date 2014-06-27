@@ -19,7 +19,7 @@ Controller.prototype.load = function(reload){
 	var number = Math.floor(Math.random() * 16);
 	this.view.paint(this.grid.frames[number],'html','2',false);
 	this.view.paint(this.grid.frames[number],'css','background-color','orange',false);
-	this.grid.frames[number].val = '2';
+	this.grid.setValueFrame(number, '2');
 		
 	
 	do{
@@ -28,11 +28,11 @@ Controller.prototype.load = function(reload){
 
 	this.view.paint(this.grid.frames[number2],'html','2',false);
 	this.view.paint(this.grid.frames[number2],'css','background-color','orange',false);
-	this.grid.frames[number2].val = '2';
-	
-	//Tests
+	this.grid.setValueFrame(number2, '2');
 	/*
-	this.view.paint(this.grid.frames[0],'html','2048');
+	//Tests
+	
+	this.view.paint(this.grid.frames[0],'html','4');
 	this.view.paint(this.grid.frames[0],'css','background-color','orange');
 	this.grid.frames[0].val = '4';
 	
@@ -64,7 +64,42 @@ Controller.prototype.load = function(reload){
 	this.view.paint(this.grid.frames[15],'html','4');
 	this.view.paint(this.grid.frames[15],'css','background-color','orange');
 	this.grid.frames[15].val = '4';
+
+
+	this.view.paint(this.grid.frames[1],'html','4');
+	this.view.paint(this.grid.frames[1],'css','background-color','orange');
+	this.grid.frames[1].val = '4';
+	
+	this.view.paint(this.grid.frames[2],'html','2');
+	this.view.paint(this.grid.frames[2],'css','background-color','orange');
+	this.grid.frames[2].val = '2';
+
+	this.view.paint(this.grid.frames[3],'html','2');
+	this.view.paint(this.grid.frames[3],'css','background-color','orange');
+	this.grid.frames[3].val = '2';
+
+	this.view.paint(this.grid.frames[5],'html','8');
+	this.view.paint(this.grid.frames[5],'css','background-color','orange');
+	this.grid.frames[5].val = '8';
+	
+	this.view.paint(this.grid.frames[6],'html','8');
+	this.view.paint(this.grid.frames[6],'css','background-color','orange');
+	this.grid.frames[6].val = '8';
+	
+	this.view.paint(this.grid.frames[14],'html','2');
+	this.view.paint(this.grid.frames[14],'css','background-color','orange');
+	this.grid.frames[14].val = '2';
+
+	this.view.paint(this.grid.frames[10],'html','8');
+	this.view.paint(this.grid.frames[10],'css','background-color','orange');
+	this.grid.frames[10].val = '8';
+
+
+	this.view.paint(this.grid.frames[13],'html','4');
+	this.view.paint(this.grid.frames[13],'css','background-color','orange');
+	this.grid.frames[13].val = '4';
 	*/
+	
 	grid = this.grid;
 	view = this.view;
 	score = this.score;
@@ -145,18 +180,6 @@ Controller.prototype.dirToMove = function(way,framesRemove){
 };
 
 Controller.prototype.addFrame = function(way){
-	/*
-	var ran = [];
-	if(way=='right'){
-		ran = [0,1,4,5,8,9,12,13]
-	}else if(way=='left'){
-		ran = [2,3,6,7,10,11,14,15];
-	}else if(way=='up'){
-		ran = [8,9,10,11,12,13,14,15];
-	}else if(way=='down'){
-		ran = [0,1,2,3,4,5,6,7];
-	}
-	*/
 	do{
 		var number = Math.floor(Math.random() * 16);
 	}while(!this.grid.frames[number].isEmpty());
@@ -189,8 +212,9 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 
 			if(i!=frames.length-1){
 				var o = movePositive(frames[i],i,way,frames.length-1,score);
-				this.grid.frames[o.pos].val = o.value;
-				
+				//this.grid.frames[o.pos].val = o.value;
+				this.grid.setValueFrame(o.pos,o.value);
+
 				if(frames[i].pos==o.pos && frames[i].val==o.value){
 						var index = jQuery.inArray(frames[i],framesRemove);
 						framesRemove.splice(index,1);
@@ -219,8 +243,9 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 
 			if(i!=0){
 				var o = moveNegative(frames[i],i,way,i,score);
-				this.grid.frames[o.pos].val = o.value;
-				
+				//this.grid.frames[o.pos].val = o.value;
+				this.grid.setValueFrame(o.pos,o.value);
+
 				if(frames[i].pos==o.pos && frames[i].val==o.value){
 						var index = jQuery.inArray(frames[i],framesRemove);
 						framesRemove.splice(index,1);

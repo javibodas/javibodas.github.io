@@ -72,5 +72,9 @@ Grid.prototype = {
 			frame = this.frames[posInLineCol + coline*this.cols];
 		}
 		return frame;
+	},
+
+	setValueFrame : function(pos,value){
+		this.frames[pos].val = value; 
 	}
 }
