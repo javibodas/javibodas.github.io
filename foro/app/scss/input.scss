@@ -1,0 +1,21 @@
+/*----------------------------*/
+/*---------- INPUTS ----------*/
+/*----------------------------*/
+
+.inpt{
+	background-color: white;
+	border-radius: 5px;
+	padding: 3.5px 3.5px 3.5px 3.5px;
+	border: none;
+	height: 25px;
+	&:hover{
+		background-color: #CCCCCC;
+	}
+}
+
+.inpt-form{
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 7px;
+	width: 88%;
+}
