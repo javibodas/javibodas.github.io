@@ -11,14 +11,14 @@ View.prototype = {
 			if(adding){
 				$('#td' + element.pos).html(value).show('slow');
 			}else{
-				$('#td' + element.pos).html(value);
+				$('#td' + element.pos).html(value).show('slow');
 			}
 			$('#td' + element.pos).html(value);
 		}else if(mode=='css'){
 			if(adding){
 				$('#td' + element.pos).css(value,value2).show('slow');
 			}else{
-				$('#td' + element.pos).css(value,value2);
+				$('#td' + element.pos).css(value,value2).show('slow');
 			}
 		}
 	},

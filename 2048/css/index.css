@@ -1,28 +1,66 @@
-.container{
-	width: 50%;
-	position: relative;
+/*-----------------------------*/
+/*---------- GRID -------------*/
+/*-----------------------------*/
+
+#container{
+	width: 100%;
 	margin:0 auto;
+	display:block;
+	text-align: center;
 }
-.container #grid{
+#container #grid{
 	width: 50%;
 	position: relative;
 	margin:0 auto;
 	margin-top:10px;
 }
-.container #options{
+
+/*-----------------------------*/
+/*---------- OPTIONS ----------*/
+/*-----------------------------*/
+#options{
+	margin:0 auto;
 	width:50%;
-	position: relative;
-	margin:0 auto;
 	margin-top:10px;
 }
-body .data{
-	border-color: green;
-	border-top: 10px;
-	max-width:50%;
-	position: relative;
-	margin:0 auto;
-	margin-top:10px;
+#reset{
+	float:left;
 }
+#reload{
+	width: 50px;
+	border-radius: 7px;
+}
+#reload:hover{
+	background-color: #EDEDED;
+}
+#reload:active{
+	background-color: green;
+}
+#dificulty{
+}
+#dificulty #por4{
+	width: 50px;
+	border-radius: 7px;
+}
+#dificulty #por8{
+	width: 50px;
+	border-radius: 7px;
+}
+
+/*-----------------------------*/
+/*---------- SCORES -----------*/
+/*-----------------------------*/
+#scores{
+	margin:0 auto;
+	width:50%;
+}
+#scores label{
+	margin-right: 20px;
+}
+
+/*-----------------------------*/
+/*---------- FRAMES -----------*/
+/*-----------------------------*/
 .frame{
   border-radius: 4px;
   text-align: center;
@@ -32,15 +70,9 @@ body .data{
   width: 50px;
   height: 50px;
   background-color: #C6A664;
+}
 
-}
-#reload{
-	width: 50px;
-	border-radius: 7px;
-}
-#reload:hover{
-	background-color: #CCCCCC;
-}
-#reload:active{
-	background-color: green;
+div{
+	margin-right: 20px;
+	margin-bottom:20px;
 }

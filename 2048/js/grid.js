@@ -49,13 +49,13 @@ Grid.prototype = {
 		if(dir=='+'){
 
 			if(way=='down'){
-				next = this.frames[pos + 4];
+				next = this.frames[pos + this.cols];
 			}else if(way=='right'){
 				next = this.frames[pos + 1];
 			}
 		}else if(dir=='-'){	
 			if(way=='up'){
-				next = this.frames[pos - 4];
+				next = this.frames[pos - this.cols];
 			}else if(way=='left'){
 				next = this.frames[pos - 1];
 			}
@@ -76,5 +76,66 @@ Grid.prototype = {
 
 	setValueFrame : function(pos,value){
 		this.frames[pos].val = value; 
+	},
+
+	isPosibleToMoveSomething : function(){
+		var founded = false;
+		var grid = this;
+
+		$.each(this.frames,function(){
+			if(this.isFinal('right')){
+				if(grid.frames[this.pos-1].val==this.val){
+					founded = true;
+					return;
+				}else if(!this.isFinal('down')){
+					if(grid.frames[this.pos+4].val==this.val){
+						founded=true;
+						return;
+					}
+				}else if(this.isFinal('up')){
+					if(grid.frames[this.pos-4].val==this.val){
+						founded=true;
+						return;
+					}	
+				}
+			}else if(this.isFinal('left')){
+				if(grid.frames[this.pos+1].val==this.val){
+					founded=true;
+					return;
+				}else if(!this.isFinal('down')){
+					if(grid.frames[this.pos+4].val==this.val){
+						founded=true;
+						return;
+					}
+				}else if(!this.isFinal('up')){
+					if(grid.frames[this.pos-4].val==this.val){
+						founded=true;
+						return;
+					}	
+				}
+			}else if(this.isFinal('up')){
+				if(grid.frames[this.pos+1].val==this.val || grid.frames[this.pos-1].val==this.val || grid.frames[this.pos+4].val==this.val){
+					founded=true;
+					return;
+				}
+
+			}else if(this.isFinal('down')){
+				if(grid.frames[this.pos+1].val==this.val || grid.frames[this.pos-1].val==this.val || grid.frames[this.pos-4].val==this.val){
+					founded=true;
+					return;
+				}
+			}else{
+
+				if(grid.frames[this.pos+1].val==this.val || grid.frames[this.pos-1].val==this.val){
+					founded=true;
+					return;
+				}else if(grid.frames[this.pos+4].val==this.val|| grid.frames[this.pos-4].val==this.val){
+					founded=true;
+					return;
+				}
+			}
+		});
+
+		return founded;
 	}
 }

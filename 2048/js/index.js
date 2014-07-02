@@ -1,32 +1,40 @@
 
 $(document).ready(function() {
 	
+	/*--MODE GAME--*/
+	var cols = 4; //parseInt(prompt('Introduzca el numero de columnas'));
+	var lines = 4; //parseInt(prompt('Introduzca el numero de lineas'));
+	var length = cols*lines;
+	//$('body').load('template/map.html');
+
 	/*--CONTENEDORES--*/
-	$('body').html('<div id="container" class="container"><div id="grid"></div><div id="options"></div></div>');
-	$('#container').append('<div id="score" class="data"><label>Score: 0</label></div>');
+	$('body').html('<div id="container"><div id="grid"></div></div>');
+	$('body').append('<div id="options"></div>');
+	$('body').append('<div id="scores"></div>');
 	var score = new Score(0);
 
+
+	/*--COMPONENTS--*/
+	//Table	
+	$(document.getElementById('grid')).html('<table id="table"></table>');
+	
+	//Options
+	$(document.getElementById('options')).append('<div id="reset"><legend>Reset:</legend><img id="reload" src="images/reload.png"></img></div>');
+	$(document.getElementById('options')).append('<div id="dificulty"><legend>Dificulty:</legend></div>');
+	$(document.getElementById('dificulty')).append('<input type="checkbox" id="checkfour" checked="true"></input><img id="por4" src="images/4x4.png"></img>');
+	$(document.getElementById('dificulty')).append('<input type="checkbox" id="checkeight"></input><img id="por8" src="images/8x8.png"></img>');
+	//Scores
+	/*--SCORES--*/
+	$(document.getElementById('scores')).append('<label id="score">Score: 0</label>');
 	var highscore;
 	if(localStorage['highscore']){
 		highscore = localStorage.getItem('highscore');
 	}else{
 		highscore = 0;
 	}
-	$('#container').append('<div id="highscore" class="data"><label>HighScore: '+highscore+'</label></div>');
-
-	/*--MODE GAME--*/
-	var cols = 4;
-	var lines = 4;
-	var length = cols*lines;
+	$(document.getElementById('scores')).append('<label id="highscore" >HighScore: '+highscore+'</label>');
+	//$(document.getElementById('highscore')).append(' ' + highscore);
 	
-	/*--COMPONENTS--*/
-	//Table	
-	$(document.getElementById('grid')).html('<table id="table"></table>');
-	
-	//Options
-	$(document.getElementById('options')).html('<img id="reload" src="images/reload.png"></img>');
-	
-
 	//Grid
 	var grid = new Grid(cols,lines);
 
@@ -104,11 +112,13 @@ var moveFrames = function(way,controller,view,grid,score){
 		if(framesToMove.length==0 && framesUpdated.length==0){
 			var framesOcupated = grid.getFramesNoEmpty();
 				if(framesOcupated.length==grid.lines*grid.cols){
-					alert('El juego ha terminado');
-					if(localStorage.getItem('highscore') < score.getValue()){
-						localStorage['highscore'] =  score.getValue();
+					if(!grid.isPosibleToMoveSomething()){
+						alert('El juego ha terminado');
+						if(localStorage.getItem('highscore') < score.getValue()){
+							localStorage['highscore'] =  score.getValue();
+						}
+						controller.load(reload);
 					}
-					controller.load(reload);
 				}
 		}else{
 			controller.addFrame(way);

@@ -22,14 +22,14 @@ Controller.prototype.load = function(reload){
 		this.view.rePaint(remove,[]);
 	}
 	
-	var number = Math.floor(Math.random() * 16);
+	var number = Math.floor(Math.random() * this.grid.cols*this.grid.lines);
 	this.view.paint(this.grid.frames[number],'html','2',false);
 	this.view.paint(this.grid.frames[number],'css','background-color','orange',false);
 	this.grid.setValueFrame(number, '2');
 		
 	
 	do{
-		var number2 = Math.floor(Math.random() * 16);
+		var number2 = Math.floor(Math.random() * this.grid.cols*this.grid.lines);
 	}while(number2==number);
 
 	this.view.paint(this.grid.frames[number2],'html','2',false);
@@ -187,7 +187,7 @@ Controller.prototype.dirToMove = function(way,framesRemove){
 
 Controller.prototype.addFrame = function(way){
 	do{
-		var number = Math.floor(Math.random() * 16);
+		var number = Math.floor(Math.random() * this.grid.cols*this.grid.lines);
 	}while(!this.grid.frames[number].isEmpty());
 
 	this.view.paint(this.grid.frames[number],'html','2',true);
