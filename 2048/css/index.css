@@ -9,7 +9,7 @@
 	text-align: center;
 }
 #container #grid{
-	width: 50%;
+	width: 35%;
 	position: relative;
 	margin:0 auto;
 	margin-top:10px;
@@ -20,23 +20,33 @@
 /*-----------------------------*/
 #options{
 	margin:0 auto;
-	width:50%;
+	width:40%;
 	margin-top:10px;
 }
 #reset{
 	float:left;
+	color: green;
+	font-family: cursive;
 }
-#reload{
+#reset #reload{
 	width: 50px;
 	border-radius: 7px;
 }
-#reload:hover{
+#reset #reload:hover{
 	background-color: #EDEDED;
 }
-#reload:active{
+#reset #reload:active{
 	background-color: green;
 }
+#reset fieldset{
+	border:2px solid #6F1EAB;
+}
 #dificulty{
+	color:green;
+	font-family: cursive;
+}
+#dificulty img{
+	margin-right: 7px;
 }
 #dificulty #por4{
 	width: 50px;
@@ -46,13 +56,23 @@
 	width: 50px;
 	border-radius: 7px;
 }
+#dificulty #field{
+	border:2px solid #6F1EAB;
+	width:35%;
+}
 
 /*-----------------------------*/
 /*---------- SCORES -----------*/
 /*-----------------------------*/
 #scores{
+	color:green;
+	font-family: cursive;
 	margin:0 auto;
-	width:50%;
+	width:40%;
+}
+#scores #fieldscor{
+	border:2px solid #6F1EAB;
+	width:55%;
 }
 #scores label{
 	margin-right: 20px;
