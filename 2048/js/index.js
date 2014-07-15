@@ -60,33 +60,36 @@ $(document).ready(function() {
 	var controller = new Controller(grid,view,score);
 
 	//Check browser
-	/*
-	$('body').append('<div id="browser">' + navigator.platform + '</div>');
-	 if(navigator.platform.indexOf('Linux')>=0){
-	 	console.log('Yeah');
-	 	console.log(navigator.userAgent);
-	 }
-	*/
+	var isMobileBrowser = mobilecheck();
+	console.log(isMobileBrowser);
 	/*--EVENTS--*/
 	$(this.getElementById('reload')).click(function (){
 		load(true,controller);
 	});
-	$(this).keydown(function(key) {
 
-		var code = key.which;
-		switch(code){
-			case 37: 
-				moveFrames('left',controller,view,grid,score);
-				break;
-			case 38: 
-				moveFrames('up',controller,view,grid,score);
-				break
-			case 39: 
-				moveFrames('right',controller,view,grid,score);
-				break;
-			case 40: 
-				moveFrames('down',controller,view,grid,score);
+	$(this).keydown(function(key) {
+		if(isMobileBrowser){
+			$(document.getElementById('grid')).on('swipedown',function(){
+				console.log('Prueba');
+			});
+
+		}else{
+			var code = key.which;
+			switch(code){
+				case 37: 
+					moveFrames('left',controller,view,grid,score);
+					break;
+				case 38: 
+					moveFrames('up',controller,view,grid,score);
+					break
+				case 39: 
+					moveFrames('right',controller,view,grid,score);
+					break;
+				case 40: 
+					moveFrames('down',controller,view,grid,score);
+			}
 		}
+		
 	});
 	$(this.getElementById('checkfour')).click(function(){
 		if($(document.getElementById('checkfour')).prop('checked')){
@@ -133,6 +136,8 @@ var moveFrames = function(way,controller,view,grid,score){
 			controller.addFrame(way);
 		}
 };
+
+
 
 
 

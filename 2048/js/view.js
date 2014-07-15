@@ -33,6 +33,7 @@ View.prototype = {
 
 	rePaint : function(framesToRemove,framesToPaint){
 		var view = this;
+		var end = false;
 		if(framesToRemove.length>0){
 			$.each(framesToRemove,function (){
 				view.paint(this,'html','');
@@ -45,6 +46,9 @@ View.prototype = {
 			$.each(framesToPaint,function(){
 				view.grid.frames[this.pos].val = this.value;
 				view.paint(this,'html',this.value);
+				if(this.value==2048){
+					end = true;
+				}
 				var colorBackground;
 			
 				switch(this.value){
@@ -63,6 +67,10 @@ View.prototype = {
 				}
 				view.paint(this,'css','background-color',colorBackground);
 			});
+		}
+
+		if(end){
+
 		}
 	}
 }
