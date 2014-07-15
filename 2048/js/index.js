@@ -75,10 +75,10 @@ $(document).ready(function() {
 				$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
 			});
 			$(document.getElementById('grid')).on('swiperight',function(){
-				$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
+				moveFrames('right',controller,view,grid,score);
 			});
 			$(document.getElementById('grid')).on('swipeleft',function(){
-				$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
+				moveFrames('left',controller,view,grid,score);
 			});
 	}else{
 		$(this).keydown(function(key) {
