@@ -70,7 +70,7 @@ $(document).ready(function() {
 	$(this).keydown(function(key) {
 		if(isMobileBrowser){
 			$(document.getElementById('grid')).on('swipedown',function(){
-				console.log('Prueba');
+				$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
 			});
 
 		}else{
