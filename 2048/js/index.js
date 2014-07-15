@@ -67,13 +67,21 @@ $(document).ready(function() {
 		load(true,controller);
 	});
 
-	$(this).keydown(function(key) {
-		if(isMobileBrowser){
+	if(isMobileBrowser){
 			$(document.getElementById('grid')).on('swipedown',function(){
 				$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
 			});
-
-		}else{
+			$(document.getElementById('grid')).on('swipeup',function(){
+				$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
+			});
+			$(document.getElementById('grid')).on('swiperight',function(){
+				$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
+			});
+			$(document.getElementById('grid')).on('swipeleft',function(){
+				$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
+			});
+	}else{
+		$(this).keydown(function(key) {
 			var code = key.which;
 			switch(code){
 				case 37: 
@@ -88,9 +96,9 @@ $(document).ready(function() {
 				case 40: 
 					moveFrames('down',controller,view,grid,score);
 			}
-		}
 		
-	});
+		});
+	}
 	$(this.getElementById('checkfour')).click(function(){
 		if($(document.getElementById('checkfour')).prop('checked')){
 			$(document.getElementById('checkeight')).prop('checked')=false;
