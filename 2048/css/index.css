@@ -12,10 +12,15 @@ body{
 	text-align: center;
 }
 #container #grid{
-	width: 35%;
+	height:75%;
+	width: 42%;
 	position: relative;
 	margin:0 auto;
 	margin-top:10px;
+}
+#grid #table{
+	height:100%;
+	width:60%;
 }
 
 /*-----------------------------*/
