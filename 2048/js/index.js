@@ -62,24 +62,25 @@ $(document).ready(function() {
 	//Check browser
 	var isMobileBrowser = mobilecheck();
 	console.log(isMobileBrowser);
+	
 	/*--EVENTS--*/
 	$(this.getElementById('reload')).click(function (){
 		load(true,controller);
 	});
 
 	if(isMobileBrowser){
-			$(document.getElementById('grid')).on('swipedown',function(){
-				$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
-			});
-			$(document.getElementById('grid')).on('swipeup',function(){
-				$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
-			});
-			$(document.getElementById('grid')).on('swiperight',function(){
-				moveFrames('right',controller,view,grid,score);
-			});
-			$(document.getElementById('grid')).on('swipeleft',function(){
-				moveFrames('left',controller,view,grid,score);
-			});
+		$(document.getElementById('grid')).on('swipedown',function(){
+			$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
+		});
+		$(document.getElementById('grid')).on('swipeup',function(){
+			$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
+		});
+		$(document.getElementById('grid')).on('swiperight',function(){
+			moveFrames('right',controller,view,grid,score);
+		});
+		$(document.getElementById('grid')).on('swipeleft',function(){
+			moveFrames('left',controller,view,grid,score);
+		});
 	}else{
 		$(this).keydown(function(key) {
 			var code = key.which;

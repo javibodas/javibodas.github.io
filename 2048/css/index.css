@@ -1,27 +1,18 @@
 /*-----------------------------*/
 /*---------- GRID -------------*/
 /*-----------------------------*/
-body{
-	
-}
+
 #container{
-	position:absolute;
-	top:50%;
 	width: 100%;
 	margin:0 auto;
 	display:block;
 	text-align: center;
 }
 #container #grid{
-	height:75%;
-	width: 42%;
+	width: 35%;
 	position: relative;
 	margin:0 auto;
 	margin-top:10px;
-}
-#grid #table{
-	height:100%;
-	width:60%;
 }
 
 /*-----------------------------*/
