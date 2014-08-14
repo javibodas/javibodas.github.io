@@ -1,6 +1,7 @@
 
-var View = function(grid){
+var View = function(grid,end){
 	this.grid = grid;
+	this.end = end;
 };
 
 
@@ -9,22 +10,23 @@ View.prototype = {
 	paint : function(element,mode,value,value2,adding){
 		if(mode=='html'){
 			if(adding){
-				$('#td' + element.pos).html(value).show('slow');
+				$('#td' + element.pos).html(value);
 			}else{
-				$('#td' + element.pos).html(value).show('slow');
+				$('#td' + element.pos).html(value);
 			}
-			$('#td' + element.pos).html(value);
+				$('#td' + element.pos).css('opacity','0');
 		}else if(mode=='css'){
 			if(adding){
-				$('#td' + element.pos).css(value,value2).show('slow');
+				$('#td' + element.pos).css(value,value2);
 			}else{
-				$('#td' + element.pos).css(value,value2).show('slow');
+				$('#td' + element.pos).css(value,value2);
 			}
+			$('#td' + element.pos).animate({opacity:1}, 100);
 		}
 	},
 
 	incrementScores : function(value){
-		var highscore = localStorage.getItem('highscore');
+		var highscore = localStorage.getItem('highscore_2048');
 		$('#score').html('Score: ' + value);
 		if(value > highscore){
 			$('#highscore').html('HighScore: ' + value);
@@ -33,7 +35,6 @@ View.prototype = {
 
 	rePaint : function(framesToRemove,framesToPaint){
 		var view = this;
-		var end = false;
 		if(framesToRemove.length>0){
 			$.each(framesToRemove,function (){
 				view.paint(this,'html','');
@@ -47,16 +48,16 @@ View.prototype = {
 				view.grid.frames[this.pos].val = this.value;
 				view.paint(this,'html',this.value);
 				if(this.value==2048){
-					end = true;
+					view.end.setEnd(true);
 				}
 				var colorBackground;
 			
 				switch(this.value){
 					case '2': colorBackground = 'orange'; break;
-					case '4': colorBackground = 'blue'; break;
-					case '8': colorBackground = 'green'; break;
-					case '16': colorBackground = 'black'; break;
-					case '32': colorBackground = 'grey'; break;
+					case '4': colorBackground = '#A34900'; break;
+					case '8': colorBackground = '#350000'; break;
+					case '16': colorBackground = '#600000'; break;
+					case '32': colorBackground = '#F99999'; break;
 					case '64': colorBackground = 'brown'; break;
 					case '128': colorBackground = 'yellow'; break;
 					case '256': colorBackground = 'white'; break;
@@ -67,10 +68,6 @@ View.prototype = {
 				}
 				view.paint(this,'css','background-color',colorBackground);
 			});
-		}
-
-		if(end){
-
 		}
 	}
 }
