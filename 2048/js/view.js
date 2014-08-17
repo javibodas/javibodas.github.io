@@ -1,7 +1,8 @@
 
-var View = function(grid,end){
+var View = function(grid,end,mode){
 	this.grid = grid;
 	this.end = end;
+	this.mode = mode;
 };
 
 
@@ -26,9 +27,10 @@ View.prototype = {
 	},
 
 	incrementScores : function(value){
-		var highscore = localStorage.getItem('highscore_2048');
+		var object = localStorage.getItem('highscore_2048');
+		var highscore = object && JSON.parse(object);
 		$('#score').html('Score: ' + value);
-		if(value > highscore){
+		if(value > highscore[this.mode.mode]){
 			$('#highscore').html('HighScore: ' + value);
 		}
 	},

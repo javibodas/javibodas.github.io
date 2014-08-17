@@ -4,9 +4,9 @@ $(document).ready(function() {
 /*-------------------*/
 /*----MODE GAME------*/
 /*-------------------*/
-	var cols = 4; 
-	var lines = 4; 
-	var length = cols*lines;
+	var cols = 4;
+	var lines = 4;
+	var modegame = new ModeGame(lines + 'x' + cols);//4x4
 	//$('body').load('template/map.html');
 
 /*-------------------*/
@@ -30,17 +30,30 @@ $(document).ready(function() {
 	$(document.getElementById('field')).append('<input type="checkbox" id="checkfour" checked="true"></input><img id="por4" class="imgchecked" src="images/4x4.png"></img>');
 	$(document.getElementById('field')).append('<input type="checkbox" id="checkeight"></input><img id="por8" src="images/8x8.png"></img>');
 	
+
+
 	//Scores
 	var score = new Score(0);
 	
 	$(document.getElementById('fieldscor')).append('<label id="score">Score: 0</label>');
+	
 	var highscore;
-	if(localStorage['highscore_2048']){
-		highscore = localStorage.getItem('highscore_2048');
+	if(window.localStorage){
+		if(localStorage['highscore_2048']){
+			var aux = localStorage.getItem('highscore_2048');
+			highscore = aux && JSON.parse(aux);
+			console.log(aux);
+		}else{
+			highscore = {
+				'4x4': 0,
+				'8x8': 0
+			};
+			localStorage.setItem('highscore_2048', JSON.stringify(highscore));
+		}
 	}else{
-		highscore = 0;
+		throw new Error('Your browser not supported localStorage');
 	}
-	$(document.getElementById('fieldscor')).append('<label id="highscore" >HighScore: '+highscore+'</label>');
+	$(document.getElementById('fieldscor')).append('<label id="highscore" >HighScore: '+highscore[modegame.getMode()]+'</label>');
 	//$(document.getElementById('highscore')).append(' ' + highscore);
 	
 	//Grid
@@ -50,7 +63,7 @@ $(document).ready(function() {
 	var end = new EndGame();
 
 	//View 
-	var view = new View(grid,end);
+	var view = new View(grid,end,modegame);
 
 	//Controller
 	var controller = new Controller(grid,view,score);
@@ -68,7 +81,7 @@ $(document).ready(function() {
 
 	//RELOAD THE GAME
 	$(this.getElementById('reload')).click(function (){
-		load(true,controller);
+		controller.load(true,modegame.getMode());
 	});
 
 	//MOVES (Desktop: Keys, Mobile: Swipes)
@@ -90,16 +103,16 @@ $(document).ready(function() {
 			var code = key.which;
 			switch(code){
 				case 37: 
-					moveFrames('left',controller,view,grid,score,end);
+					moveFrames('left',controller,view,grid,score,end,modegame);
 					break;
 				case 38: 
-					moveFrames('up',controller,view,grid,score,end);
+					moveFrames('up',controller,view,grid,score,end,modegame);
 					break
 				case 39: 
-					moveFrames('right',controller,view,grid,score,end);
+					moveFrames('right',controller,view,grid,score,end,modegame);
 					break;
 				case 40: 
-					moveFrames('down',controller,view,grid,score,end);
+					moveFrames('down',controller,view,grid,score,end,modegame);
 			}
 		
 		});
@@ -107,34 +120,54 @@ $(document).ready(function() {
 
 	//CHECK FOR TABLE 4X4
 	$(this.getElementById('por4')).click(function(){
-		var eight = 8;
-		$(document.getElementById('grid')).removeClass('grid' + eight.toString());
-		$(document.getElementById('table')).empty();
 		
-		createFrames(grid,4,4,controller);
+		
 		
 		$(document.getElementById('por4')).addClass('imgchecked');
 		if($(document.getElementById('checkeight')).prop('checked')){
 			$(document.getElementById('checkeight')).prop('checked',false);
 			$(document.getElementById('por8')).removeClass('imgchecked');
+			var eight = 8;
+			$(document.getElementById('grid')).removeClass('grid' + eight.toString());
+			$(document.getElementById('table')).empty();
+		}else{
+			return;
 		}
+		createFrames(grid,4,4,controller);
+
 		$(document.getElementById('checkfour')).prop('checked',true);
+		modegame.setModeGame('4x4');
+
+		var high = localStorage.getItem('highscore_2048');
+		var hscore = high && JSON.parse(high);
+
+		$(document.getElementById('highscore')).html('HighScore: ' + hscore[modegame.getMode()]);
+		$(document.getElementById('score')).html('Score: ' + 0);
 	});
 
 	//CHECK FOR TABLE 8X8
 	$(this.getElementById('por8')).click(function(){
-		var four = 4;
-		$(document.getElementById('grid')).removeClass('grid' + four.toString());
-		$(document.getElementById('table')).empty();
-		
-		createFrames(grid,8,8,controller);
 		
 		$(document.getElementById('por8')).addClass('imgchecked');
 		if($(document.getElementById('checkfour')).prop('checked')){
 			$(document.getElementById('checkfour')).prop('checked',false);
 			$(document.getElementById('por4')).removeClass('imgchecked');
+			var four = 4;
+			$(document.getElementById('grid')).removeClass('grid' + four.toString());
+			$(document.getElementById('table')).empty();
+		}else{
+			return;
 		}
+		createFrames(grid,8,8,controller);
+
 		$(document.getElementById('checkeight')).prop('checked',true);
+		modegame.setModeGame('8x8');
+
+		var high = localStorage.getItem('highscore_2048');
+		var hscore = high && JSON.parse(high);
+
+		$(document.getElementById('highscore')).html('HighScore: ' + hscore[modegame.getMode()]);
+		$(document.getElementById('score')).html('Score: ' + 0);
 	});
 });
 
@@ -162,20 +195,19 @@ var createFrames = function(grid,lines,cols,controller){
 
 
 // CALL TO THE CONTROLLER FOR THE LOGIC OF THE GAME
-var moveFrames = function(way,controller,view,grid,score,end){
+var moveFrames = function(way,controller,view,grid,score,end,mode){
 		
-	var framesToMove = controller.move();
+	var framesToMove = controller.move();4348
 	var framesUpdated = controller.dirToMove(way,framesToMove);
 
 	view.rePaint(framesToMove,framesUpdated);
-	if(framesToMove.length == 0 && framesUpdated.length == 0){
+
+	//Check end of the game
+	if(framesToMove.length == 0 && framesUpdated.length == 0){ //Nothing has been moved
 		var framesOcupated = grid.getFramesNoEmpty();
-		if(framesOcupated.length == grid.lines*grid.cols){
+		if(framesOcupated.length == grid.lines*grid.cols){//Grid full
 			if(!grid.isPosibleToMoveSomething()){
-				alert('El juego ha terminado');
-				if(localStorage.getItem('highscore_2048') < score.getValue()){
-					localStorage['highscore_2048'] =  score.getValue();
-				}
+				end.endGameBad(mode);
 				controller.load(reload);
 			}
 		}
@@ -184,7 +216,7 @@ var moveFrames = function(way,controller,view,grid,score,end){
 	}
 
 	if(end.getEnd()){
-		end.endGame();
+		end.endGameGood();
 	}
 };
 

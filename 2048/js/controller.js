@@ -8,14 +8,16 @@ var Controller = function(grid,view,score){
 };
 
 
-Controller.prototype.load = function(reload){
+Controller.prototype.load = function(reload,mode){
 	
 	if(reload){
 		var remove = this.grid.getFramesNoEmpty();
 		this.score.setValue(0);
 		$('#score').html('Score: ' + 0);
-		if(localStorage.getItem('highscore')){
-			$('#highscore').html('HighScore: ' + localStorage.getItem('highscore'));
+		if(localStorage.getItem('highscore_2048')){
+			var aux = localStorage.getItem('highscore_2048');
+			var high = JSON.parse(aux);
+			$('#highscore').html('HighScore: ' + high[mode]);
 		}else{
 			$('#highscore').html('HighScore: ' + 0);
 		}
