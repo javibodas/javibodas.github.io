@@ -79,6 +79,9 @@ $(document).ready(function() {
 /*-------EVENTS------*/
 /*-------------------*/
 
+	var tableGame = document.getElementById('grid');
+	var hammertime = new Hammer(tableGame);
+
 	//RELOAD THE GAME
 	$(this.getElementById('reload')).click(function (){
 		controller.load(true,modegame.getMode());
@@ -86,18 +89,19 @@ $(document).ready(function() {
 
 	//MOVES (Desktop: Keys, Mobile: Swipes)
 	if(isMobileBrowser){
-		$(document.getElementById('grid')).on('swipedown',function(){
-			$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
+		hammertime.on('swipeleft', function(){
+			moveFrames('left',controller,view,grid,score,end,modegame);
 		});
-		$(document.getElementById('grid')).on('swipeup',function(){
-			$('body').append('<label>Hola caracola pajarito sin cola esto funciona</label>');
+		hammertime.on('swiperight', function(){
+			moveFrames('right',controller,view,grid,score,end,modegame);
 		});
-		$(document.getElementById('grid')).on('swiperight',function(){
-			moveFrames('right',controller,view,grid,score);
+		hammertime.on('swipeup', function(){
+			moveFrames('up',controller,view,grid,score,end,modegame);
 		});
-		$(document.getElementById('grid')).on('swipeleft',function(){
-			moveFrames('left',controller,view,grid,score);
+		hammertime.on('swipedown', function(){
+			moveFrames('down',controller,view,grid,score,end,modegame);
 		});
+		
 	}else{
 		$(this).keydown(function(key) {
 			var code = key.which;
@@ -208,6 +212,7 @@ var moveFrames = function(way,controller,view,grid,score,end,mode){
 		if(framesOcupated.length == grid.lines*grid.cols){//Grid full
 			if(!grid.isPosibleToMoveSomething()){
 				end.endGameBad(mode);
+				alert('El juego ha terminado');
 				controller.load(reload);
 			}
 		}
