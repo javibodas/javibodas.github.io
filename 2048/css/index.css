@@ -1,7 +1,6 @@
 
 body{
-	background-color: #F5ECCE;
-}
+	background-color: #F5ECCE;}
 
 div{
 	margin-right: 20px;
@@ -18,6 +17,7 @@ div{
 	margin:0 auto;
 	display:block;
 	text-align: center;
+	
 }
 #container #grid{
 	position: relative;
@@ -36,8 +36,8 @@ div{
 /*---------- OPTIONS ----------*/
 /*-----------------------------*/
 #options{
-	margin:0 auto;
 	width:40%;
+	margin:0 auto;
 	margin-top:10px;
 }
 #reset{
@@ -127,4 +127,14 @@ div{
   width: 45px;
   height: 45px;
   background-color: #C6A664;
+}
+
+@media (max-width: 50em){
+	.grid4{
+		width:75%;
+	}
+
+	.grid8{
+		width:75%;
+	}	
 }
