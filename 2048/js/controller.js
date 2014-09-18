@@ -7,7 +7,11 @@ var Controller = function(grid,view,score){
 	this.score = score;
 };
 
-
+/**
+ * [load description: Load the initial frames]
+ * @param  {[Boolean]} reload [True = Delete all painted frames, False = Paint two frames]
+ * @param  {[ModeGame]} mode   [If the game is 4x4 or 8x8]
+ */
 Controller.prototype.load = function(reload,mode){
 	
 	if(reload){
@@ -38,88 +42,27 @@ Controller.prototype.load = function(reload,mode){
 	this.view.paint(this.grid.frames[number2],'css','background-color','orange',false);
 	this.grid.setValueFrame(number2, '2');
 	
-	/*
-	//Tests
-	
-	this.view.paint(this.grid.frames[0],'html','1024');
-	this.view.paint(this.grid.frames[0],'css','background-color','orange');
-	this.grid.frames[0].val = '1024';
-	
-	this.view.paint(this.grid.frames[4],'html','1024');
-	this.view.paint(this.grid.frames[4],'css','background-color','orange');
-	this.grid.frames[4].val = '1024';
-
-	this.view.paint(this.grid.frames[8],'html','2');
-	this.view.paint(this.grid.frames[8],'css','background-color','orange');
-	this.grid.frames[8].val = '2';
-
-	this.view.paint(this.grid.frames[12],'html','8');
-	this.view.paint(this.grid.frames[12],'css','background-color','orange');
-	this.grid.frames[12].val = '8';
-	
-	this.view.paint(this.grid.frames[7],'html','8');
-	this.view.paint(this.grid.frames[7],'css','background-color','orange');
-	this.grid.frames[7].val = '8';
-	
-	this.view.paint(this.grid.frames[9],'html','2');
-	this.view.paint(this.grid.frames[9],'css','background-color','orange');
-	this.grid.frames[9].val = '2';
-
-	this.view.paint(this.grid.frames[11],'html','8');
-	this.view.paint(this.grid.frames[11],'css','background-color','orange');
-	this.grid.frames[11].val = '8';
-
-
-	this.view.paint(this.grid.frames[15],'html','4');
-	this.view.paint(this.grid.frames[15],'css','background-color','orange');
-	this.grid.frames[15].val = '4';
-
-
-	this.view.paint(this.grid.frames[1],'html','4');
-	this.view.paint(this.grid.frames[1],'css','background-color','orange');
-	this.grid.frames[1].val = '4';
-	
-	this.view.paint(this.grid.frames[2],'html','2');
-	this.view.paint(this.grid.frames[2],'css','background-color','orange');
-	this.grid.frames[2].val = '2';
-
-	this.view.paint(this.grid.frames[3],'html','2');
-	this.view.paint(this.grid.frames[3],'css','background-color','orange');
-	this.grid.frames[3].val = '2';
-
-	this.view.paint(this.grid.frames[5],'html','8');
-	this.view.paint(this.grid.frames[5],'css','background-color','orange');
-	this.grid.frames[5].val = '8';
-	
-	this.view.paint(this.grid.frames[6],'html','8');
-	this.view.paint(this.grid.frames[6],'css','background-color','orange');
-	this.grid.frames[6].val = '8';
-	
-	this.view.paint(this.grid.frames[14],'html','2');
-	this.view.paint(this.grid.frames[14],'css','background-color','orange');
-	this.grid.frames[14].val = '2';
-
-	this.view.paint(this.grid.frames[10],'html','8');
-	this.view.paint(this.grid.frames[10],'css','background-color','orange');
-	this.grid.frames[10].val = '8';
-
-
-	this.view.paint(this.grid.frames[13],'html','4');
-	this.view.paint(this.grid.frames[13],'css','background-color','orange');
-	this.grid.frames[13].val = '4';
-	
-	*/
 	grid = this.grid;
 	view = this.view;
 	score = this.score;
 };
 
+/**
+ * [move description: Get the frames that have a number]
+ * @return {[Array of frames]} [description]
+ */
 Controller.prototype.move = function(){
 
 	var framesToMove = this.grid.getFramesNoEmpty();
 	return framesToMove;
 };
 
+/**
+ * [dirToMove description: Get the frames where it is have to paint the frames moved]
+ * @param  {[String]} way          [description]
+ * @param  {[Array of frames]} framesRemove [description: Frames that's necessary to move]
+ * @return {[Array of objects]}         
+ */
 Controller.prototype.dirToMove = function(way,framesRemove){
 
 	var dirs = [];
@@ -188,7 +131,10 @@ Controller.prototype.dirToMove = function(way,framesRemove){
 	return dirs;
 };
 
-Controller.prototype.addFrame = function(way){
+/**
+ * [addFrame description: Add a frame when minimun one frame has moved]
+ */
+Controller.prototype.addFrame = function(){
 	do{
 		var number = Math.floor(Math.random() * this.grid.cols*this.grid.lines);
 	}while(!this.grid.frames[number].isEmpty());
@@ -202,7 +148,14 @@ Controller.prototype.addFrame = function(way){
 
 var positionsOcupated = [];
 
-/*This function should give the position which must be painted of the line that receives*/
+/**
+ * [toMoveFrames description: Give the position which must be painted of the line that receives]
+ * @param  {[Frame]} frames       [description]
+ * @param  {[String]} dir          [description]
+ * @param  {[String]} way          [description]
+ * @param  {[Array of frames]} framesRemove [description]
+ * @return {[Array of object]}              [description]
+ */
 var toMoveFrames = function(frames,dir,way,framesRemove){
 
 	var dirs = [];
@@ -278,6 +231,15 @@ var toMoveFrames = function(frames,dir,way,framesRemove){
 
 };
 
+/**
+ * [movePositive description]
+ * @param  {[Frame]} frame  [description]
+ * @param  {[Integer]} pos    [description]
+ * @param  {[String]} way    [description]
+ * @param  {[Integer]} length [description]
+ * @param  {[Integer]} score  [description]
+ * @return {[Object]}        [description]
+ */
 var movePositive = function(frame,pos,way,length,score){
 
 	var o = new Object();
@@ -327,6 +289,15 @@ var movePositive = function(frame,pos,way,length,score){
 	}
 };
 
+/**
+ * [moveNegative description]
+ * @param  {[Frame]} frame  [description]
+ * @param  {[Integer]} pos    [description]
+ * @param  {[String]} way    [description]
+ * @param  {[Integer]} length [description]
+ * @param  {[Integer]} score  [description]
+ * @return {[Object]}        [description]
+ */
 var moveNegative = function(frame,pos,way,length,score){
 
 	var o = new Object();

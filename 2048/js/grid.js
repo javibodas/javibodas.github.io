@@ -6,6 +6,11 @@ var Grid = function(lines,cols){
 
 Grid.prototype = {
 
+	/**
+	 * [getFramesLine returns the frames of the line indicated if there is any frame that isn´t empty]
+	 * @param  {[Integer]} line [description]
+	 * @return {[Array]}      [description]
+	 */
 	getFramesLine : function(line){
 		var frames = [];
 		var count = 0;
@@ -21,12 +26,23 @@ Grid.prototype = {
 		return frames;
 	},
 
+	/**
+	 * [getFramesCol return the frames of the col indicated if there is any frame that isn´t empty]
+	 * @param  {[Integer]} col [description]
+	 * @return {[Array]}     [description]
+	 */
 	getFramesCol : function(col){
+		var count = 0;
 		var frames = [];
 		for(var i = 0;i < this.frames.length/this.cols;i++){
+			if(this.frames[this.lines*i + col].isEmpty()){
+				count++;
+			}
 			frames[i] = this.frames[this.lines*i + col];
 		}
-
+		if(count==this.frames.length/this.cols){
+			return [];
+		}
 		return frames;
 	},
 
@@ -135,7 +151,7 @@ Grid.prototype = {
 				}
 			}
 		});
-
+		
 		return founded;
 	}
 }
