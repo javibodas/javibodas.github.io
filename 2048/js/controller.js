@@ -21,7 +21,7 @@ Controller.prototype.load = function(reload,mode){
 		if(localStorage.getItem('highscore_2048')){
 			var aux = localStorage.getItem('highscore_2048');
 			var high = JSON.parse(aux);
-			$('#highscore').html('HighScore: ' + high[mode]);
+			$('#highscore').html('HighScore: ' + high[mode.getMode()]);
 		}else{
 			$('#highscore').html('HighScore: ' + 0);
 		}

@@ -230,7 +230,7 @@ var moveFrames = function(way,controller,view,grid,score,end,mode){
 			if(!grid.isPosibleToMoveSomething()){
 				end.endGameBad(mode);
 				alert('El juego ha terminado');
-				controller.load(reload);
+				controller.load(reload,mode);
 			}
 		}
 	}else{
