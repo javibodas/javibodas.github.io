@@ -1,11 +1,13 @@
-var EndGame = function(){
+var EndGame = function(controller){
 	this.end = false;
+	this.controller = controller;
 };
 
 EndGame.prototype = {
 
-	endGameGood : function(){
-		alert('Congratulations has ganado');
+	endGameGood : function(mode){
+		var response = confirm('Congratulations you have won. Do you want to retry?');
+		if(response) controller.load(reload,mode);
 	},
 	endGameBad : function(mode){
 		var high = localStorage.getItem('highscore_2048');

@@ -59,14 +59,14 @@ $(document).ready(function() {
 	//Grid
 	var grid = new Grid(cols,lines);
 
-	//End Game
-	var end = new EndGame();
-
 	//View 
 	var view = new View(grid,end,modegame);
 
 	//Controller
 	var controller = new Controller(grid,view,score);
+
+	//End Game
+	var end = new EndGame(controller);
 
 	//Frames
 	createFrames(grid,lines,cols,controller);
@@ -125,8 +125,11 @@ $(document).ready(function() {
 	//CHECK FOR TABLE 4X4
 	$(this.getElementById('por4')).click(function(){
 		
-		
-		
+		if(score.getValue()>0){
+			var response = confirm('Are you sure to change the mode game? If you do that, will lose this score mode game');
+			if(!response) return; 
+		}
+
 		$(document.getElementById('por4')).addClass('imgchecked');
 		if($(document.getElementById('checkeight')).prop('checked')){
 			$(document.getElementById('checkeight')).prop('checked',false);
@@ -147,11 +150,18 @@ $(document).ready(function() {
 
 		$(document.getElementById('highscore')).html('HighScore: ' + hscore[modegame.getMode()]);
 		$(document.getElementById('score')).html('Score: ' + 0);
+
+		score.setValue(0);
 	});
 
 	//CHECK FOR TABLE 8X8
 	$(this.getElementById('por8')).click(function(){
 		
+		if(score.getValue()>0){
+			var response = confirm('Are you sure to change the mode game? If you do that, will lose this score mode game');
+			if(!response) return;
+		}
+
 		$(document.getElementById('por8')).addClass('imgchecked');
 		if($(document.getElementById('checkfour')).prop('checked')){
 			$(document.getElementById('checkfour')).prop('checked',false);
@@ -172,6 +182,8 @@ $(document).ready(function() {
 
 		$(document.getElementById('highscore')).html('HighScore: ' + hscore[modegame.getMode()]);
 		$(document.getElementById('score')).html('Score: ' + 0);
+
+		score.setValue(0);
 	});
 });
 
@@ -229,8 +241,8 @@ var moveFrames = function(way,controller,view,grid,score,end,mode){
 		if(framesOcupated.length == grid.lines*grid.cols){//Grid full
 			if(!grid.isPosibleToMoveSomething()){
 				end.endGameBad(mode);
-				alert('El juego ha terminado');
-				controller.load(reload,mode);
+				var response = confirm('The game have finished. Do you want to retry?');
+				if(response) controller.load(reload,mode);
 			}
 		}
 	}else{
@@ -238,7 +250,7 @@ var moveFrames = function(way,controller,view,grid,score,end,mode){
 	}
 
 	if(end.getEnd()){
-		end.endGameGood();
+		end.endGameGood(mode);
 	}
 };
 
