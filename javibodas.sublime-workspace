@@ -264,10 +264,10 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "TetrisJS/index.html",
 			"settings":
 			{
-				"buffer_size": 2191,
+				"buffer_size": 689,
 				"line_ending": "Unix"
 			}
 		}
@@ -384,6 +384,7 @@
 	},
 	"file_history":
 	[
+		"/D/Git/javibodas.github.io/index.html",
 		"/D/Git/2048/test/spec/SpecController.js",
 		"/D/Git/2048/test/spec/SpecFrame.js",
 		"/D/Git/2048/js/frame.js",
@@ -510,8 +511,7 @@
 		"/home/javier/Git/javibodas.github.io/css/entradas.css",
 		"/home/javier/Git/javibodas.github.io/css/stylesheet.css",
 		"/home/javier/Git/JuegoJS/index.js",
-		"/home/javier/Git/javibodas.github.io/stylesheets/stylesheet.css",
-		"/home/javier/Git/javibodas.github.io/stylesheets/pygment_trac.css"
+		"/home/javier/Git/javibodas.github.io/stylesheets/stylesheet.css"
 	],
 	"find":
 	{
@@ -578,28 +578,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "TetrisJS/index.html",
 					"settings":
 					{
-						"buffer_size": 2191,
+						"buffer_size": 689,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1310,
-								1310
+								328,
+								328
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 240.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
