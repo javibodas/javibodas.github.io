@@ -263,22 +263,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "TetrisJS/index.html",
-			"settings":
-			{
-				"buffer_size": 689,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 2743,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/SASS Build/SASS - Compressed.sublime-build",
 	"command_palette":
@@ -393,6 +377,7 @@
 	"file_history":
 	[
 		"/D/Git/javibodas.github.io/index.html",
+		"/D/Git/javibodas.github.io/TetrisJS/index.html",
 		"/D/Git/2048/test/spec/SpecController.js",
 		"/D/Git/2048/test/spec/SpecFrame.js",
 		"/D/Git/2048/js/frame.js",
@@ -518,8 +503,7 @@
 		"/home/javier/Git/javibodas.github.io/scss/entradas.scss",
 		"/home/javier/Git/javibodas.github.io/css/entradas.css",
 		"/home/javier/Git/javibodas.github.io/css/stylesheet.css",
-		"/home/javier/Git/JuegoJS/index.js",
-		"/home/javier/Git/javibodas.github.io/stylesheets/stylesheet.css"
+		"/home/javier/Git/JuegoJS/index.js"
 	],
 	"find":
 	{
@@ -581,64 +565,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "TetrisJS/index.html",
-					"settings":
-					{
-						"buffer_size": 689,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								328,
-								328
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "index.html",
-					"settings":
-					{
-						"buffer_size": 2743,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2450,
-								2450
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 969.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
