@@ -1,0 +1,19 @@
+.canvas{
+	display:block;
+	background-color: black;
+	border-radius:5px;
+	margin: 0 auto;
+}
+.imagen{	
+}
+.wrap_opciones{
+	float:right;
+	width:20%;
+}
+.wrap_canvas{
+	float:left;
+	width:80%;
+}
+body{
+	background-color: grey;
+}
