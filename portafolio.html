@@ -14,16 +14,16 @@
     <!-- FontAwesome JS-->
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
     
-    <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="../assets/css/theme.css">
-    <link id="theme-style" rel="stylesheet" href="../assets/css/javi.css">
-
+    <!-- CSS --> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/agate.min.css"> 
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/portafolio.css">
 </head> 
 
 <body>
     
     <header class="header text-center">	    
-	    <!--<h1 class="blog-name pt-lg-4 mb-0"><a href="portafolio.html">Portafolio</a></h1>-->
+	    <!--<h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Blog</a></h1>-->
         
 	    <nav class="navbar navbar-expand-lg navbar-dark" >
            
@@ -33,27 +33,35 @@
 
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
 				<div class="profile-section pt-3 pt-lg-0">
-				    <img class="profile-image mb-3 rounded-circle mx-auto" src="../assets/images/profile.png" alt="image" >			
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
 					
-					<div class="bio mb-3">Hola mi nombre es Javier, soy Desarrollador de Software y te doy la bienvenida a mi blog personal.<br><!--<a href="../about.html"><b>Sobre mi</b></a>--></div><!--//bio-->
+					<div class="bio mb-3">Hola mi nombre es Javier, soy Desarrollador de Software y te doy la bienvenida a mi blog personal.<br><!--<a href="public/about.html"><b>Sobre mi</b></a>--></div><!--//bio-->
 					<ul class="social-list list-inline py-3 mx-auto">
 			            <li class="list-inline-item"><a href="https://twitter.com/BodasJavier"><i class="fab fa-twitter fa-fw"></i></a></li>
 			            <li class="list-inline-item"><a href="https://www.linkedin.com/in/javier-gonz%C3%A1lez-bodas-70a59787/"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
 			            <li class="list-inline-item"><a href="https://github.com/javibodas"><i class="fab fa-github-alt fa-fw"></i></a></li>
 			            <li class="list-inline-item"><a href="mailto:gonzalezbodasjavier@yahoo.es"><i class="fas fa-envelope fa-fw"></i></a></li>
 			        </ul><!--//LISTA REDES SOCIALES-->
-			        <hr> 
 				</div><!--//PERFIL-->
 				
 				<ul class="navbar-nav flex-column text-left">
-					<li class="nav-item">
-					    <a class="nav-link" href="../index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home</a>
-					</li>
 					<li class="nav-item active">
-					    <a class="nav-link" href="portafolio.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Portafolio <span class="sr-only">(current)</span></a>
+					    <a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="portafolio.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Portafolio</a>
 					</li>
 				</ul>
-			</div>
+
+				<!--<div id="navigation" class="nabvar-nav language-switcher">
+					<p>Language</p>
+					<label class="c-switch c-switch-lg c-switch-pill c-switch-label c-switch-primary">
+			  			<input id="lang-switcher-button" type="checkbox" class="c-switch-input" href="index_en.html" checked>
+			  			<span class="c-switch-slider" data-checked="ES" data-unchecked="EN"></span>
+					</label>
+				</div>-->
+
+			</div>   
 		</nav>
     </header>
     
@@ -63,26 +71,37 @@
 			    <div class="container">
 				    <div class="item mb-5">
 					    <div class="media">
-						    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="../assets/images/blog/2048js.png" alt="image">
+					    	<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/2048js.png" alt="image">
 						    <div class="media-body">
 							    <h3 class="title mb-1">2048</h3>
-							    <div class="intro">Versión del juego 2048 desarrollada utilizando JavaScript y la librería JQuery para el navegador. </div>
-							    <a class="more-link" href="../projects/2048/index.html"> Jugar &rarr;</a>
+							    <div class="meta mb-1"></div>
+							    <div class="intro">Versión del juego 2048 desarrollada utilizando JavaScript y la librería JQuery para el navegador................................................................................................................................................</div>
+							    <a class="more-link" href="../projects/2048/index.html"> Acceder &rarr;</a>
 							   	<a class="more-link" href="https://github.com/javibodas/2048Js"> Ver en Github &rarr;</a>
 						    </div>
 					    </div>
-				    </div><!--//POST-->
+				    </div><!--//GAME-->
 				     <div class="item mb-5">
 					    <div class="media">
-						    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="../assets/images/blog/snake-game.png" alt="image">
+						    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/snake-game.png" alt="image">
 						    <div class="media-body">
 							    <h3 class="title mb-1">Snake</h3>
 							    <div class="intro">Versión del clásico videojuego Snake desarrollada utilizando Python y la librería Pygame para el escritorio. </div>
 							    <a class="more-link" href="https://github.com/javibodas/SnakePython"> Ver en Github &rarr;</a>
 						    </div>
 					    </div>
-				    </div><!--//POST-->
-
+				    </div><!--//GAME-->
+				     <div class="item mb-5">
+					    <div class="media">
+						    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/marketvaluescatalog.png" alt="image">
+						    <div class="media-body">
+							    <h3 class="title mb-1">Catálogo Valores de Mercado</h3>
+							    <div class="intro">App que permite ver el los valores de los distintos mercados financieros del mundo. </div>
+							    <a class="more-link" href="https://marketvaluescatalog.herokuapp.com/"> Acceder &rarr;</a>
+							    <a class="more-link" href="https://github.com/javibodas/marketvaluescatalog"> Ver en Github &rarr;</a>
+						    </div>
+					    </div>
+				    </div><!--//APP-->
 				    
 				    <!--<nav class="blog-nav nav nav-justified my-5">
 					  <a class="nav-link-prev nav-item nav-link d-none rounded-left" href="#">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
@@ -106,7 +125,10 @@
     <!-- Javascript -->          
     <script src="assets/plugins/jquery-3.3.1.min.js"></script>
     <script src="assets/plugins/popper.min.js"></script> 
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/@coreui/coreui@3.0.0-beta.4/dist/js/coreui.min.js"></script>
+
+    <script src="assets/js/blog.js"></script>     
 
 </body>
 </html> 

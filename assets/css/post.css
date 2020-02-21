@@ -1,0 +1,15 @@
+code{
+	border-radius: 5px;
+}
+
+code .fa-check{
+	color: green;
+}
+
+#first-step a{
+	color: red;
+}
+
+#second-step a{
+	color: green!important;
+}

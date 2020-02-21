@@ -1,0 +1,42 @@
+a {
+	color: #5D6BA7 !important;
+}
+
+a:hover{
+	color: rgba(0,0,0,0.5);
+}
+
+footer{
+	position:relative; bottom: 0; /* position */
+	width:100%; /* box model*/
+}
+
+h2{
+	color: #292929 !important;
+}
+
+.social a{
+	background: #fff !important;
+}
+
+.about-section .container{
+	margin-left: 5%;
+}
+
+.container{
+	height: 100%;
+} 
+
+.header{
+	position: relative; top: 0; /* position */
+	border-top: 0; padding: 20px;/* box model*/
+	background-color: #5D6BA7; /* font */
+}
+
+.profile-image{
+	max-height: 200px; border-radius: 50%;
+}
+
+.header .profile-content .name{
+	color: #fff !important; 
+}

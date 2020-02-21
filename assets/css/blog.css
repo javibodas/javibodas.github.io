@@ -1,0 +1,85 @@
+/***************/
+/**** TAGS ****/
+/***************/
+footer{
+	position:relative;
+	bottom: 0;
+	width:100%;
+}
+code{
+	font-size: 77%!important;
+}
+
+.main-wrapper img{
+	width:100%;
+	height: 315px;
+}
+
+ul{
+	list-style: none;
+}
+
+
+
+
+/**************/
+/** CLASSES **/
+/**************/
+.blog-post-body p{
+	font-size: 0.9rem!important;
+}
+.header{
+	background: #6a76af!important;
+}
+
+.main-wrapper{
+	height: 100%;
+}  
+.profile-image{
+	max-height:180px;
+}
+.d-flex .badge{
+	margin-right: 10px;
+}
+
+.badge-pill{
+	border-radius: 100%;
+}
+
+.badge-light{
+	background-color: white;
+}
+
+.container{
+	margin-right: 0;
+	margin-left: 5%!important;
+	max-width: 75%!important;
+}
+.article-list{
+	list-style-type: none;
+	margin:  0;
+	padding: 0;
+}
+.caret {
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+}
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+.caret-down::before {
+  transform: rotate(90deg);
+}
+
+/* Hide the nested list */
+.nested {
+  display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.active {
+  display: block;
+}

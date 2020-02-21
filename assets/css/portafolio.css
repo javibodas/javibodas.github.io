@@ -1,0 +1,19 @@
+.main-wrapper{
+	height: 100%;
+}
+
+footer{
+	position:fixed;
+	bottom: 0;
+	width:100%;
+}
+  
+.profile-image{
+	max-height:180px;
+}
+
+.container{
+	margin-right: 0;
+	margin-left: 13%;
+	max-width: 60%!important;
+}
