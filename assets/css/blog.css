@@ -86,28 +86,30 @@ ul{
 
 
 /** PC SETTINGS **/
-@media only screen and (min-width: 1024px){
+@media screen and (max-width: 991px) {
 	.container{
 		max-width: 70%!important;
 		float: none;
 	}
-}
 
-/** MOBILE SETTINGS **/
-@media only screen and (max-width: 1024px){
-	.right-bar{
-		display: none;
-	}
-}
-
-@media only screen and (max-width: 768px){
 	.desktop{
 		display: none;
 	}
 }
 
-/** MOBILE SETTINGS **/
-@media only screen and (min-width: 768px){
+@media screen and (max-width: 767px) {
+	.right-bar{
+		display: none;
+	}
+	.mobile{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 479px) {
+	.right-bar{
+		display: none;
+	}
 	.mobile{
 		display: none;
 	}
