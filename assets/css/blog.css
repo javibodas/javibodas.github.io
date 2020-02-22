@@ -86,7 +86,7 @@ ul{
 
 
 /** PC SETTINGS **/
-@media screen and (max-width: 991px) {
+@media screen and (min-width: 991px) {
 	.container{
 		max-width: 70%!important;
 		float: none;
@@ -96,7 +96,17 @@ ul{
 	}
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px)  and (min-width: 768px) {
+	.container{
+		max-width: 70%!important;
+		float: none;
+	}
+	.mobile{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 767px) and (min-width: 480px) {
 	.right-bar{
 		display: none;
 	}
