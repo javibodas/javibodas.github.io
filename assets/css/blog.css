@@ -53,8 +53,10 @@ ul{
 .container{
 	margin-right: 0;
 	margin-left: 5%!important;
-	max-width: 75%!important;
+	max-width: 95%!important;
 }
+
+/** ARTICLES TREE VIEW **/
 .article-list{
 	list-style-type: none;
 	margin:  0;
@@ -73,13 +75,27 @@ ul{
 .caret-down::before {
   transform: rotate(90deg);
 }
-
 /* Hide the nested list */
 .nested {
   display: none;
 }
-
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
 .active {
   display: block;
+}
+
+
+/** PC SETTINGS **/
+@media only screen and (min-width: 1256px){
+	.container{
+		max-width: 70%!important;
+		float: none;
+	}
+}
+
+/** MOBILE SETTINGS **/
+@media only screen and (max-width: 1256px){
+	.right-bar{
+		display: none;
+	}
 }
