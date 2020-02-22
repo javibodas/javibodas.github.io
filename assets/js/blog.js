@@ -19,7 +19,6 @@ for (i = 0; i < toggler.length; i++) {
     toggler[i].parentElement.querySelector(".nested").classList.toggle("active");
     toggler[i].classList.toggle("caret-down");
   }
-  
 }
 });
 
