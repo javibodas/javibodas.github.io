@@ -1,15 +1,27 @@
-code{
-	border-radius: 5px;
+/** TABLET SETTINGS **/
+@media screen and (max-width: 992px) and (min-width: 480px) {
+	/** Deleted elements **/
+	.right-bar{
+		display: none;
+	}
+	.desktop{
+		display: block;
+	}
+	.profile-image{
+		display: none;
+	}
 }
 
-code .fa-check{
-	color: green;
-}
-
-#first-step a{
-	color: red;
-}
-
-#second-step a{
-	color: green!important;
+/** MOBILE SETTINGS **/
+@media screen and (max-width: 479px) {
+	/** Deleted elements **/
+	.right-bar{
+		display: none;
+	}
+	.desktop{
+		display: block;
+	}
+	.profile-image{
+		display: none;
+	}
 }

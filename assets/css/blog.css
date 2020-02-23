@@ -17,6 +17,10 @@ body{
 	position: relative;
 	min-height: 100vh;
 }
+code{
+	border-radius: 5px;
+}
+
 .blog-post-body p{
 	font-size: 0.9rem!important;
 }
@@ -53,6 +57,9 @@ body{
 	bottom: 0;
 	width: 100%;
 }
+code .fa-check{
+	color: green;
+}
 
 
 /** ARTICLES TREE VIEW **/
@@ -83,10 +90,17 @@ body{
   display: block;
 }
 
+/**************/
+/** IDENTIFIERS **/
+/**************/
+.setp{
+	color: red!important;
+}
+
 
 
 /** LARGE SCREEN SETTINGS **/
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1280px) {
 	.container{
 		max-width: 90%!important;
 	}
@@ -95,21 +109,49 @@ body{
 	}
 }
 /** MEDIUM SCREEN SETTINGS **/
-@media screen and (max-width: 1200px) and (min-width: 992px) {
-	.container{
-		max-width: 90%!important;
-	}
+@media screen and (max-width: 1280px) and (min-width: 992px) {
+	/** Deleted elements **/
 	.mobile{
 		display: none;
 	}
+	.bio{
+		display: none;
+	}
+
+	.container{
+		max-width: 90%!important;
+	}
+	.header{
+		width: 180px;
+	}
+	.main-wrapper{
+		margin-left: 180px;
+	}
+	.right-bar > .p-md-5{
+		padding: 3rem 3rem 3rem 0rem!important;
+	}
+	.social-list > li{
+		padding: 5px 0px 5px 0px!important;
+	}
+	.list-inline-item:last-child{
+		margin-right:.5rem
+	}
+	.right-bar{
+		padding-left: 0;
+	}
 
 	.profile-image{
-		display: none;
+		width: 100px;
+	}
+
+	.social-list li{
+		display: block;
 	}
 }
 
 /** TABLET SETTINGS **/
 @media screen and (max-width: 992px) and (min-width: 480px) {
+	/** Deleted elements **/
 	.right-bar{
 		display: none;
 	}
@@ -118,11 +160,12 @@ body{
 	}
 	.profile-image{
 		display: none;
-	}	
+	}
 }
 
 /** MOBILE SETTINGS **/
 @media screen and (max-width: 479px) {
+	/** Deleted elements **/
 	.right-bar{
 		display: none;
 	}

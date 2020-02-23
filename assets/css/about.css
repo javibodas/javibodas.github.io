@@ -40,3 +40,7 @@ h2{
 .header .profile-content .name{
 	color: #fff !important; 
 }
+
+.main-wrapper img{
+	height:  auto;
+}
