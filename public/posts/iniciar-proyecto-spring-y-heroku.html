@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es"> 
+<head>
+     <title>Javi Blog</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/agate.min.css">
+    <link id="theme-style" rel="stylesheet" href="../../assets/css/theme.css">
+    <link rel="stylesheet" href="../../assets/css/blog.css">
+    <link rel="stylesheet" href="../../assets/css/post.css">
+</head> 
+
+<body>
+    
+    <header class="header text-center">	    
+	    <!--<h1 class="blog-name pt-lg-4 mb-0"><a href="../../index.html">Javier Blog</a></h1>-->
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="../../assets/images/profile.png" alt="image" >			
+					
+					<div class="bio mb-3">Hola mi nombre es Javier, soy Desarrollador de Software y te doy la bienvenida a mi blog personal.<br><!--<a href="../about.html"><b>Sobre mi</b></a>--></div><!--//bio-->
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a href="https://twitter.com/BodasJavier"><i class="fab fa-twitter fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.linkedin.com/in/javier-gonz%C3%A1lez-bodas-70a59787/"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://github.com/javibodas"><i class="fab fa-github-alt fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="mailto:gonzalezbodasjavier@yahoo.es"><i class="fas fa-envelope fa-fw"></i></a></li>
+			        </ul><!--//LISTA REDES SOCIALES-->
+				</div><!--//PERFIL-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item active">
+					    <a class="nav-link" href="../../index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="../../portafolio.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Portafolio</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+    	<div class="row desktop">
+    		<div class="col-lg-9 col-12">
+			    <article class="blog-post px-3 py-5 p-md-5">
+				    <div class="container">
+					    <header class="blog-post-header">
+						    <h2 class="title mb-2">Aplicación Spring Boot en Heroku. Instalación y Configuración.</h2>
+						    <!--<div class="meta mb-3"><i class="fas fa-hashtag"></i>blockchain</div>-->
+						    <div class="meta mb-3"><span class="date">Publicado ??/??/2020</span><!--<span class="time">5 min read</span><span class="comment">--></div>
+					    </header>
+					    
+					    <div class="blog-post-body">
+						    <p>El objetivo de este post es mostrar los pasos a seguir para generar desde cero una aplicación web desarrollada con el framework Spring Boot y desplegarlo con la herramienta Heroku. De esta manera podremos mostrar nuestra propia aplicación web.</p>
+						    <p>Para poder desarrollar nuestra aplicación será necesario tener instalado un IDE que podamos utilizar para ejecutar la misma en local. En esta guía utilizaremos Eclipse.</p>
+						    <p>Antes de nada comprobaremos la versión de Java que tenemos instalada, para ello abriremos la consola de comandos y ejecutaremos lo siguiente:</p>
+						    <pre><code class="hljs shell">C:\Users\javier> java -version<br>java version "1.8.0_131"<br>Java(TM) SE Runtime Environment (build 1.8.0_131-b11)<br>Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)</code></pre>
+						    <p>Para poder utilizar el framework Spring Boot 2 necesitaremos tener instalada la versión 8 u 11 de Java.</p>
+						    <p>Cuando tengamos instalada la versión adecuada de Java, instalaremos Eclipse. Para ello accederemos a la <a href=”https://www.eclipse.org/downloads/packages/ ”>web de descarga</a>, y nos descargaremos el siguiente paquete:</p>
+						    <img src="../../assets/images/blog/descarga-eclipse-jee.png">
+						    <p>Y nos solicitará indicar la carpeta donde se encontrarán los proyectos con los que trabajemos. Por defecto la carpeta es generada en el directorio del usuario.</p>
+						    <p>Una vez tengamos eclipse instalado, añadiremos la extensión del framework de Spring. Para ello accederemos a la siguiente <a href=”https://spring.io/tools ”>url<a> y nos descargaremos el plugin:</p>
+						    <img src="../../assets/images/blog/spring-plugin.png">
+						    <p>El fichero que nos habremos descargado será un .jar, por lo que para poder añadir el plugin a nuestro Eclipse, deberemos desde el mismo abrir la siguiente ventana:</p>
+						    <img src="../../assets/images/blog/install-software-eclipse.png">
+						    <p>Una vez tengamos nuestro entorno de desarrollo configurado, pasaremos a generar el proyecto Spring. Esto es bastante sencillo gracias a la herramienta <a href=”https://start.spring.io/”>Spring Initializr</a></p>
+						    <img src="../../assets/images/blog/spring-initialzr-default.png">
+					    </div>
+				    </div><!--//container-->
+			    </article>
+			</div>
+			<div class="col-lg-3 col-12 right-bar">
+				<div class="px-3 p-md-5">
+					<div class="section-inner">
+						<div class="heading py-2"><h4>Articulos</h4>
+						</div>
+						<ul class="article-list">
+						<!-- Load by react in articles.js-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div> <!--//DESKTOP-->
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+    
+
+    <!-- Javascript -->          
+    <script src="../../assets/plugins/jquery-3.3.1.min.js"></script> 
+    <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    
+    <!-- Page Specific JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+    <!--<script>hljs.initHighlightingOnLoad();</script>-->
+
+     <!-- ReactJs-->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+  	<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    
+    <!-- Custom JS -->
+    <script src="../../assets/js/blog.js"></script>
+    <script src="../../assets/js/articles.js"></script> 
+
+</body>
+</html> 
+
