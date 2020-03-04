@@ -37,7 +37,7 @@ class ArticlesList extends React.Component {
   }
 
   render() {
-    return (<ul className='article-list'>{this.createList()});
+    return (<ul className='article-list'>{this.createList()}</ul>);
   }
 }
 
