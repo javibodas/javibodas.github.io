@@ -15,13 +15,13 @@ class ArticlesList extends React.Component {
   createList() {
     let list = [];
 
-    for(var i = 0; i < this.years_name; i++){
+    for(var i = 0; i < this.years_name.length; i++){
         let months_html = [];        
 
-        for(var j = 0; j < this.months_name; j++){
+        for(var j = 0; j < this.months_name.length; j++){
             let articles_html = [];
             
-            for(var k = 0; k < this.articles_title; j++){
+            for(var k = 0; k < this.articles_title.length; k++){
               articles_html.push(<ul className='nested'><li></li></ul><a>{articles_title[k]}</a></a>);
             }
 
