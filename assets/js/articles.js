@@ -20,7 +20,7 @@ class ArticlesList extends React.Component {
             let articles_html = [];
             
             for(var k = 0; k < this.articles_title.length; k++){
-              articles_html.push(<li><a>{articles_title[k]}</a></li>);
+              articles_html.push(<li><a>{this.articles_title[k]}</a></li>);
             }
 
           months_html.push(<li><span className='caret month-articles'>{months_name[j]}</span><ul className="nested">{articles_html}</ul></li>);
