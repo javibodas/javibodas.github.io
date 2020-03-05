@@ -35,7 +35,7 @@ class ArticlesList extends React.Component {
   }
 
   render() {
-    return ({this.createList()});
+    return (this.createList());
   }
 }
 
