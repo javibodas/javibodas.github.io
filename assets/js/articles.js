@@ -23,12 +23,12 @@ class ArticlesList extends React.Component {
               articles_html.push(<li><a>{this.articles_title[k]}</a></li>);
             }
 
-          months_html.push(<li><span className='caret month-articles'>{months_name[j]}</span><ul className="nested">{articles_html}</ul></li>);
+          months_html.push(<li><span className='caret month-articles'>{this.months_name[j]}</span><ul className="nested">{articles_html}</ul></li>);
         }
 
-      list.push(<li><span className="caret year-articles">{years_name[i]}</span><ul class="nested">{months_html}</ul></li>);
+      list.push(<li><span className="caret year-articles">{this.years_name[i]}</span><ul class="nested">{months_html}</ul></li>);
       //list = React.createElement("li", null, 
-      //                React.createElement("span", { className: "caret year-articles"}, years_name[i]), 
+      //                React.createElement("span", { className: "caret year-articles"}, this.years_name[i]), 
       //                  React.createElement("ul", { class: "nested" }, months_html));
     }
     return list;
