@@ -32,12 +32,12 @@ class ArticlesList extends React.Component {
               articles_html.push(<li><a>{this.articles_title[k]}</a></li>);
             }
 
-          if(this.months_name[i] == this.month) months_html.push(<li><span className='caret month-articles caret-down'>{this.months_name[j]}</span><ul className='nested active'>{articles_html}</ul></li>);
+          if(this.months_name[j] == this.month) months_html.push(<li><span className='caret month-articles caret-down'>{this.months_name[j]}</span><ul className='nested active'>{articles_html}</ul></li>);
           else months_html.push(<li><span className='caret month-articles'>{this.months_name[j]}</span><ul className='nested'>{articles_html}</ul></li>);
         }
 
-      if(this.years_name[i] == this.year) list.push(<li><span className='caret year-articles caret-down'>{this.years_name[i]}</span><ul class='nested active'>{months_html}</ul></li>);
-      else list.push(<li><span className='caret year-articles'>{this.years_name[i]}</span><ul class='nested'>{months_html}</ul></li>);
+      if(this.years_name[i] == this.year) list.push(<li><span className='caret year-articles caret-down'>{this.years_name[i]}</span><ul className='nested active'>{months_html}</ul></li>);
+      else list.push(<li><span className='caret year-articles'>{this.years_name[i]}</span><ul className='nested'>{months_html}</ul></li>);
       
     }
     return list;
