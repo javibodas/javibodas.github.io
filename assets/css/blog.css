@@ -1,11 +1,6 @@
 /***************/
 /**** TAGS ****/
 /***************/
-footer{
-	position:relative;
-	bottom: 0;
-	width:100%;
-}
 code{
 	font-size: 77%!important;
 }
@@ -25,8 +20,11 @@ code{
 	font-size: 0.9rem!important;
 }
 .main-wrapper img{
-	width:100%;
-	height: 315px;
+	display: block;
+  	max-width:100%;
+  	max-height:300px;
+  	width: auto;
+  	height: auto;
 }
 
 
@@ -93,8 +91,8 @@ code .fa-check{
 /**************/
 /** IDENTIFIERS **/
 /**************/
-.setp{
-	color: red!important;
+.step{
+	color: green!important;
 }
 
 
@@ -122,10 +120,10 @@ code .fa-check{
 		max-width: 90%!important;
 	}
 	.header{
-		width: 180px;
+		width: 165px;
 	}
 	.main-wrapper{
-		margin-left: 180px;
+		margin-left: 165px;
 	}
 	.right-bar > .p-md-5{
 		padding: 3rem 3rem 3rem 0rem!important;
