@@ -9,7 +9,7 @@ class ArticlesList extends React.Component {
     this.months = Array('Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
     this.data = JSON.parse('[{"year":"2020", "months":[{"month": "Febrero","articles":[{"title":"Aplicaciones Descentralizadas. Instalación y configuración", "link":"public/posts/configuracion-dapp.html"}]},{"month": "Marzo", "articles" : [{"title":"Aplicación Spring Boot en Heroku. Instalación y Configuración","link":"public/posts/iniciar-proyecto-spring-y-heroku.html"}]}]}]');
 
-    this.current_month = months[(new Date()).getMonth()];
+    this.current_month = this.months[(new Date()).getMonth()];
     this.current_year = (new Date()).getFullYear();
   }
 
