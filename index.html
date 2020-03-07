@@ -16,8 +16,8 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/agate.min.css">
-    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
-    <link rel="stylesheet" href="assets/css/blog.css">
+    <link id="theme-style" rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
 </head> 
 
 <body>
@@ -33,7 +33,7 @@
 
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
 				<div class="profile-section pt-3 pt-lg-0">
-				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="/assets/images/profile.png" alt="image" >			
 					
 					<div class="bio mb-3">Hola mi nombre es Javier, soy Desarrollador de Software y te doy la bienvenida a mi blog personal.<br><!--<a href="../about.html"><b>Sobre mi</b></a>--></div><!--//bio-->
 					<ul class="social-list list-inline py-3 mx-auto">
@@ -46,10 +46,10 @@
 				
 				<ul class="navbar-nav flex-column text-left">
 					<li class="nav-item active">
-					    <a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
+					    <a class="nav-link" href="/index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-					    <a class="nav-link" href="portafolio.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Portafolio</a>
+					    <a class="nav-link" href="/portafolio.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Portafolio</a>
 					</li>
 				</ul>
 			</div>
@@ -96,9 +96,9 @@
 						    <p>Lanzamos el proyecto para comprobar que se ha instalado correctamente:</p>
 						    <pre><code class="hljs shell">$ npm start</code></pre>
 						    <p>Y se nos deberá abrir una ventana como esta: </p>
-						    <img src="assets/images/blog/ganache-home-empty.png">
+						    <img src="/assets/images/blog/ganache-home-empty.png">
 						    <p>Elegiremos la opción <i>quickstart</i>, y nos deberá aparecer la siguiente ventana con la que sabremos que ya se encuentra nuestra <i>ethereum blockchain</i> corriendo: </p>
-						    <img src="assets/images/blog/ganache-ethereum.png">
+						    <img src="/assets/images/blog/ganache-ethereum.png">
 						    <p id="fifth_step">Para poder comunicarnos desde el navegador con nuestra aplicación de contratos inteligentes será necesario instalar <i><b>lite-server</b></i>. Un servidor de aplicaciones web escrito en Node. Este deberemos instalarlo dentro de nuestro proyecto por lo que primero deberemos generarlo con <i>Truffle</i>. Para ello creamos la carpeta que contendrá el proyecto <label class="step">(5)</label>:</p>
 						    <pre><code class="hljs shell">$ mkdir ContratosMovilApp</code></pre>
 						    <p>Nos posicionamos en la carpeta y ejecutamos:</p>
@@ -108,7 +108,7 @@
 						    <p>Tras la instalación de nuestro proyecto truffle y el servidor web, generaremos la siguiente carpeta dentro de nuestro proyecto:
 						    <pre><code class="hljs shell">$ mkdir src</code></pre>
 						    <p>En este punto, nuestro proyecto debería tener esta estructura:</p>
-						    <!--<img width="560" height="90" src="../../assets/images/blog/directorio-truffle-init.png">-->
+						    <!--<img width="560" height="90" src="../..//assets/images/blog/directorio-truffle-init.png">-->
 						    <pre><code class="hljs shell">drwxr -xr -x 	2	javier	javier 	4096 feb	1 18:21	contracts<br>drwxr -xr -x 	2	javier	javier 	4096 feb	1 18:21	migrations<br>drwxr -xr -x 	2	javier	javier 	4096 feb	1 18:21	node_modules<br>drwxr -xr -x 	2	javier	javier 	4096 feb	1 18:21	src<br>drwxr -xr -x 	2	javier	javier 	4096 feb	1 18:21	test<br>drwxr -xr -x 	2	javier	javier 	4096 feb	1 18:21	truffle-config.js<br></code></pre>
 						    <p>En la carpeta <b>/src</b> añadiremos las fuentes del front de nuestra aplicación web. De momento generaremos un único fichero que muestre un mensaje en el navegador:</p>
 						    <pre><code class="hljs shell">$ gedit index.html</code></pre>
@@ -144,7 +144,7 @@
 						    <p> Una vez generados los ficheros arrancaremos el servidor web con el comando parametrizado:</p>
 						    <pre><code class="hljs shell">$ npm run dev</code></pre>
 						    <p>Se nos deberá abrir el navegador y mostrar lo siguiente:</p>
-						    <img src="assets/images/blog/mensaje-installacion-servidor-web.png">
+						    <img src="/assets/images/blog/mensaje-installacion-servidor-web.png">
 						    <p>Hasta aquí llegaría la instalación y configuración de nuestra aplicación descentralizada. Por un lado hemos instalado nuestra aplicación de contratos inteligentes (<a href="#second_step">2</a>, <a href="#third_step">3</a>, <a href="#fourth_step">4</a>) y por otro hemos instalado la aplicación web que hará uso de estos contratos (<a href="#fifth_step">5</a>).</p>
 
 					    </div>
@@ -169,39 +169,27 @@
 							    <div class="container">
 								    <div class="item mb-5">
 									    <div class="media">
-										    <!--<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-1.jpg" alt="image">-->
+										    <!--<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="/assets/images/blog/blog-post-thumb-1.jpg" alt="image">-->
 										    <div class="media-body">
-											    <h3 class="title mb-1"><a href="public/posts/configuracion-dapp.html">Desarrollo de Aplicaciones Descentralizadas (DAPP). Parte I - Instalación y Configuración</a></h3>
+											    <h3 class="title mb-1"><a href="/public/posts/configuracion-dapp.html">Desarrollo de Aplicaciones Descentralizadas (DAPP). Parte I - Instalación y Configuración</a></h3>
 											    <div class="meta mb-1"><span class="date">Publicado 02/02/2020</span><!--<span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span>--></div>
 											    <div class="intro">En esta guía se mostrarán los pasos a seguir para crear una DAPP (Aplicación Descentralizada) basada en contratos inteligentes con la herramienta Truffle y blockchain con Ethereum. En esta primera parte se llevará a cabo la configuración del entorno de desarrollo.</div>
-											    <a class="more-link" href="public/posts/configuracion-dapp.html"> Leer más &rarr;</a>
+											    <a class="more-link" href="/public/posts/configuracion-dapp.html"> Leer más &rarr;</a>
 										    </div>
 									    </div>
 								    </div><!--//POST-->
 
 								     <div class="item mb-5">
 									    <div class="media">
-										    <!--<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-1.jpg" alt="image">-->
+										    <!--<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="/assets/images/blog/blog-post-thumb-1.jpg" alt="image">-->
 										    <div class="media-body">
-											    <h3 class="title mb-1"><a href="public/posts/configuracion-dapp.html">Aplicación Spring Boot en Heroku. Instalación y Configuración.</a></h3>
+											    <h3 class="title mb-1"><a href="/public/posts/configuracion-dapp.html">Aplicación Spring Boot en Heroku. Instalación y Configuración.</a></h3>
 											    <div class="meta mb-1"><span class="date">Publicado ??/??/2020</span><!--<span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span>--></div>
 											    <div class="intro"></div>
-											    <a class="more-link" href="public/posts/configuracion-dapp.html"> Leer más &rarr;</a>
+											    <a class="more-link" href="/public/posts/configuracion-dapp.html"> Leer más &rarr;</a>
 										    </div>
 									    </div>
 								    </div><!--//POST-->
-
-								    <!--<<div class="item mb-5">
-									    <div class="media">
-										    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-1.jpg" alt="image">
-										    <div class="media-body">
-											    <h3 class="title mb-1"><a href="public/posts/configuracion-dapp.html">Instalación y despliegue de una aplicación web con Spring Boot 2 y Heroku</a></h3>
-											    <div class="meta mb-1"><span class="date">Publicado 01/03/2020</span><span class="date">Modificado 01/03/2020</span></div>
-											    <div class="intro">En esta guía se mostrarán los pasos a seguir para crear una aplicación web utilizando el framework Spring Boot 2 y su posterior despliegue en un servidor con la herramienta Heroku.</div>
-											    <a class="more-link" href="public/posts/configuracion-dapp.html"> Leer más &rarr;</a>
-										    </div>
-									    </div>
-								    </div>-->
 								    
 								    <!--<nav class="blog-nav nav nav-justified my-5">
 									  <a class="nav-link-prev nav-item nav-link d-none rounded-left" href="#">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
@@ -224,8 +212,8 @@
     
 
     <!-- Javascript -->          
-    <script src="assets/plugins/jquery-3.3.1.min.js"></script> 
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/plugins/jquery-3.3.1.min.js"></script> 
+    <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     
     <!-- Page Specific JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
@@ -236,8 +224,8 @@
   	<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 
     <!-- Custom JS -->
-    <script type="text/babel" src="assets/js/article-list.js"></script>
-    <script src="assets/js/blog.js"></script>
+    <script type="text/babel" src="/assets/js/article-list.js"></script>
+    <script src="/assets/js/blog.js"></script>
 
 </body>
 </html> 

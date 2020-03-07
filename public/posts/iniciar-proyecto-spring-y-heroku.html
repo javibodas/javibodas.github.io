@@ -16,9 +16,9 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/agate.min.css">
-    <link id="theme-style" rel="stylesheet" href="../../assets/css/theme.css">
-    <link rel="stylesheet" href="../../assets/css/blog.css">
-    <link rel="stylesheet" href="../../assets/css/post.css">
+    <link id="theme-style" rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    <link rel="stylesheet" href="/assets/css/post.css">
 </head> 
 
 <body>
@@ -34,7 +34,7 @@
 
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
 				<div class="profile-section pt-3 pt-lg-0">
-				    <img class="profile-image mb-3 rounded-circle mx-auto" src="../../assets/images/profile.png" alt="image" >			
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="/assets/images/profile.png" alt="image" >			
 					
 					<div class="bio mb-3">Hola mi nombre es Javier, soy Desarrollador de Software y te doy la bienvenida a mi blog personal.<br><!--<a href="../about.html"><b>Sobre mi</b></a>--></div><!--//bio-->
 					<ul class="social-list list-inline py-3 mx-auto">
@@ -75,14 +75,14 @@
 						    <pre><code class="hljs shell">C:\Users\javier> java -version<br>java version "1.8.0_131"<br>Java(TM) SE Runtime Environment (build 1.8.0_131-b11)<br>Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)</code></pre>
 						    <p>Para poder utilizar el framework Spring Boot 2 necesitaremos tener instalada la versión 8 u 11 de Java.</p>
 						    <p>Cuando tengamos instalada la versión adecuada de Java, instalaremos Eclipse. Para ello accederemos a la <a href=”https://www.eclipse.org/downloads/packages/ ”>web de descarga</a>, y nos descargaremos el siguiente paquete:</p>
-						    <img src="../../assets/images/blog/descarga-eclipse-jee.png">
+						    <img src="/assets/images/blog/descarga-eclipse-jee.png">
 						    <p>Y nos solicitará indicar la carpeta donde se encontrarán los proyectos con los que trabajemos. Por defecto la carpeta es generada en el directorio del usuario.</p>
 						    <p>Una vez tengamos eclipse instalado, añadiremos la extensión del framework de Spring. Para ello accederemos a la siguiente <a href=”https://spring.io/tools ”>url<a> y nos descargaremos el plugin:</p>
-						    <img src="../../assets/images/blog/spring-plugin.png">
+						    <img src="/assets/images/blog/spring-plugin.png">
 						    <p>El fichero que nos habremos descargado será un .jar, por lo que para poder añadir el plugin a nuestro Eclipse, deberemos desde el mismo abrir la siguiente ventana:</p>
-						    <img src="../../assets/images/blog/install-software-eclipse.png">
+						    <img src="/assets/images/blog/install-software-eclipse.png">
 						    <p>Una vez tengamos nuestro entorno de desarrollo configurado, pasaremos a generar el proyecto Spring. Esto es bastante sencillo gracias a la herramienta <a href=”https://start.spring.io/”>Spring Initializr</a></p>
-						    <img src="../../assets/images/blog/spring-initialzr-default.png">
+						    <img src="/assets/images/blog/spring-initialzr-default.png">
 						    <p>Para poder desplegar nuestro proyecto en heroku deberemos usar la herramienta de control de versiones git. Una vez la tengamos instalada ejecutamos el siguiente comando:</p>
 						    <pre><code class="hljs shell">C:\Users\javier> git init<br>Inicializado repositorio Git vacío en /home/javier/Escritorio/bodblog/.git</code></pre>
 						    <p>Tras esto deberemos instalar la herramienta de Heroku que nos permitirá desplegar en su web nuestro proyecto:</p>
@@ -92,11 +92,11 @@
 						    <p>Ahora viene lo importante, generar nuestra aplicación en la web de Heroku de manera que desde la propia web podamos gestionar también ciertos parámetros e información:</p>
 						    <pre><code class="hljs shell">C:\Users\javier> heroku create api-bodblog<br>Creating api-bodblog… done<br>https://api-bodblog.herokuapp.com/</code></pre>
 						    <p>Con esto, debería aparecernos en Heroku, la aplicación generada:</p>
-						    <img src="../../assets/images/blog/heroku-list-apps.png">
+						    <img src="/assets/images/blog/heroku-list-apps.png">
 						    <p>Y finalmente únicamente tendremos que desplegar usando git en la máquina de Heroku:</p>
 						    <pre><code class="hljs shell">C:\Users\javier> git push heroku master</code></pre>
 						    <p>Y voilá, una vez haya finalizado el despliegue de la aplicación, podremos acceder a ella a través de la url que nos devolvió la herramienta en la creación del proyecto:</p>
-						    <img src="../../assets/images/blog/hello-api-heroku-spring-deployed.png">
+						    <img src="/assets/images/blog/hello-api-heroku-spring-deployed.png">
 					    </div>
 				    </div><!--//container-->
 			    </article>
@@ -124,8 +124,8 @@
     
 
     <!-- Javascript -->          
-    <script src="../../assets/plugins/jquery-3.3.1.min.js"></script> 
-    <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/plugins/jquery-3.3.1.min.js"></script> 
+    <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     
     <!-- Page Specific JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
@@ -136,8 +136,8 @@
   	<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 
     <!-- Custom JS -->
-    <script type="text/babel" src="../../assets/js/article-list.js"></script>
-    <script src="../../assets/js/blog.js"></script>
+    <script type="text/babel" src="/assets/js/article-list.js"></script>
+    <script src="/assets/js/blog.js"></script>
 
 </body>
 </html> 
