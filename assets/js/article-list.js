@@ -8,7 +8,7 @@ class ArticlesList extends React.Component {
     super(props);
     //
     this.month = months[(new Date()).getMonth()];
-    this.year = year = (new Date()).getFullYear();
+    this.year = (new Date()).getFullYear();
     // This info should be obtained by api 
     this.articles_title = ['Aplicaciones Descentralizadas. Instalación y configuración','Aplicación Spring Boot en Heroku. Instalación y Configuración'];
     this.months_name = ['Febrero','Marzo'];
