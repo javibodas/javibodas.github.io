@@ -83,6 +83,20 @@
 						    <img src="../../assets/images/blog/install-software-eclipse.png">
 						    <p>Una vez tengamos nuestro entorno de desarrollo configurado, pasaremos a generar el proyecto Spring. Esto es bastante sencillo gracias a la herramienta <a href=”https://start.spring.io/”>Spring Initializr</a></p>
 						    <img src="../../assets/images/blog/spring-initialzr-default.png">
+						    <p>Para poder desplegar nuestro proyecto en heroku deberemos usar la herramienta de control de versiones git. Una vez la tengamos instalada ejecutamos el siguiente comando:</p>
+						    <pre><code class="hljs shell">C:\Users\javier> git init<br>Inicializado repositorio Git vacío en /home/javier/Escritorio/bodblog/.git</code></pre>
+						    <p>Tras esto deberemos instalar la herramienta de Heroku que nos permitirá desplegar en su web nuestro proyecto:</p>
+						    <pre><code class="hljs shell">C:\Users\javier>sudo npm install -g heroku</code></pre>
+						    <p> Nos logueamos con el usuario de Heroku:</p>
+						    <pre><code class="hljs shell">C:\Users\javier> heroku login</code></pre>
+						    <p>Ahora viene lo importante, generar nuestra aplicación en la web de Heroku de manera que desde la propia web podamos gestionar también ciertos parámetros e información:</p>
+						    <pre><code class="hljs shell">C:\Users\javier> heroku create api-bodblog<br>Creating api-bodblog… done<br>https://api-bodblog.herokuapp.com/</code></pre>
+						    <p>Con esto, debería aparecernos en Heroku, la aplicación generada:</p>
+						    <img src="../../assets/images/blog/heroku-list-apps.png">
+						    <p>Y finalmente únicamente tendremos que desplegar usando git en la máquina de Heroku:</p>
+						    <pre><code class="hljs shell">C:\Users\javier> git push heroku master</code></pre>
+						    <p>Y voilá, una vez haya finalizado el despliegue de la aplicación, podremos acceder a ella a través de la url que nos devolvió la herramienta en la creación del proyecto:</p>
+						    <img src="../../assets/images/blog/hello-api-heroku-spring-deployed.png">
 					    </div>
 				    </div><!--//container-->
 			    </article>
@@ -123,7 +137,7 @@
   	<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 
     <!-- Custom JS -->
-    <script type="text/babel" src="../../assets/js/articles.js"></script>
+    <script type="text/babel" src="../../assets/js/article-list.js"></script>
     <script src="../../assets/js/blog.js"></script>
 
 </body>
