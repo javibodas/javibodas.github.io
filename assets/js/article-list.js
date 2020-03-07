@@ -7,7 +7,7 @@ class ArticlesList extends React.Component {
     super(props);
     // This info should be obtained by api 
     this.months = Array('Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
-    this.data = JSON.parse('[{"year":"2020", "months":[{"month": "Febrero","articles":[{"title":"Aplicaciones Descentralizadas. Instalación y configuración", "link":"public/posts/configuracion-dapp.html"}]},{"month": "Marzo", "articles" : [{"title":"Aplicación Spring Boot en Heroku. Instalación y Configuración","link":"public/posts/iniciar-proyecto-spring-y-heroku.html"}]}]}]');
+    this.data = JSON.parse('[{"year":"2020", "months":[{"month": "Febrero","articles":[{"title":"Aplicaciones Descentralizadas. Instalación y configuración", "link":"javibodas.github.io/public/posts/configuracion-dapp.html"}]},{"month": "Marzo", "articles":[{"title":"Aplicación Spring Boot en Heroku. Instalación y Configuración","link":"javibodas.github.io/public/posts/iniciar-proyecto-spring-y-heroku.html"}]}]}]');
 
     this.current_month = this.months[(new Date()).getMonth()];
     this.current_year = (new Date()).getFullYear();
@@ -27,7 +27,7 @@ class ArticlesList extends React.Component {
 
         for(var j = 0; j < months_articles.length; j++){
             let articles_html = [];
-            let articles_title = months_articles[0].articles;
+            let articles_title = months_articles[j].articles;
             
             for(var k = 0; k < articles_title.length; k++){
               articles_html.push(<li><a href={articles_title[k].link}>{articles_title[k].title}</a></li>);
