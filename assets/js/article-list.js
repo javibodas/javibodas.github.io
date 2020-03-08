@@ -2,6 +2,14 @@
 
 const e = React.createElement;
 
+class Article extends React.Component{
+
+  render(){
+    return (<li><a href={this.props.link}>{this.props.title}</a></li>)
+  }
+
+}
+
 class ArticlesList extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +40,7 @@ class ArticlesList extends React.Component {
             let articles_title = months_articles[j].articles;
             
             for(var k = 0; k < articles_title.length; k++){
-              articles_html.push(<li><a href={articles_title[k].link}>{articles_title[k].title}</a></li>);
+              articles_html.push(<Article link={articles_title[k].link} title={articles_title[k].title} />);
             }
 
           if(months_articles[j].month == this.current_month) months_html.push(<li><span className='caret month-articles caret-down'>{months_articles[j].month}</span><ul className='nested active'>{articles_html}</ul></li>);
