@@ -1,26 +1,11 @@
 'use strict';
 
-const e = React.createElement;
-
-class Article extends React.Component{
-
-  render(){
-    return (<li><a href={this.props.link}>{this.props.title}</a></li>)
-  }
-
-}
-
 class ArticlesList extends React.Component {
   constructor(props) {
     super(props);
     // This info should be obtained by api 
-    this.months = Array('Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
     this.data = JSON.parse('[{"year":"2020", "months":[{"month": "Febrero","articles":[{"title":"Aplicaciones Descentralizadas. Instalación y configuración", "link":"/public/posts/configuracion-dapp.html"}]}]}]');
     //this.data = JSON.parse('[{"year":"2020", "months":[{"month": "Febrero","articles":[{"title":"Aplicaciones Descentralizadas. Instalación y configuración", "link":"/public/posts/configuracion-dapp.html"}]},{"month": "Marzo", "articles":[{"title":"Aplicación Spring Boot en Heroku. Instalación y Configuración","link":"/public/posts/iniciar-proyecto-spring-y-heroku.html"}]}]}]');
-
-
-    this.current_month = this.months[(new Date()).getMonth()];
-    this.current_year = (new Date()).getFullYear();
   }
 
   get_articles(){
@@ -43,13 +28,10 @@ class ArticlesList extends React.Component {
               articles_html.push(<Article link={articles_title[k].link} title={articles_title[k].title} />);
             }
 
-          if(months_articles[j].month == this.current_month) months_html.push(<li><span className='caret month-articles caret-down'>{months_articles[j].month}</span><ul className='nested active'>{articles_html}</ul></li>);
-          else months_html.push(<li><span className='caret month-articles'>{months_articles[j].month}</span><ul className='nested'>{articles_html}</ul></li>);
+          months_html.push(<Month month={months_articles[j].month} artics={articles_html} />);
         }
 
-      if(years_articles[i].year == this.current_year) list.push(<li><span className='caret year-articles caret-down'>{years_articles[i].year}</span><ul className='nested active'>{months_html}</ul></li>);
-      else list.push(<li><span className='caret year-articles'>{years_articles[i].year}</span><ul className='nested'>{months_html}</ul></li>);
-      
+      list.push(<Year year={years_articles[i].year} months={months_html}/>);
     }
     return list;
   }
@@ -59,6 +41,46 @@ class ArticlesList extends React.Component {
   }
 }
 
+class Article extends React.Component{
+
+  render(){
+    return (<li><a href={this.props.link}>{this.props.title}</a></li>);
+  }
+
+}
+
+class Month extends React.Component{
+  constructor(props){
+    super(props)
+    this.months = Array('Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+    this.current_month = this.months[(new Date()).getMonth()];
+  }
+
+  render(){
+    if(this.props.month == this.current_month){
+     return(<li><span className='caret month-articles caret-down'>{this.props.month}</span><ul className='nested active'>{this.props.artics}</ul></li>);
+    }else{
+      return(<li><span className='caret month-articles'>{this.props.month}</span><ul className='nested'>{this.props.artics}</ul></li>);
+    }    
+  }
+}
+
+class Year extends React.Component{
+  constructor(props){
+    super(props)
+    this.current_year = (new Date()).getFullYear();
+  }
+
+  render(){
+    if(this.props.year == this.current_year){
+      return(<li><span className='caret year-articles caret-down'>{this.props.year}</span><ul className='nested active'>{this.props.months}</ul></li>);
+    }else{ 
+      return(<li><span className='caret year-articles'>{this.props.year}</span><ul className='nested'>{this.props.months}</ul></li>);
+    }
+  }
+}
+
+const e = React.createElement;
 const domContainer = document.querySelector('.article-list');
 
 ReactDOM.render(e(ArticlesList), domContainer);
