@@ -17,7 +17,7 @@ class ArticleMobileList extends React.Component{
 	}
 
 	render() {
-		return(<>{create_list()}</>);
+		return(this.create_list());
 	}
 }
 
