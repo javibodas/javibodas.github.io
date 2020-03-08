@@ -2,6 +2,7 @@
 
 class ArticleMobileList extends React.Component{
 	constructor(super){
+		super(props);
 		this.data = JSON.parse('[{"title":"Aplicaciones Descentralizadas. Instalación y configuración", "link":"/public/posts/configuracion-dapp.html","publication_date":"08/03/2020","active" : 0,"description":"En esta guía se mostrarán los pasos a seguir para crear una DAPP (Aplicación Descentralizada) basada en contratos inteligentes con la herramienta Truffle y blockchain con Ethereum. En esta primera parte se llevará a cabo la configuración del entorno de desarrollo."},{"title":"Aplicación Spring Boot en Heroku. Instalación y Configuración","publication_date":"08/03/2020","link":"/public/posts/iniciar-proyecto-spring-y-heroku.html", "active" : 1,"description":""}]');
 	}
 
