@@ -46,7 +46,7 @@ class Post extends React.Component {
 	render(){
 		return(<div class="item mb-5"><div class="media"><div class="media-body">
 					<h3 class="title mb-1"><a href="/public/posts/configuracion-dapp.html">{this.props.title}</a></h3>
-					<div class="meta mb-1"><span class="date">Publicado {this.props.publication_date}</span><!--<span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span>--></div>
+					<div class="meta mb-1"><span class="date">Publicado {this.props.publication_date}</span></div>
 					<div class="intro">{this.props.description}</div>
 					<a class="more-link" href={this.props.link}> Leer más &rarr;</a>
 				</div>
