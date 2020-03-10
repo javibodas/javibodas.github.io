@@ -3,10 +3,37 @@
 class ArticleMobileList extends React.Component{
 	constructor(props){
 		super(props);
+		this.state = {
+      		error: null,
+      		isLoaded: false,
+      		items: []
+    	};
 		this.data = JSON.parse('[{"title":"Aplicaciones Descentralizadas. Instalación y configuración", "link":"/public/posts/configuracion-dapp.html","publication_date":"08/03/2020","active" : 0,"description":"En esta guía se mostrarán los pasos a seguir para crear una DAPP (Aplicación Descentralizada) basada en contratos inteligentes con la herramienta Truffle y blockchain con Ethereum. En esta primera parte se llevará a cabo la configuración del entorno de desarrollo."},{"title":"Aplicación Spring Boot en Heroku. Instalación y Configuración","publication_date":"08/03/2020","link":"/public/posts/iniciar-proyecto-spring-y-heroku.html", "active" : 1,"description":""}]');
 	}
 
-	 create_list() {
+	get_data() {
+    fetch("https://api-bodblog.herokuapp.com/articles")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.items
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  	}
+
+	create_list() {
 	    let list = [];
 	    let articles = this.data;
 
@@ -17,9 +44,15 @@ class ArticleMobileList extends React.Component{
 	}
 
 	render() {
-		return(this.create_list());
+		const { error, isLoaded, items } = this.state;
+		if (error) {
+      		return <div>Error: {error.message}</div>;
+    	} else if (!isLoaded) {
+      		return <div>Loading...</div>;
+    	} else {
+			return(this.create_list());
+		}
 	}
-}
 
 class NextPrevNav extends React.Component {
   render() {
