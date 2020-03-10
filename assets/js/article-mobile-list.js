@@ -18,7 +18,7 @@ class ArticleMobileList extends React.Component{
 	        (result) => {
 	          this.setState({
 	            isLoaded: true,
-	            items: result.items
+	            items: result
 	          });
 	        },
 	        // Note: it's important to handle errors here
@@ -36,6 +36,7 @@ class ArticleMobileList extends React.Component{
 	createList() {
 	    let list = [];
 	    let articles = this.state.items;
+	    console.log(this.state.items)
 
 	    for(var i = 0; i < articles.length; i++){
 	      list.push(<Post title={articles[i].title} publication_date={articles[i].publication_date} description={articles[i].description} link={articles[i].link}/>);
