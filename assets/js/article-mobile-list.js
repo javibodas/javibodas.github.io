@@ -44,18 +44,11 @@ class NextPrevNav extends React.Component {
 
 class Post extends React.Component {
 	render(){
-		return(<div class="item mb-5"><div class="media"><div class="media-body">
-					<h3 class="title mb-1"><a href="/public/posts/configuracion-dapp.html">{this.props.title}</a></h3>
-					<div class="meta mb-1"><span class="date">Publicado {this.props.publication_date}</span></div>
-					<div class="intro">{this.props.description}</div>
-					<a class="more-link" href={this.props.link}> Leer más &rarr;</a>
-				</div>
-				</div>
-				</div>);
+		return(<div class="item mb-5"><div class="media"><div class="media-body"><h3 class="title mb-1"><a href="/public/posts/configuracion-dapp.html">{this.props.title}</a></h3><div class="meta mb-1"><span class="date">Publicado {this.props.publication_date}</span></div><div class="intro">{this.props.description}</div><a class="more-link" href={this.props.link}> Leer más &rarr;</a></div></div></div>);
 	}
 }
 
 const e = React.createElement;
 const domContainer = document.querySelector('.article-mobile-list');
 
-ReactDOM.render(e(ArticlesTreeList), domContainer);
+ReactDOM.render(e(ArticleMobileList), domContainer);
