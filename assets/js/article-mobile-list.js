@@ -44,7 +44,6 @@ class ArticleMobileList extends React.Component{
 	}
 
 	render() {
-		this.get_data();
 		const { error, isLoaded, items } = this.state;
 		if (error) {
       		return <div>Error: {error.message}</div>;
