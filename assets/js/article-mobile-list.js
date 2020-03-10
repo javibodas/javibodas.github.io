@@ -12,30 +12,30 @@ class ArticleMobileList extends React.Component{
 	}
 
 	get_data() {
-    fetch("https://api-bodblog.herokuapp.com/articles")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.items
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+    	fetch('https://api-bodblog.herokuapp.com/articles')
+      	.then(res => res.json())
+      	.then(
+	        (result) => {
+	          this.setState({
+	            isLoaded: true,
+	            items: result.items
+	          });
+	        },
+	        // Note: it's important to handle errors here
+	        // instead of a catch() block so that we don't swallow
+	        // exceptions from actual bugs in components.
+	        (error) => {
+	          this.setState({
+	            isLoaded: true,
+	            error
+	          });
+	        }
+      	)
   	}
 
 	create_list() {
 	    let list = [];
-	    let articles = this.data;
+	    let articles = this.state.items;
 
 	    for(var i = 0; i < articles.length; i++){
 	      list.push(<Post title={articles[i].title} publication_date={articles[i].publication_date} description={articles[i].description} link={articles[i].link}/>);
@@ -53,6 +53,7 @@ class ArticleMobileList extends React.Component{
 			return(this.create_list());
 		}
 	}
+}
 
 class NextPrevNav extends React.Component {
   render() {
