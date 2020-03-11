@@ -89,12 +89,12 @@
 						    <p>Ejeuctamos la aplicación y si accedemos a la url 'localhost:8080/' debería devolvernos el texto '{'message':'Hello World!'}'.</p>
 						    <p>Con estro tendríamos nuestra API funcionando en local , por lo que siguiente paso sería desplegar nuestro proyecto en heroku. Para esto tendremos que hacer uso de la herramienta de control de versiones git. Una vez la tengamos instalada ejecutamos el siguiente comando en la carpeta del proyecto desde la consola git bash:</p>
 						    <pre><code class="hljs shell">C:\Users\javier\Git\api-bodblog> git init<br>Inicializado repositorio Git vacío en C:\Users\javier\Git\api-bodblog\.git</code></pre>
-						    <p>Tras esto deberemos instalar la herramienta de Heroku que nos permitirá desde la consola de comandos desplegar en sus servidores nuestro proyecto:</p>
-						    <pre><code class="hljs shell">C:\Users\javier>sudo npm install -g heroku</code></pre>
+						    <p>Tras esto deberemos instalar el cliente de Heroku que podremos descargar de la siguiente <a href="https://devcenter.heroku.com/articles/heroku-cli#download-and-install"> url </a>. Para windows deberemos ejecutar el .exe descargado y una vez finalizada la instalación deberíamos poder hacer uso del comando heroku en la consola:</p>
+						    <pre><code class="hljs shell">C:\Users\javier>heroku<br>CLI to interact with Heroku<br><br><b>VERSION</b><br>&nbsp;heroku/7.38.0 win32-x64 node-v12.13.0<br><br><b>USAGE</b><br>&nbsp;$ heroku [COMMAND]</code></pre>
 						    <p> Nos logueamos con el usuario de Heroku:</p>
 						    <pre><code class="hljs shell">C:\Users\javier> heroku login</code></pre>
 						    <p>Ahora viene lo importante, generar nuestra aplicación en la web de Heroku de manera que desde la propia web podamos gestionar también ciertos parámetros e información:</p>
-						    <pre><code class="hljs shell">C:\Users\javier> heroku create api-bodblog<br>Creating api-bodblog… done<br>https://api-bodblog.herokuapp.com/</code></pre>
+						    <pre><code class="hljs shell">C:\Users\javier\Documents\workspace-spring-tool-suite-v..\api-bodblog\> heroku create api-bodblog<br>Creating api-bodblog… done<br>https://api-bodblog.herokuapp.com/</code></pre>
 						    <p>Con esto, debería aparecernos en Heroku, la aplicación generada:</p>
 						    <img src="/assets/images/blog/heroku-list-apps.png">
 						    <p>Y finalmente únicamente tendremos que desplegar usando git en la máquina de Heroku:</p>
