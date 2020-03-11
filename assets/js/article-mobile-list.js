@@ -6,7 +6,7 @@ class ArticleMobileList extends React.Component{
 		this.state = {
       		error: null,
       		isLoaded: false,
-      		items: []
+      		articles: []
     	};
 	}
 
@@ -17,7 +17,7 @@ class ArticleMobileList extends React.Component{
 	        (result) => {
 	          this.setState({
 	            isLoaded: true,
-	            items: result
+	            articles: result
 	          });
 	        },
 	        (error) => {
@@ -31,7 +31,7 @@ class ArticleMobileList extends React.Component{
 
 	createList() {
 	    let list = [];
-	    let articles = this.state.items;
+	    let articles = this.state.articles;
 
 	    for(var i = 0; i < articles.length; i++){
 	      list.push(<Post title={articles[i].title} publication_date={articles[i].publication_date} description={articles[i].description} link={articles[i].link}/>);
@@ -40,7 +40,7 @@ class ArticleMobileList extends React.Component{
 	}
 
 	render() {
-		const { error, isLoaded, items } = this.state;
+		const { error, isLoaded, articles } = this.state;
 		if (error) {
       		return <Error />;
     	} else if (!isLoaded) {
@@ -62,12 +62,12 @@ class NextPrevNav extends React.Component {
 
 class Post extends React.Component {
 	render(){
-		return(<div class="item mb-5"><div class="media"><div class="media-body"><h3 class="title mb-1"><a href="/public/posts/configuracion-dapp.html">{this.props.title}</a></h3><div class="meta mb-1"><span class="date">Publicado {this.props.publication_date}</span></div><div class="intro">{this.props.description}</div><a class="more-link" href={this.props.link}> Leer más &rarr;</a></div></div></div>);
+		return(<div class="item mb-5"><div class="media"><div class="media-body"><h3 class="title mb-1"><a href={this.props.link}>{this.props.title}</a></h3><div class="meta mb-1"><span class="date">Publicado {this.props.publication_date}</span></div><div class="intro">{this.props.description}</div><a class="more-link" href={this.props.link}> Leer más &rarr;</a></div></div></div>);
 	}
 }
 
 function Loading(){
-	return(<div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div></div>);
+	return(<div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div></div>);
 }
 
 function Error(){
