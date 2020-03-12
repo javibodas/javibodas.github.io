@@ -83,11 +83,11 @@
 						    <img src="/assets/images/blog/spring-initialzr-default.png">
 						    <p>En el formulario que nos presenta la herramienta, indicaremos tanto el nombre como las dependencias de nuestro proyecto. Como hemos comentado al principio, nuestra aplicación será una API que consultará contra una BBDD PostgreSQL. Por ello deberemos añadir una dependencia para la conexión con PostgreSQL y una dependencia para el manejo de JPAs con Hibernate desde Java. Además añadiremos la librería Web que nos proporcionará anotaciones para desarrollar la API. Estas dependencias son las que apareceren en la siguiente imagen:
 						    <img src="/assets/images/blog/spring-initialzr-filled.png"> 
-						    <p>Al pulsar el botón "Generate" nos descargaremos el proyecto con toda la estructura dentro de un fichero .zip. Deberemos descompromirlo e importar dicha carpeta en nuestro IDE: File > Import...:</p>
+						    <p>Al pulsar el botón <b><i>Generate</i></b> nos descargaremos el proyecto con toda la estructura dentro de un fichero .zip. Deberemos descompromirlo e importar dicha carpeta en nuestro IDE: <b><i>File > Import...</i></b>:</p>
 						    <img src="/assets/images/blog/import-existing-maven-project.png">
-						    <p>Con el proyecto importado generaremos un controlador simple que recoja la llamada al path '/' de nuestra API. En el paquete 'api.bodblog' del proyecto crearemos un paquete llamado 'controllers' y en el generaremos una clase Java llamada 'HomeController' con el siguiente código:</p>
+						    <p>Con el proyecto importado generaremos un controlador simple que recoja la llamada al path "/" de nuestra API. En el paquete <b><i>example.api</i></b> del proyecto crearemos un paquete llamado <b><i>controllers</i></b> y en el generaremos una clase Java llamada <b><i>HomeController</i></b> con el siguiente código:</p>
 						    <pre><code class="hljs java">package com.example.api.controllers;<br><br>import org.springframework.web.bind.annotation.RequestMapping;<br>import org.springframework.web.bind.annotation.RestController;<br>import org.springframework.web.bind.annotation.ResponseBody;<br><br>@RestController<br>public class HomeController {<br><br>&nbsp;@RequestMapping(value="/")</t></br>&nbsp;@ResponseBody<br>&nbsp;public String getHome() {<br>&nbsp;&nbsp;return ("Hello World");<br>&nbsp;}<br>}</code></pre>
-						    <p>Ejeuctamos la aplicación y si accedemos a la url 'localhost:8080/' debería devolvernos el texto 'Hello World'.</p>
+						    <p>Ejeuctamos la aplicación y si accedemos a la url <b><i>localhost:8080/</i></b> debería devolvernos el texto "Hello World".</p>
 						    <img src="/assets/images/blog/launch-spring-api-local.png">
 						    <br>
 						    <img src="/assets/images/blog/hello-api-spring-local.png">
