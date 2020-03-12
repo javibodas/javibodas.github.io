@@ -86,7 +86,7 @@
 						    <p>Al pulsar el botón <b><i>Generate</i></b> nos descargaremos el proyecto con toda la estructura dentro de un fichero .zip. Deberemos descompromirlo e importar dicha carpeta en nuestro IDE: <b><i>File > Import...</i></b>:</p>
 						    <img src="/assets/images/blog/import-existing-maven-project.png">
 						    <p>Con el proyecto importado generaremos un controlador simple que recoja la llamada al path "/" de nuestra API. En el paquete <b><i>example.api</i></b> del proyecto crearemos un paquete llamado <b><i>controllers</i></b> y en el generaremos una clase Java llamada <b><i>HomeController</i></b> con el siguiente código:</p>
-						    <pre><code class="hljs java">package com.example.api.controllers;<br><br>import org.springframework.web.bind.annotation.RequestMapping;<br>import org.springframework.web.bind.annotation.RestController;<br>import org.springframework.web.bind.annotation.ResponseBody;<br><br>@RestController<br>public class HomeController {<br><br>&nbsp;@RequestMapping(value="/")</t></br>&nbsp;@ResponseBody<br>&nbsp;public String getHome() {<br>&nbsp;&nbsp;return ("Hello World");<br>&nbsp;}<br>}</code></pre>
+						    <pre><code class="hljs java">package com.example.api.controllers;<br><br>import org.springframework.web.bind.annotation.RequestMapping;<br>import org.springframework.web.bind.annotation.RestController;<br>import org.springframework.web.bind.annotation.ResponseBody;<br><br>@RestController<br>public class HomeController {<br><br>&nbsp;@RequestMapping(value="/articles", method=RequestMethod.GET)</t></br>&nbsp;@ResponseBody<br>&nbsp;public String getHome() {<br>&nbsp;&nbsp;return ("Hello World");<br>&nbsp;}<br>}</code></pre>
 						    <p>Ejeuctamos la aplicación y si accedemos a la url <b><i>localhost:8080/</i></b> debería devolvernos el texto "Hello World".</p>
 						    <img src="/assets/images/blog/launch-spring-api-local.png">
 						    <br>
@@ -104,9 +104,9 @@
 						    <p>Si accedemos a nuestra cuenta en la web de Heroku veremos que se nos habrá añadido un registro en el listado de aplicaciones:</p>
 						    <img src="/assets/images/blog/heroku-list-apps.png">
 						    <p>Desde la propia web podremos gestionar cierta información de la aplicación y añadirla add-ons (como la base de datos).</p> 
-						    <p>Antes de desplegar la apliación, comprobaremos las rutas de los repositorios git des de la carpeta de nuestra aplicación:</p>
+						    <p>Antes de desplegar la apliación, comprobaremos las rutas de los repositorios git desde la carpeta de nuestra aplicación:</p>
 						    <pre><code class="hljs shell">$ git remote<br>heroku  https://git.heroku.com/api.git (fetch)<br>heroku  https://git.heroku.com/api.git (push)</code></pre>
-						    <p>Finalmente únicamente tendremos que desplegar en el repositorio la aplicación con el comando:</p>
+						    <p>Finalmente solo tendremos que desplegar en el repositorio la aplicación con el comando:</p>
 						    <pre><code class="hljs shell">$ git push heroku master</code></pre>
 						    <p>Una vez haya finalizado el despliegue de la aplicación, haremos uso de un comando muy útil de Heroku, que es 'logs'. Con este comando podemos visualizar el log de la aplicación: 
 						    <pre><code class="hljs shell">$ heroku logs -a api</code></pre>
