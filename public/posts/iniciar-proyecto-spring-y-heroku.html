@@ -86,29 +86,30 @@
 						    <p>Al pulsar el botón "Generate" nos descargaremos el proyecto con toda la estructura dentro de un fichero .zip. Deberemos descompromirlo e importar dicha carpeta en nuestro IDE: File > Import...:</p>
 						    <img src="/assets/images/blog/import-existing-maven-project.png">
 						    <p>Con el proyecto importado generaremos un controlador simple que recoja la llamada al path '/' de nuestra API. En el paquete 'api.bodblog' del proyecto crearemos un paquete llamado 'controllers' y en el generaremos una clase Java llamada 'HomeController' con el siguiente código:</p>
-						    <pre><code class="hljs java">package com.rxample.api.controllers;<br><br>import org.springframework.web.bind.annotation.RequestMapping;<br>import org.springframework.web.bind.annotation.RestController;<br>import org.springframework.web.bind.annotation.ResponseBody;<br><br>@RestController<br>public class HomeController {<br><br>&nbsp;@RequestMapping(value="/")</t></br>&nbsp;@ResponseBody<br>&nbsp;public String getHome() {<br>&nbsp;&nbsp;return ("Hello World");<br>&nbsp;}<br>}</code></pre>
+						    <pre><code class="hljs java">package com.example.api.controllers;<br><br>import org.springframework.web.bind.annotation.RequestMapping;<br>import org.springframework.web.bind.annotation.RestController;<br>import org.springframework.web.bind.annotation.ResponseBody;<br><br>@RestController<br>public class HomeController {<br><br>&nbsp;@RequestMapping(value="/")</t></br>&nbsp;@ResponseBody<br>&nbsp;public String getHome() {<br>&nbsp;&nbsp;return ("Hello World");<br>&nbsp;}<br>}</code></pre>
 						    <p>Ejeuctamos la aplicación y si accedemos a la url 'localhost:8080/' debería devolvernos el texto 'Hello World'.</p>
 						    <img src="/assets/images/blog/launch-spring-api-local.png">
+						    <br>
 						    <img src="/assets/images/blog/hello-api-spring-local.png">
 						    <p>Con estro tendríamos nuestra API funcionando en local , por lo que el siguiente paso sería desplegar nuestro proyecto en Heroku. Para esto tendremos que hacer uso del sistema de control de versiones <a href="https://git-scm.com/downloads"><b>git</b></a>. En el caso de Windows, nos descagaremos un asistente que nos instalará el sistema y nos proporcionará una consola de comandos (Git Bash).</p>
 						    <p>Una vez la tengamos instalada ejecutamos el siguiente comando en la carpeta del proyecto desde la consola git bash:</p>
-						    <pre><code class="hljs shell">C:\Users\javier\Documents\workspace-spring-tool-suite-v..\api\> git init<br>Inicializado repositorio Git vacío en C:\Users\javier\Documents\workspace-spring-tool-suite-v..\api\.git</code></pre>
+						    <pre><code class="hljs shell">$ git init<br>Inicializado repositorio Git vacío en C:\Users\javier\Documents\workspace-spring-tool-suite-v..\api\.git</code></pre>
 						    <p>Tras esto deberemos instalar el cliente de Heroku que podremos descargar de la siguiente <a href="https://devcenter.heroku.com/articles/heroku-cli#download-and-install"><b>url</b></a>. Para windows deberemos ejecutar el .exe descargado y una vez finalizada la instalación deberíamos poder hacer uso del comando heroku desde la consola:</p>
-						    <pre><code class="hljs shell">C:\Users\javier>heroku<br>CLI to interact with Heroku<br><br><b>VERSION</b><br>&nbsp;heroku/7.38.0 win32-x64 node-v12.13.0<br><br><b>USAGE</b><br>&nbsp;$ heroku [COMMAND]</code></pre>
+						    <pre><code class="hljs shell">$ heroku<br>CLI to interact with Heroku<br><br><b>VERSION</b><br>&nbsp;heroku/7.38.0 win32-x64 node-v12.13.0<br><br><b>USAGE</b><br>&nbsp;$ heroku [COMMAND]</code></pre>
 						    <p> Nos loguearemos con el usuario de Heroku para asociar la cuenta a la máquina:</p>
-						    <pre><code class="hljs shell">C:\Users\javier> heroku login</code></pre>
+						    <pre><code class="hljs shell">$ heroku login</code></pre>
 						    <p>Con el comando funcionando, daremos de alta la aplicación en Heroku. Ejecutaremos el siguiente comando en la carpeta del proyecto:</p>
-						    <pre><code class="hljs shell">C:\Users\javier\Documents\workspace-spring-tool-suite-v..\api\> heroku create api<br>Creating api… done<br>https://api.herokuapp.com/ | https://git.heroku.com/api.git</code></pre>
+						    <pre><code class="hljs shell">$ heroku create api<br>Creating api… done<br>https://api.herokuapp.com/ | https://git.heroku.com/api.git</code></pre>
 						    <p>Si observamos el resultado del comando veremos dos urls, una corresponde al punto de acceso de la aplicación y la otra al repositorio git de Heroku donde se almacenará nuestra aplicación.</p>
 						    <p>Si accedemos a nuestra cuenta en la web de Heroku veremos que se nos habrá añadido un registro en el listado de aplicaciones:</p>
 						    <img src="/assets/images/blog/heroku-list-apps.png">
 						    <p>Desde la propia web podremos gestionar cierta información de la aplicación y añadirla add-ons (como la base de datos).</p> 
 						    <p>Antes de desplegar la apliación, comprobaremos las rutas de los repositorios git des de la carpeta de nuestra aplicación:</p>
-						    <pre><code class="hljs shell">C:\Users\javier\Documents\workspace-spring-tool-suite-v..\api\> git remote<br>heroku  https://git.heroku.com/api.git (fetch)<br>heroku  https://git.heroku.com/api.git (push)</code></pre>
+						    <pre><code class="hljs shell">$ git remote<br>heroku  https://git.heroku.com/api.git (fetch)<br>heroku  https://git.heroku.com/api.git (push)</code></pre>
 						    <p>Finalmente únicamente tendremos que desplegar en el repositorio la aplicación con el comando:</p>
-						    <pre><code class="hljs shell">C:\Users\javier\Documents\workspace-spring-tool-suite-v..\api\> git push heroku master</code></pre>
+						    <pre><code class="hljs shell">$ git push heroku master</code></pre>
 						    <p>Una vez haya finalizado el despliegue de la aplicación, haremos uso de un comando muy útil de Heroku, que es 'logs'. Con este comando podemos visualizar el log de la aplicación: 
-						    <pre><code class="hljs shell">C:\Users\javier\Documents\workspace-spring-tool-suite-v..\api\> heroku logs -a api</code></pre>
+						    <pre><code class="hljs shell">$ heroku logs -a api</code></pre>
 						    <p>En la siguiente <a href="https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-logs"><b>url</b></a> podéis ver distintos parámetros para el comando.</p> 	
 						    <p>Cuando hayamos comprobado que no hay ningún error en el log, podremos acceder a la API a través de la url que nos devolvió la herramienta en la creación de la misma:</p>
 						    <img src="/assets/images/blog/hello-api-heroku-spring-deployed.png">
