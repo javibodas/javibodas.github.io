@@ -49,7 +49,7 @@ class Post extends React.Component{
       		return <Loading />;
     	} else {
     		let post = article.content.replace('<','&lt;').replace('>','&gt;');
-			return(<div dangerouslySetInnerHTML={{ __html: htmlDecode(post) }} />);
+			return(<div dangerouslySetInnerHTML={{ __html: this.htmlDecode(post) }} />);
 		}
 	}		
 
