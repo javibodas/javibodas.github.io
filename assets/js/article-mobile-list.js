@@ -58,7 +58,7 @@ class ArticleMobileList extends React.Component{
 }
 
 function Post(props){
-	return(<div class="item mb-5"><div class="media"><div class="media-body"><h3 class="title mb-1"><a href={this.props.link}>{this.props.title}</a></h3><div class="meta mb-1"><span class="date">Publicado {this.props.publication_date}</span></div><div class="intro">{this.props.description}</div><a class="more-link" href={this.props.link}> Leer más &rarr;</a></div></div></div>);
+	return(<div class="item mb-5"><div class="media"><div class="media-body"><h3 class="title mb-1"><a href={props.link}>{props.title}</a></h3><div class="meta mb-1"><span class="date">Publicado {this.props.publication_date}</span></div><div class="intro">{this.props.description}</div><a class="more-link" href={this.props.link}> Leer más &rarr;</a></div></div></div>);
 }
 
 function NextPrevNav(){
@@ -73,7 +73,7 @@ function Loading(){
 }
 
 function Error(){
-	return(<div>Ups! No se han encontrado articulos</div>);
+	return(<div><h2>Ups! Ha habido algún problema al recoger los artículos.</h2></div>);
 }
 
 //const e = React.createElement;
