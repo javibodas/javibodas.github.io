@@ -69,7 +69,7 @@ class SpanClickable extends React.Component(){
 
   render(){
     if(this.state.open) return (<React.Fragment><span className='caret year-articles caret-down'>{this.props.text}</span><ul className='nested active'>{this.props.elements}</ul></React.Fragment>);
-    else return (<><span className='caret year-articles'>{this.props.text}</span><ul className='nested'>{this.props.elements}</ul></>);
+    else return (<React.Fragment><span className='caret year-articles'>{this.props.text}</span><ul className='nested'>{this.props.elements}</ul></React.Fragment>);
   }
 
 }
