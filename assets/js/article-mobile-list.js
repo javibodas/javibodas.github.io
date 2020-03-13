@@ -1,6 +1,6 @@
 'use strict';
 
-class MobileVersion extends React.Component{
+class HomeMobileVersion extends React.Component{
 	render() {
 		return(<div class="sections-wrapper"><section class="blog-list px-3 py-5 p-md-4"><div class="container article-mobile-list"><ArticleMobileList/></div></section></div>);
 	}
@@ -76,5 +76,4 @@ function Error(){
 	return(<div><h2>Ups! Ha habido algún problema al recoger los artículos.</h2></div>);
 }
 
-//const e = React.createElement;
-ReactDOM.render((<MobileVersion/>), document.querySelector('.mobile'));
+ReactDOM.render((<HomeMobileVersion/>), document.querySelector('.mobile'));

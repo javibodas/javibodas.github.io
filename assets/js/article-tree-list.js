@@ -16,11 +16,11 @@ class ArticlesTreeList extends React.Component {
   }
 
   create_list() {
-    let list = [];
-    let active = 0; // This variable is used to expand the tree in month and year of article with active=1 
+    let list = []; 
     let years_articles = this.data;
 
     for(var i = 0; i < years_articles.length; i++){
+        let active = 0; // This variable is used to expand the tree in month and year of article with active=1
         let months_html = [];
         let months_articles = years_articles[i].months;        
 
