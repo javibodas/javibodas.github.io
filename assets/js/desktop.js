@@ -16,6 +16,12 @@ class Post extends React.Component{
     	};
 	}
 
+	htmlDecode(content) {
+  		let e = document.createElement('div');
+  		e.innerHTML = content;
+  		return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+	}
+
 	componentDidMount() {
     	fetch('https://api-bodblog.herokuapp.com/articles/home-default')
       	.then(res => res.json())
@@ -43,7 +49,7 @@ class Post extends React.Component{
       		return <Loading />;
     	} else {
     		let post = article.content.replace('<','&lt;').replace('>','&gt;');
-			return(<div dangerouslySetInnerHTML={{ __html: post }} />);
+			return(<div dangerouslySetInnerHTML={{ __html: htmlDecode(post) }} />);
 		}
 	}		
 
