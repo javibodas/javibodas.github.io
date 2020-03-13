@@ -11,32 +11,28 @@ class ArticlesTreeList extends React.Component {
     this.data = JSON.parse('[{"year":"2020", "months":[{"month": "Febrero","articles":[{"title":"Aplicaciones Descentralizadas. Instalación y configuración", "link":"/public/posts/configuracion-dapp.html", "active" : 0}]},{"month": "Marzo", "articles":[{"title":"Aplicación Spring Boot en Heroku. Instalación y Configuración","link":"/public/posts/iniciar-proyecto-spring-y-heroku.html", "active" : 1}]}]}]');
   }
 
-  get_articles(){
-    
-  }
-
   create_list() {
     let list = []; 
     let years_articles = this.data;
 
-    for(var i = 0; i < years_articles.length; i++){
+    for(let y in years_articles){
         let active = 0; // This variable is used to expand the tree in month and year of article with active=1
         let months_html = [];
-        let months_articles = years_articles[i].months;        
+        let months_articles = y.months;        
 
-        for(var j = 0; j < months_articles.length; j++){
+        for(let m in months_articles){
             let articles_html = [];
-            let articles_title = months_articles[j].articles;
+            let articles_title = m.articles;
             
-            for(var k = 0; k < articles_title.length; k++){
-              active = articles_title[k].active;
-              articles_html.push(<Article link={articles_title[k].link} title={articles_title[k].title}/>);
+            for(let t in articles_title){
+              active = t.active;
+              articles_html.push(<Article link={t.link} title={t.title}/>);
             }
 
-          months_html.push(<Month month={months_articles[j].month} artics={articles_html} active={active}/>);
+          months_html.push(<Month month={m.month} artics={articles_html} active={active}/>);
         }
 
-      list.push(<Year year={years_articles[i].year} months={months_html} active={active}/>);
+      list.push(<Year year={y.year} months={months_html} active={active}/>);
     }
     return list;
   }
@@ -46,28 +42,35 @@ class ArticlesTreeList extends React.Component {
   }
 }
 
-class Article extends React.Component{
-
-  render(){
-    return (<li><a href={this.props.link}>{this.props.title}</a></li>);
-  }
-
+function Article(props){
+  return (<li><a href={this.props.link}>{this.props.title}</a></li>);
 }
 
-class Month extends React.Component{
-
-  render(){
-    if(this.props.active == 1) return(<li><span className='caret month-articles caret-down'>{this.props.month}</span><ul className='nested active'>{this.props.artics}</ul></li>);
-    else return(<li><span className='caret month-articles'>{this.props.month}</span><ul className='nested'>{this.props.artics}</ul></li>);   
-  }
-
+function Month(props){
+  if(this.props.active == 1) return(<li><span className='caret month-articles caret-down'>{this.props.month}</span><ul className='nested active'>{this.props.artics}</ul></li>);
+  else return(<li><span className='caret month-articles'>{this.props.month}</span><ul className='nested'>{this.props.artics}</ul></li>);   
 }
 
-class Year extends React.Component{
+function Year(){
+  return(<li><SpanClickable open={this.props.active} text={this.props.year} elements={this.props.months}/></li>);
+}
+
+class SpanClickable extends React.Component(){
+
+  constructor(props){
+    super(props);
+    this.state = {
+      open: props.open
+    }
+  }
+
+  handleClick(){
+    this.state.open ? this.state.open = 0 : this.state.open = 1
+  }
 
   render(){
-    if(this.props.active == 1) return(<li><span className='caret year-articles caret-down'>{this.props.year}</span><ul className='nested active'>{this.props.months}</ul></li>);
-    else return(<li><span className='caret year-articles'>{this.props.year}</span><ul className='nested'>{this.props.months}</ul></li>);
+    if(this.state.open) return (<span className='caret year-articles caret-down'>{this.props.text}</span><ul className='nested active'>{this.props.elements}</ul>);
+    else return (<span className='caret year-articles'>{this.props.text}</span><ul className='nested'>{this.props.elements}</ul>);
   }
 
 }
