@@ -47,8 +47,7 @@ function Article(props){
 }
 
 function Month(props){
-  if(this.props.active == 1) return(<li><span className='caret month-articles caret-down'>{this.props.month}</span><ul className='nested active'>{this.props.artics}</ul></li>);
-  else return(<li><span className='caret month-articles'>{this.props.month}</span><ul className='nested'>{this.props.artics}</ul></li>);   
+  return(<li><SpanClickable open={this.props.active} text={this.props.month} elements={this.props.artics}/></li>); 
 }
 
 function Year(){
