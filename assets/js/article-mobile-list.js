@@ -77,4 +77,4 @@ function Error(){
 }
 
 //const e = React.createElement;
-ReactDOM.render((<MobileVersion/>)), document.querySelector('.mobile'));
+ReactDOM.render((<MobileVersion/>), document.querySelector('.mobile'));
