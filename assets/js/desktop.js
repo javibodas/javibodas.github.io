@@ -42,6 +42,8 @@ class Post extends React.Component{
     	} else if (!isLoaded) {
       		return <Loading />;
     	} else {
+    		article.content.replace('<','&lt;');
+    		article.content.replace('>','&gt;');
 			return(<div dangerouslySetInnerHTML={{ __html: article.content }} />);
 		}
 	}		
