@@ -1,5 +1,11 @@
 'use strict';
 
+class MobileVersion extends React.Component{
+	render() {
+		return(<div class="sections-wrapper"><section class="blog-list px-3 py-5 p-md-4"><div class="container article-mobile-list"><ArticleMobileList/></div></section></div>);
+	}
+}
+
 class ArticleMobileList extends React.Component{
 	constructor(props){
 		super(props);
@@ -51,19 +57,15 @@ class ArticleMobileList extends React.Component{
 	}
 }
 
-class NextPrevNav extends React.Component {
-  render() {
+function NextPrevNav{
     return (<nav className='blog-nav nav nav-justified my-5'>
-									  <a className='nav-link-prev nav-item nav-link d-none rounded-left' href='#'>Previous<i className='arrow-prev fas fa-long-arrow-alt-left'></i></a>
-									  <a className='nav-link-next nav-item nav-link rounded' href='blog-list.html'>Next<i className='arrow-next fas fa-long-arrow-alt-right'></i></a>
-									</nav>);
-  }
+    			<a className='nav-link-prev nav-item nav-link d-none rounded-left' href='#'>Previous<i className='arrow-prev fas fa-long-arrow-alt-left'></i></a>
+				<a className='nav-link-next nav-item nav-link rounded' href='blog-list.html'>Next<i className='arrow-next fas fa-long-arrow-alt-right'></i></a>
+			</nav>);
 }
 
-class Post extends React.Component {
-	render(){
-		return(<div class="item mb-5"><div class="media"><div class="media-body"><h3 class="title mb-1"><a href={this.props.link}>{this.props.title}</a></h3><div class="meta mb-1"><span class="date">Publicado {this.props.publication_date}</span></div><div class="intro">{this.props.description}</div><a class="more-link" href={this.props.link}> Leer más &rarr;</a></div></div></div>);
-	}
+function Post(){
+	return(<div class="item mb-5"><div class="media"><div class="media-body"><h3 class="title mb-1"><a href={this.props.link}>{this.props.title}</a></h3><div class="meta mb-1"><span class="date">Publicado {this.props.publication_date}</span></div><div class="intro">{this.props.description}</div><a class="more-link" href={this.props.link}> Leer más &rarr;</a></div></div></div>);
 }
 
 function Loading(){
@@ -74,7 +76,5 @@ function Error(){
 	return(<div>Ups! No se han encontrado articulos</div>);
 }
 
-const e = React.createElement;
-const domContainer = document.querySelector('.article-mobile-list');
-
-ReactDOM.render(e(ArticleMobileList), domContainer);
+//const e = React.createElement;
+ReactDOM.render((<MobileVersion/>)), document.querySelector('.mobile'));
