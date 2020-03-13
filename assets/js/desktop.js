@@ -42,7 +42,7 @@ class Post extends React.Component{
     	} else if (!isLoaded) {
       		return <Loading />;
     	} else {
-			return(article.content);
+			return(<div dangerouslySetInnerHTML={{ __html: article.content }} />);
 		}
 	}		
 
