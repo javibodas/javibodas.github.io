@@ -64,7 +64,7 @@ class SpanClickable extends React.Component{
   }
 
   handleClick(){
-    this.state.open ? this.state.open = 0 : this.state.open = 1
+    this.state.open ? this.setState({open: 0}) : this.setState({open: 1})
   }
 
   render(){
