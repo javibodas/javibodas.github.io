@@ -1,12 +1,12 @@
 'use strict';
 
-class HomeMobileVersion extends React.Component{
+export class HomeMobileVersion extends React.Component{
 	render() {
-		return(<div class="sections-wrapper"><section class="blog-list px-3 py-5 p-md-4"><div class="container article-mobile-list"><ArticleMobileList/></div></section></div>);
+		return(<div class="sections-wrapper"><section class="blog-list px-3 py-5 p-md-4"><div class="container article-mobile-list"><ArticleList/></div></section></div>);
 	}
 }
 
-class ArticleMobileList extends React.Component{
+class ArticleList extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
@@ -40,7 +40,7 @@ class ArticleMobileList extends React.Component{
 	    let articles = this.state.articles;
 
 	    for(var i = 0; i < articles.length; i++){
-	      list.push(<Post title={articles[i].title} publication_date={articles[i].publication_date} description={articles[i].description} link={articles[i].link}/>);
+	      list.push(<PostEntry title={articles[i].title} publication_date={articles[i].publication_time} description={articles[i].description} link={articles[i].link}/>);
 	    }
 	    return list;
 	}
@@ -57,7 +57,7 @@ class ArticleMobileList extends React.Component{
 	}
 }
 
-function Post(props){
+function PostEntry(props){
 	return(<div class="item mb-5"><div class="media"><div class="media-body"><h3 class="title mb-1"><a href={props.link}>{props.title}</a></h3><div class="meta mb-1"><span class="date">Publicado {props.publication_date}</span></div><div class="intro">{props.description}</div><a class="more-link" href={props.link}> Leer más &rarr;</a></div></div></div>);
 }
 
