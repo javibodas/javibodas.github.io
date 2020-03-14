@@ -54,7 +54,7 @@ function Year(){
   return(<li><SpanClickable open={this.props.active} text={this.props.year} elements={this.props.months}/></li>);
 }
 
-class SpanClickable extends React.Component(){
+class SpanClickable extends React.Component{
 
   constructor(props){
     super(props);
