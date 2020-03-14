@@ -64,10 +64,12 @@ class SpanClickable extends React.Component{
   }
 
   handleClick(){
+    console.log('Click with' + this.state.open);
     this.state.open == 1 ? this.setState({open: 0}) : this.setState({open: 1})
   }
 
   render(){
+     console.log('Render with:' + this.state.open);
     if(this.state.open == 1) return (<React.Fragment><span className='caret year-articles caret-down'>{this.props.text}</span><ul className='nested active'>{this.props.elements}</ul></React.Fragment>);
     else return (<React.Fragment><span className='caret year-articles'>{this.props.text}</span><ul className='nested'>{this.props.elements}</ul></React.Fragment>);
   }
