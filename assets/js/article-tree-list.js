@@ -11,7 +11,7 @@ class ArticlesTree extends React.Component {
     this.data = JSON.parse('[{"year":"2020", "months":[{"month": "Febrero","articles":[{"title":"Aplicaciones Descentralizadas. Instalación y configuración", "link":"/public/posts/configuracion-dapp.html", "active" : 0}]},{"month": "Marzo", "articles":[{"title":"Aplicación Spring Boot en Heroku. Instalación y Configuración","link":"/public/posts/iniciar-proyecto-spring-y-heroku.html", "active" : 1}]}]}]');
   }
 
-  create_list() {
+  createList() {
     let list = []; 
     let years_articles = this.data;
 
@@ -38,7 +38,7 @@ class ArticlesTree extends React.Component {
   }
 
   render() {
-    return (this.create_list());
+    return (this.createList());
   }
 }
 
@@ -68,7 +68,7 @@ class SpanClickable extends React.Component{
   }
 
   render(){
-    if(this.state.open) return (<React.Fragment><span className='caret year-articles caret-down'>{this.props.text}</span><ul className='nested active'>{this.props.elements}</ul></React.Fragment>);
+    if(this.state.open == 1) return (<React.Fragment><span className='caret year-articles caret-down'>{this.props.text}</span><ul className='nested active'>{this.props.elements}</ul></React.Fragment>);
     else return (<React.Fragment><span className='caret year-articles'>{this.props.text}</span><ul className='nested'>{this.props.elements}</ul></React.Fragment>);
   }
 
