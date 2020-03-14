@@ -58,17 +58,15 @@ class SpanClickable extends React.Component{
 
   constructor(props){
     super(props);
-    if props.open == 0{
-      this.state = {open: 0, spanClass: 'caret year-articles', ulClass: 'nested'}
-    }
-    else{
-      this.state = {open: 1, spanClass: 'caret year-articles caret-down', ulClass: 'nested active'}
+    if props.open ? this.state = {open: 0, spanClass: 'caret year-articles', ulClass: 'nested'}
+                  : this.state = {open: 1, spanClass: 'caret year-articles caret-down', ulClass: 'nested active'}
     }
   }
 
   handleClick(){
     console.log('Click with' + this.state.open);
-    this.state.open == 1 ? this.setState({open: 0, spanClass: 'caret year-articles', ulClass: 'nested'}) : this.setState({open: 1, spanClass: 'caret year-articles caret-down', ulClass: 'nested active'})
+    this.state.open ? this.setState({open: 0, spanClass: 'caret year-articles', ulClass: 'nested'}) 
+                    : this.setState({open: 1, spanClass: 'caret year-articles caret-down', ulClass: 'nested active'})
   }
 
   render(){
