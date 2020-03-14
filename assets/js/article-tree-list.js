@@ -24,9 +24,9 @@ class ArticlesTree extends React.Component {
             let articles_html = [];
             let articles_title = m.articles;
             
-            for(var t of articles_title){
-              active = t.active;
-              articles_html.push(<Article link={t.link} title={t.title}/>);
+            for(var a of articles_title){
+              active = a.active;
+              articles_html.push(<Article link={a.link} title={a.title}/>);
             }
 
           months_html.push(<Month month={m.month} artics={articles_html} active={active}/>);
@@ -58,20 +58,24 @@ class SpanClickable extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {
-      open: props.open
+    if props.open == 0{
+      this.state = {open: 0, spanClass: 'caret year-articles', ulClass: 'nested'}
+    }
+    else{
+      this.state = {open: 1, spanClass: 'caret year-articles caret-down', ulClass: 'nested active'}
     }
   }
 
   handleClick(){
     console.log('Click with' + this.state.open);
-    this.state.open == 1 ? this.setState({open: 0}) : this.setState({open: 1})
+    this.state.open == 1 ? this.setState({open: 0, spanClass: 'caret year-articles', ulClass: 'nested'}) : this.setState({open: 1, spanClass: 'caret year-articles caret-down', ulClass: 'nested active'})
   }
 
   render(){
      console.log('Render with:' + this.state.open);
-    if(this.state.open == 1) return (<React.Fragment><span className='caret year-articles caret-down'>{this.props.text}</span><ul className='nested active'>{this.props.elements}</ul></React.Fragment>);
-    else return (<React.Fragment><span className='caret year-articles'>{this.props.text}</span><ul className='nested'>{this.props.elements}</ul></React.Fragment>);
+     return (<React.Fragment><span className={this.state.spanClass} onClick={handleClick}>{this.props.text}</span><ul className={this.state.ulClass}>{this.props.elements}</ul></React.Fragment>);
+     //if(this.state.open == 1) return (<React.Fragment><span className='caret year-articles caret-down'>{this.props.text}</span><ul className='nested active'>{this.props.elements}</ul></React.Fragment>);
+     //else return (<React.Fragment><span className='caret year-articles'>{this.props.text}</span><ul className='nested'>{this.props.elements}</ul></React.Fragment>);
   }
 
 }
