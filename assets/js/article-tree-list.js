@@ -8,15 +8,32 @@ class ArticlesTree extends React.Component {
           isLoaded: false,
           articles: []
     }; 
-    this.data = JSON.parse('[{"year":"2020", "months":[{"month": "Febrero","articles":[{"title":"Aplicaciones Descentralizadas. Instalación y configuración", "link":"/public/posts/configuracion-dapp.html", "active" : 0}]},{"month": "Marzo", "articles":[{"title":"Aplicación Spring Boot en Heroku. Instalación y Configuración","link":"/public/posts/iniciar-proyecto-spring-y-heroku.html", "active" : 1}]}]}]');
+  }
+
+  componentDidMount() {
+    fetch('https://api-bodblog.herokuapp.com/articles/tree')
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          isLoaded: true,
+          articles: result
+        });
+      },
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error
+        });
+      }
+    )
   }
 
   createList() {
     let list = []; 
-    let years_articles = this.data;
+    let years_articles = this.state.articles;
 
     for(var y of years_articles){
-        let active = 0; // This variable is used to expand the tree in month and year of article with active=1
         let months_html = [];
         let months_articles = y.months;        
 
@@ -25,14 +42,13 @@ class ArticlesTree extends React.Component {
             let articles_title = m.articles;
             
             for(var a of articles_title){
-              active = a.active;
               articles_html.push(<Article link={a.link} title={a.title}/>);
             }
 
-          months_html.push(<Month month={m.month} artics={articles_html} active={active}/>);
+          months_html.push(<Month month={m.month} artics={articles_html} active={m.active}/>);
         }
 
-      list.push(<Year year={y.year} months={months_html} active={active}/>);
+      list.push(<Year year={y.year} months={months_html} active={y.active}/>);
     }
     return list;
   }
