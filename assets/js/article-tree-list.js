@@ -63,19 +63,19 @@ class SpanClickable extends React.Component{
   }
 
   componentDidMount() {
-    console.log('Mount with' + this.props.open);
+    console.log('Mount with' + this.props.open + '-' + this.props.text);
     this.props.open ? this.setState({open: 0, spanClass: 'caret year-articles', ulClass: 'nested'})
                   : this.setState({open: 1, spanClass: 'caret year-articles caret-down', ulClass: 'nested active'})
   }
 
   handleClick(){
-    console.log('Click with' + this.state.open);
+    console.log('Click with' + this.state.open + '-' + this.props.text);
     this.state.open ? this.setState({open: 0, spanClass: 'caret year-articles', ulClass: 'nested'}) 
                     : this.setState({open: 1, spanClass: 'caret year-articles caret-down', ulClass: 'nested active'})
   }
 
   render(){
-     console.log('Render with:' + this.state.open);
+     console.log('Render with:' + this.state.open + '-' + this.props.text);
      return (<React.Fragment><span className={this.state.spanClass} onClick={this.handleClick}>{this.props.text}</span><ul className={this.state.ulClass}>{this.props.elements}</ul></React.Fragment>);
   }
 
