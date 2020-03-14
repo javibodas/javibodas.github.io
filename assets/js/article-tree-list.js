@@ -1,6 +1,6 @@
 'use strict';
 
-class ArticlesTreeList extends React.Component {
+class ArticlesTree extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,7 +50,7 @@ function Month(props){
   return(<li><SpanClickable open={this.props.active} text={this.props.month} elements={this.props.artics}/></li>); 
 }
 
-function Year(){
+function Year(props){
   return(<li><SpanClickable open={this.props.active} text={this.props.year} elements={this.props.months}/></li>);
 }
 
@@ -74,7 +74,7 @@ class SpanClickable extends React.Component{
 
 }
 
-ReactDOM.render(<ArticlesTreeList/>, document.querySelector('.article-list'));
+ReactDOM.render(<ArticlesTree/>, document.querySelector('.article-list'));
 
 // This sould be replaced by code in react using react elements instead html elements.
 /*var toggler = document.getElementsByClassName("caret");
