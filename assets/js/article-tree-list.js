@@ -43,15 +43,15 @@ class ArticlesTree extends React.Component {
 }
 
 function Article(props){
-  return (<li><a href={this.props.link}>{this.props.title}</a></li>);
+  return (<li><a href={props.link}>{props.title}</a></li>);
 }
 
 function Month(props){
-  return(<li><SpanClickable open={this.props.active} text={this.props.month} elements={this.props.artics}/></li>); 
+  return(<li><SpanClickable open={props.active} text={props.month} elements={props.artics}/></li>); 
 }
 
 function Year(props){
-  return(<li><SpanClickable open={this.props.active} text={this.props.year} elements={this.props.months}/></li>);
+  return(<li><SpanClickable open={props.active} text={props.year} elements={props.months}/></li>);
 }
 
 class SpanClickable extends React.Component{
