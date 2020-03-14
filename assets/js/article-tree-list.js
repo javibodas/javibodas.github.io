@@ -15,16 +15,16 @@ class ArticlesTree extends React.Component {
     let list = []; 
     let years_articles = this.data;
 
-    for(let y in years_articles){
+    for(var y of years_articles){
         let active = 0; // This variable is used to expand the tree in month and year of article with active=1
         let months_html = [];
         let months_articles = y.months;        
 
-        for(let m in months_articles){
+        for(var m of months_articles){
             let articles_html = [];
             let articles_title = m.articles;
             
-            for(let t in articles_title){
+            for(var t of articles_title){
               active = t.active;
               articles_html.push(<Article link={t.link} title={t.title}/>);
             }
@@ -75,12 +75,3 @@ class SpanClickable extends React.Component{
 }
 
 ReactDOM.render(<ArticlesTree/>, document.querySelector('.article-list'));
-
-// This sould be replaced by code in react using react elements instead html elements.
-/*var toggler = document.getElementsByClassName("caret");
-for (var i = 0; i < toggler.length; i++) {
-    toggler[i].addEventListener("click", function() {
-      this.parentElement.querySelector(".nested").classList.toggle("active");
-      this.classList.toggle("caret-down");
-  });
-}*/
