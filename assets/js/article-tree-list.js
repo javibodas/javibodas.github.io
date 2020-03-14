@@ -76,7 +76,7 @@ class SpanClickable extends React.Component{
 
   render(){
      console.log('Render with:' + this.state.open);
-     return (<React.Fragment><span className={this.state.spanClass} onClick={handleClick}>{this.props.text}</span><ul className={this.state.ulClass}>{this.props.elements}</ul></React.Fragment>);
+     return (<React.Fragment><span className={this.state.spanClass} onClick={this.handleClick}>{this.props.text}</span><ul className={this.state.ulClass}>{this.props.elements}</ul></React.Fragment>);
   }
 
 }
