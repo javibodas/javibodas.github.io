@@ -1,6 +1,6 @@
 'use strict';
 
-export class HomeMobileVersion extends React.Component{
+class HomeMobileVersion extends React.Component{
 	render() {
 		return(<div class="sections-wrapper"><section class="blog-list px-3 py-5 p-md-4"><div class="container article-mobile-list"><ArticleList/></div></section></div>);
 	}
