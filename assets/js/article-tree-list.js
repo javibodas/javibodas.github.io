@@ -1,5 +1,7 @@
 'use strict';
 
+import getAPIURL from './api/api.js'
+
 class ArticlesTree extends React.Component {
   constructor(props) {
     super(props);
