@@ -24,7 +24,9 @@ function ProfileImage(){
 }
 
 function BlogDescription(){
-	return (<div className="bio mb-3">Hola mi nombre es Javier, soy Desarrollador de Software y te doy la bienvenida a mi blog personal.</div>);
+	return React.createElement("div", {
+  			className: "bio mb-3"
+			}, "Hola mi nombre es Javier, soy Desarrollador de Software y te doy la bienvenida a mi blog personal.");
 }
 
 function SocialList(){
