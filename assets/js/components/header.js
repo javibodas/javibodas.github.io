@@ -1,13 +1,13 @@
 'use strict';
 
 function Header(){
-	return (<nav className="navbar navbar-expand-lg navbar-dark" ><React.Fragment><ButtonHome/><Navigation/></React.Fragment></nav>);
+	return (<nav className="navbar navbar-expand-lg navbar-dark" ><React.Fragment><ButtonHome/><Navigation/></React.Fragment></nav>)
 }
 
 function ButtonHome(){
 	return (<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
 			<span className="navbar-toggler-icon"></span>
-			</button>);
+			</button>)
 }
 
 function Navigation(){
@@ -16,17 +16,13 @@ function Navigation(){
 }
 
 function ProfileSection(){
-	return (<div className="profile-section pt-3 pt-lg-0"><React.Fragment><ProfileImage/><BlogDescription/><SocialList/></React.Fragment></div>)
-}
-
-function ProfileImage(){
-	return (<img className="profile-image mb-3 rounded-circle mx-auto" src="/assets/images/profile.png" alt="image" >);
+	return (<div className="profile-section pt-3 pt-lg-0"><React.Fragment><BlogDescription/><SocialList/></React.Fragment></div>)
 }
 
 function BlogDescription(){
 	return React.createElement("div", {
   			className: "bio mb-3"
-			}, "Hola mi nombre es Javier, soy Desarrollador de Software y te doy la bienvenida a mi blog personal.");
+			}, "Hola mi nombre es Javier, soy Desarrollador de Software y te doy la bienvenida a mi blog personal.")
 }
 
 function SocialList(){
@@ -35,7 +31,7 @@ function SocialList(){
 			            <li className="list-inline-item"><a href="https://www.linkedin.com/in/javier-gonz%C3%A1lez-bodas-70a59787/"><i className="fab fa-linkedin-in fa-fw"></i></a></li>
 			            <li className="list-inline-item"><a href="https://github.com/javibodas"><i className="fab fa-github-alt fa-fw"></i></a></li>
 			            <li className="list-inline-item"><a href="mailto:gonzalezbodasjavier@yahoo.es"><i className="fas fa-envelope fa-fw"></i></a></li>
-			        </ul>);
+			        </ul>)
 }
 
 function NavigationBar(){
