@@ -1,5 +1,16 @@
 'use strict';
 
+class Articles extends React.Component{
+  render() {
+    return (<div class="px-3 p-md-5">
+              <div class="section-inner">
+                  <div class="heading py-2"><h4>Articulos</h4></div>
+                  <ArticlesTree />
+                </div>
+            </div>);
+  }
+}
+
 class ArticlesTree extends React.Component {
   constructor(props) {
     super(props);
@@ -54,7 +65,7 @@ class ArticlesTree extends React.Component {
   }
 
   render() {
-    return (this.createList());
+    return (<ul class="article-list">{this.createList()}</ul>);
   }
 }
 
@@ -93,5 +104,3 @@ class SpanClickable extends React.Component{
   }
 
 }
-
-ReactDOM.render(<ArticlesTree/>, document.querySelector('.article-list'));
