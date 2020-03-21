@@ -58,7 +58,7 @@ class Post extends React.Component{
 						<div class="container">
 							 <header class="blog-post-header">
 						    	<h2 class="title mb-2">{article.title}</h2>
-						    	<!--<div class="meta mb-3"><i class="fas fa-hashtag"></i>blockchain</div>-->
+						    	//<!--<div class="meta mb-3"><i class="fas fa-hashtag"></i>blockchain</div>-->
 						    	<div class="meta mb-3"><span class="date">Publicado {article.publication_time}</span><!--<span class="time">5 min read</span><span class="comment">--></div>
 					    	 </header>
 				   			 <div class="blog-post-body" dangerouslySetInnerHTML={{__html: post}}>
