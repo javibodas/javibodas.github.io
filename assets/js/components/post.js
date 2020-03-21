@@ -21,22 +21,7 @@ class Post extends React.Component{
 	}
 
 	componentDidMount() {
-    	fetch('https://api-bodblog.herokuapp.com/articles/home-default')
-      	.then(res => res.json())
-      	.then(
-	        (result) => {
-	          this.setState({
-	            isLoaded: true,
-	            article: result
-	          });
-	        },
-	        (error) => {
-	          this.setState({
-	            isLoaded: true,
-	            error
-	          });
-	        }
-      	)
+    	this.setState({article: this.props.post})
   	}
 
   	componentDidUpdate() {

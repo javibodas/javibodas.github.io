@@ -5,7 +5,7 @@ class Articles extends React.Component{
     return (<div class="px-3 p-md-5">
               <div class="section-inner">
                   <div class="heading py-2"><h4>Articulos</h4></div>
-                  <ArticlesTree />
+                  <ArticlesTree articles={this.props.articles}/>
                 </div>
             </div>);
   }
@@ -22,22 +22,7 @@ class ArticlesTree extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://api-bodblog.herokuapp.com/articles/tree')
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          isLoaded: true,
-          articles: result
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    )
+    this.setState({articles: this.props.articles});
   }
 
   createList() {
@@ -53,7 +38,7 @@ class ArticlesTree extends React.Component {
             let articles_title = m.articles;
             
             for(var a of articles_title){
-              articles_html.push(<Article link={a.link} title={a.title}/>);
+              articles_html.push(<Article link={a.link} title={a.title} click={this.props.clickArticle}/>);
             }
 
           months_html.push(<Month month={m.month} artics={articles_html} active={m.active}/>);
@@ -70,7 +55,7 @@ class ArticlesTree extends React.Component {
 }
 
 function Article(props){
-  return (<li><a href={props.link}>{props.title}</a></li>);
+  return (<li><a onClick={this.props.click}>{props.title}</a></li>);
 }
 
 function Month(props){
