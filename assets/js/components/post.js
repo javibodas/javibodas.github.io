@@ -27,7 +27,7 @@ class Post extends React.Component{
   	}
 
 	render(){
-		let post = article.content
+		let post = this.state.article.content
 		return(<article class="blog-post px-3 py-5 p-md-5">
 						<div class="container">
 							 <header class="blog-post-header">
