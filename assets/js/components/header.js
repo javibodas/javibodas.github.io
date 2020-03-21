@@ -1,7 +1,13 @@
 'use strict';
 
 function Header(){
-	return (<nav className="navbar navbar-expand-lg navbar-dark" ><React.Fragment><ButtonHome/><Navigation/></React.Fragment></nav>)
+	return (<header class="header text-center">
+				<nav className="navbar navbar-expand-lg navbar-dark" >
+					<React.Fragment>
+						<ButtonHome/><Navigation/>
+					</React.Fragment>
+				</nav>
+			</header>)
 }
 
 function ButtonHome(){
