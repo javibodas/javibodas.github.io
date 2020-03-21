@@ -2,7 +2,7 @@
 
 class DesktopVersion extends React.Component{
 	render() {
-		return(<div class="row desktop">
+		return(<React.Fragment>
 						<div class="col-lg-9 col-12"><Post /></div>
 						<div class="col-lg-3 col-12 right-bar">
 							<div class="px-3 p-md-5">
@@ -12,7 +12,7 @@ class DesktopVersion extends React.Component{
 								</div>
 							</div>
 						</div>
-				</div>);
+				<React.Fragment>);
 	}
 }
 
