@@ -16,10 +16,6 @@ class Post extends React.Component{
     	};
 	}
 
-	htmlDecode(content) {
-  		return {__html: content}
-	}
-
 	componentDidMount() {
     	fetch('https://api-bodblog.herokuapp.com/articles/home-default')
       	.then(res => res.json())
@@ -47,7 +43,7 @@ class Post extends React.Component{
       		return <Loading />;
     	} else {
     		let post = article.content.replace('&lt;','<').replace('&gt;','>');
-			return(<div class="blog-post-body" dangerouslySetInnerHTML={this.htmlDecode(article.content)}></div>);
+			return(<div dangerouslySetInnerHTML={{__html: article.content}}></div>);
 		}
 	}		
 
