@@ -4,7 +4,7 @@ class DesktopVersion extends React.Component{
 
 	constructor(props){
 		super(props);
-		this.state = { isLoadedTree: false, isLoadedDefaultAr: false, articlesTreeList : [], defaultArticle: {} }
+		this.state = { error: null, isLoadedTree: false, isLoadedDefaultAr: false, articlesTreeList : [], defaultArticle: {} }
 	}
 
 	componentDidMount(){
@@ -45,7 +45,22 @@ class DesktopVersion extends React.Component{
 	}
 
 	handleClickArticle(id){
-
+		fetch('https://api-bodblog.herokuapp.com/articles/' + id)
+    	.then(res => res.json())
+	    .then(
+	      (result) => {
+	        this.setState({
+	          isLoadedTree: true,
+	          defaultArticle: result
+	        });
+	      },
+	      (error) => {
+	        this.setState({
+	          isLoadedTree: true,
+	          error
+	        });
+	      }
+	    );
 	}
 
 	render(){
