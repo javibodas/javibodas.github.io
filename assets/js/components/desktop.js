@@ -12,7 +12,7 @@ class DesktopVersion extends React.Component{
 								</div>
 							</div>
 						</div>
-				<React.Fragment>);
+				</React.Fragment>);
 	}
 }
 
