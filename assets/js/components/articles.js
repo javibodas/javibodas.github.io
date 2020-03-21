@@ -14,11 +14,7 @@ class Articles extends React.Component{
 class ArticlesTree extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-          error: null,
-          isLoaded: false,
-          articles: []
-    }; 
+    this.state = { articles: [] }; 
   }
 
   componentDidMount() {

@@ -13,11 +13,7 @@
 class Post extends React.Component{
 	constructor(props){
 		super(props);
-		this.state = {
-      		error: null,
-      		isLoaded: false,
-      		article: {}
-    	};
+		this.state = {	article: {}	};
 	}
 
 	componentDidMount() {
@@ -31,14 +27,8 @@ class Post extends React.Component{
   	}
 
 	render(){
-		const { error, isLoaded, article } = this.state;
-		if (error) {
-      		return <Error />;
-    	} else if (!isLoaded) {
-      		return <Loading />;
-    	} else {
-    		let post = article.content
-			return(<article class="blog-post px-3 py-5 p-md-5">
+		let post = article.content
+		return(<article class="blog-post px-3 py-5 p-md-5">
 						<div class="container">
 							 <header class="blog-post-header">
 						    	<h2 class="title mb-2">{article.title}</h2>
@@ -48,15 +38,5 @@ class Post extends React.Component{
 				   			 </div>
 				   		</div>
 				   	</article>);
-		}
 	}		
-
-}
-
-function Loading(){
-	return(<div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div></div>);
-}
-
-function Error(){
-	return(<div><h2>Ups! Ha habido algún problema al recoger los artículos.</h2></div>);
 }
