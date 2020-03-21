@@ -43,7 +43,7 @@ class Post extends React.Component{
       		return <Loading />;
     	} else {
     		let post = article.content.replace('&lt;','<').replace('&gt;','>');
-			return(article.content);
+			return(<div dangerouslySetInnerHTML={{__html: marked(article.content, {sanitize: true})}}></div>);
 		}
 	}		
 
