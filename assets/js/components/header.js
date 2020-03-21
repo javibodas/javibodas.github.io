@@ -55,6 +55,3 @@ function NavigationBarItem(props){
 					</li>)
 	}
 }
-
-
-ReactDOM.render(<Header/>, document.querySelector('.header'));

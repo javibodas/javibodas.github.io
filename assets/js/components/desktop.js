@@ -2,12 +2,9 @@
 
 class DesktopVersion extends React.Component{
 	render() {
-		return(<React.Fragment>
+		return(<div class="row desktop">
 						<div class="col-lg-9 col-12"><Post /></div>
 						<div class="col-lg-3 col-12 right-bar"><Articles /></div>
-				</React.Fragment>);
+				</div>);
 	}
 }
-
-
-ReactDOM.render(<DesktopVersion/>, document.querySelector('.desktop'));
