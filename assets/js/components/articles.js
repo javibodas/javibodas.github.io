@@ -5,7 +5,7 @@ class Articles extends React.Component{
     return (<div class="px-3 p-md-5">
               <div class="section-inner">
                   <div class="heading py-2"><h4>Articulos</h4></div>
-                  <ArticlesTree articles={this.props.articles}/>
+                  <ArticlesTree articles={this.props.articles} clickArticle={this.props.clickArticle}/>
                 </div>
             </div>);
   }
