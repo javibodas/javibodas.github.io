@@ -39,7 +39,7 @@ function SocialList(){
 function NavigationBar(){
 	return (<ul className="navbar-nav flex-column text-left">
 				<React.Fragment>
-					<NavigationBarItem link='/index.html' text='Blog Home' class='fas fa-home fa-fw mr-2'/>
+					<NavigationBarItem link='/' text='Blog Home' class='fas fa-home fa-fw mr-2'/>
 					<NavigationBarItem link='/portafolio.html' text='Portafolio' class='fas fa-bookmark fa-fw mr-2'/>
 				</React.Fragment>
 			</ul>)
