@@ -39,13 +39,13 @@ function SocialList(){
 function NavigationBar(){
 	return (<ul className="navbar-nav flex-column text-left">
 				<React.Fragment>
-					<NavigationBarItem link='/index.html' text='Blog Home'/>
-					<NavigationBarItem link='/portafolio.html' text='Portafolio'/>
+					<NavigationBarItemHome link='/index.html' text='Blog Home'/>
+					<NavigationBarItemPorta link='/portafolio.html' text='Portafolio'/>
 				</React.Fragment>
 			</ul>)
 }
 
-function NavigationBarItem(props){
+function NavigationBarItemHome(props){
 	if(window.location.href.endsWith(props.link)){
 		return (<li className="nav-item active">
 					    <a className="nav-link" href={props.link}><i className="fas fa-home fa-fw mr-2"></i>{props.text} <span className="sr-only">(current)</span></a>
@@ -53,6 +53,18 @@ function NavigationBarItem(props){
 	}else{
 		return (<li className="nav-item">
 					    <a className="nav-link" href={props.link}><i className="fas fa-home fa-fw mr-2"></i>{props.text}</a>
+					</li>)
+	}
+}
+
+function NavigationBarItemPorta(props){
+	if(window.location.href.endsWith(props.link)){
+		return (<li class="nav-item active">
+					    <a class="nav-link" href={props.link}><i class="fas fa-bookmark fa-fw mr-2"></i>{props.text} <span className="sr-only">(current)</span></a>
+					</li>)
+	}else{
+		return (<li class="nav-item">
+					    <a class="nav-link" href={props.link}><i class="fas fa-bookmark fa-fw mr-2"></i>{props.text}</a>
 					</li>)
 	}
 }
