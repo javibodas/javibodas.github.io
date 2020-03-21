@@ -34,7 +34,7 @@ class ArticlesTree extends React.Component {
             let articles_title = m.articles;
             
             for(var a of articles_title){
-              articles_html.push(<Article link={a.link} title={a.title} click={this.props.clickArticle}/>);
+              articles_html.push(<Article id={a.id} link={a.link} title={a.title} click={this.props.clickArticle}/>);
             }
 
           months_html.push(<Month month={m.month} artics={articles_html} active={m.active}/>);
@@ -51,7 +51,7 @@ class ArticlesTree extends React.Component {
 }
 
 function Article(props){
-  return (<li><a onClick={props.click}>{props.title}</a></li>);
+  return (<li><a onClick={props.click(props.id)}>{props.title}</a></li>);
 }
 
 function Month(props){
