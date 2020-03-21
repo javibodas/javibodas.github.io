@@ -4,7 +4,7 @@ class DesktopVersion extends React.Component{
 
 	constructor(props){
 		super(props);
-		this.state = { error: null, isLoadedTree: false, isLoadedDefaultAr: false, articlesTreeList : [], defaultArticle: {} }
+		this.state = { error: null, isLoaded: false, articlesTreeList : [], defaultArticle: {} }
 	}
 
 	componentDidMount(){
@@ -13,13 +13,13 @@ class DesktopVersion extends React.Component{
       	.then(
 	        (result) => {
 	          this.setState({
-	            isLoadedDefaultAr: true,
+	            isLoaded: true,
 	            defaultArticle: result
 	          });
 	        },
 	        (error) => {
 	          this.setState({
-	            isLoadedDefaultAr: true,
+	            isLoaded: false,
 	            error
 	          });
 	        }
@@ -30,13 +30,13 @@ class DesktopVersion extends React.Component{
 	    .then(
 	      (result) => {
 	        this.setState({
-	          isLoadedTree: true,
+	          isLoaded: true,
 	          articlesTreeList: result
 	        });
 	      },
 	      (error) => {
 	        this.setState({
-	          isLoadedTree: true,
+	          isLoaded: false,
 	          error
 	        });
 	      }
@@ -50,13 +50,13 @@ class DesktopVersion extends React.Component{
 	    .then(
 	      (result) => {
 	        this.setState({
-	          isLoadedTree: true,
+	          isLoaded: true,
 	          defaultArticle: result
 	        });
 	      },
 	      (error) => {
 	        this.setState({
-	          isLoadedTree: true,
+	          isLoaded: false,
 	          error
 	        });
 	      }
@@ -68,7 +68,7 @@ class DesktopVersion extends React.Component{
 
 		if (error) {
       		return <Error />;
-    	} else if (!isLoadedTree || !isLoadedDefaultAr) {
+    	} else if (!isLoaded) {
       		return <Loading />;
       	}else{
 			return(<div class="row desktop">
