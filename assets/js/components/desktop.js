@@ -2,7 +2,12 @@
 
 class HomeDesktopVersion extends React.Component{
 	render() {
-		return(<div class="sections-wrapper"><section class="blog-list px-3 py-5 p-md-4"><div class="container article-mobile-list"><ArticleMobileList/></div></section></div>);
+		return(<div class="row desktop">
+					<React.Fragment>
+						<div class="col-lg-9 col-12"><Post /></div>
+						<div class="col-lg-3 col-12 right-bar"></div>
+					</React.Fragment>
+				</div>);
 	}
 }
 
@@ -35,6 +40,12 @@ class Post extends React.Component{
       	)
   	}
 
+  	componentDidUpdate() {
+  		document.querySelectorAll('pre code').forEach((block) => {
+			hljs.highlightBlock(block);
+		});
+  	}
+
 	render(){
 		const { error, isLoaded, article } = this.state;
 		if (error) {
@@ -43,7 +54,17 @@ class Post extends React.Component{
       		return <Loading />;
     	} else {
     		let post = article.content
-			return(<div dangerouslySetInnerHTML={{__html: post}}></div>);
+			return(<article class="blog-post px-3 py-5 p-md-5">
+						<div class="container">
+							 <header class="blog-post-header">
+						    	<h2 class="title mb-2">{article.title}</h2>
+						    	<!--<div class="meta mb-3"><i class="fas fa-hashtag"></i>blockchain</div>-->
+						    	<div class="meta mb-3"><span class="date">Publicado {article.publication_time}</span><!--<span class="time">5 min read</span><span class="comment">--></div>
+					    	 </header>
+				   			 <div class="blog-post-body" dangerouslySetInnerHTML={{__html: post}}>
+				   			 </div>
+				   		</div>
+				   	</article>);
 		}
 	}		
 
@@ -58,8 +79,4 @@ function Error(){
 }
 
 
-ReactDOM.render((<Post/>), document.querySelector('.blog-post-body'));
-
-document.querySelectorAll('pre code').forEach((block) => {
-	hljs.highlightBlock(block);
-});
+ReactDOM.render((<Post/>), document.querySelector('.post-charge'));
