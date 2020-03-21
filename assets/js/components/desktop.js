@@ -14,7 +14,7 @@ class DesktopVersion extends React.Component{
 	        (result) => {
 	          this.setState({
 	            isLoadedDefaultAr: true,
-	            articlesTreeList: result
+	            defaultArticle: result
 	          });
 	        },
 	        (error) => {
@@ -31,7 +31,7 @@ class DesktopVersion extends React.Component{
 	      (result) => {
 	        this.setState({
 	          isLoadedTree: true,
-	          defaultArticle: result
+	          articlesTreeList: result
 	        });
 	      },
 	      (error) => {
