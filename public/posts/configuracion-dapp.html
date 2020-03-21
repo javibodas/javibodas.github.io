@@ -24,37 +24,7 @@
 <body>
     
     <header class="header text-center">	    
-	    <!--<h1 class="blog-name pt-lg-4 mb-0"><a href="../../index.html">Javier Blog</a></h1>-->
-        
-	    <nav class="navbar navbar-expand-lg navbar-dark" >
-           
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div id="navigation" class="collapse navbar-collapse flex-column" >
-				<div class="profile-section pt-3 pt-lg-0">
-				    <img class="profile-image mb-3 rounded-circle mx-auto" src="/assets/images/profile.png" alt="image" >			
-					
-					<div class="bio mb-3">Hola mi nombre es Javier, soy Desarrollador de Software y te doy la bienvenida a mi blog personal.<br><!--<a href="../about.html"><b>Sobre mi</b></a>--></div><!--//bio-->
-					<ul class="social-list list-inline py-3 mx-auto">
-			            <li class="list-inline-item"><a href="https://twitter.com/BodasJavier"><i class="fab fa-twitter fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="https://www.linkedin.com/in/javier-gonz%C3%A1lez-bodas-70a59787/"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="https://github.com/javibodas"><i class="fab fa-github-alt fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="mailto:gonzalezbodasjavier@yahoo.es"><i class="fas fa-envelope fa-fw"></i></a></li>
-			        </ul><!--//LISTA REDES SOCIALES-->
-				</div><!--//PERFIL-->
-				
-				<ul class="navbar-nav flex-column text-left">
-					<li class="nav-item active">
-					    <a class="nav-link" href="/index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-					    <a class="nav-link" href="/portafolio.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Portafolio</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+	       <!-- Load by react in header.js--> 
     </header>
     
     <div class="main-wrapper">
@@ -186,7 +156,8 @@
   	<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 
     <!-- Custom JS -->
-    <script type="text/babel" src="/assets/js/article-tree-list.js"></script>
+    <script type="text/babel" src="/assets/js/components/article-tree-list.js"></script>
+    <script type="text/babel" src="/assets/js/components/header.js"></script>
     <script src="/assets/js/blog.js"></script>
 
 </body>
