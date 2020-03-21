@@ -27,14 +27,14 @@ class Post extends React.Component{
   	}
 
 	render(){
-		let post = this.state.article.content
+		let post = this.state.article
 		return(<article class="blog-post px-3 py-5 p-md-5">
 						<div class="container">
 							 <header class="blog-post-header">
-						    	<h2 class="title mb-2">{article.title}</h2>
-						    	<div class="meta mb-3"><span class="date">Publicado {article.publication_time}</span></div>
+						    	<h2 class="title mb-2">{post.title}</h2>
+						    	<div class="meta mb-3"><span class="date">Publicado {post.publication_time}</span></div>
 					    	 </header>
-				   			 <div class="blog-post-body" dangerouslySetInnerHTML={{__html: post}}>
+				   			 <div class="blog-post-body" dangerouslySetInnerHTML={{__html: post.content}}>
 				   			 </div>
 				   		</div>
 				   	</article>);
