@@ -11,7 +11,6 @@ function ButtonHome(){
 }
 
 function Navigation(){
-
 	return(<div id="navigation" className="collapse navbar-collapse flex-column" ><React.Fragment><ProfileSection/><NavigationBar/></React.Fragment></div>)
 }
 

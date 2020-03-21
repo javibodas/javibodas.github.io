@@ -17,9 +17,7 @@ class Post extends React.Component{
 	}
 
 	htmlDecode(content) {
-  		let e = document.createElement('div');
-  		e.innerHTML = content;
-  		return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  		return {__html: content}
 	}
 
 	componentDidMount() {
@@ -48,8 +46,8 @@ class Post extends React.Component{
     	} else if (!isLoaded) {
       		return <Loading />;
     	} else {
-    		let post = article.content.replace('<','&lt;').replace('>','&gt;');
-			return(this.htmlDecode(article.content));
+    		let post = article.content.replace('&lt;','<').replace('&gt;','>');
+			return(<div class="blog-post-body" dangerouslySetInnerHTML={this.htmlDecode(article.content)}></div>);
 		}
 	}		
 
