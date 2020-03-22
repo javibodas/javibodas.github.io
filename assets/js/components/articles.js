@@ -50,8 +50,20 @@ class ArticlesTree extends React.Component {
   }
 }
 
-function Article(props){
-  return (<li><a href={props.link}>{props.title}</a></li>);
+class Article extends React.Component{
+
+  constructor(props){
+    super(props)
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(){
+    console.log('Click article')
+  }
+
+  render()}{
+    return (<li><a href={this.props.link} onClick={this.handleClick}>{this.props.title}</a></li>);
+  }
 }
 
 function Month(props){
