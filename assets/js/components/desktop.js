@@ -5,6 +5,7 @@ class DesktopVersion extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = { error: null, isLoadedTree: false, isLoadedArtDef: false, articlesTreeList : [], defaultArticle: {} }
+		this.handleClickArticle = this.handleClickArticle.bind(this);
 	}
 
 	componentDidMount(){
