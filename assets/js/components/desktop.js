@@ -75,7 +75,7 @@ class DesktopVersion extends React.Component{
       	}else{
 			return(<div class="row desktop">
 						<div class="col-lg-9 col-12"><Post post={defaultArticle}/></div>
-						<div class="col-lg-3 col-12 right-bar"><Articles articles={articlesTreeList} clickArticle={this.handleClickArticle}/></div>
+						<div class="col-lg-3 col-12 right-bar"><Articles articles={articlesTreeList}/></div>
 				</div>);
 		}
 	}
