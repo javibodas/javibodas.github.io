@@ -51,12 +51,7 @@ class ArticlesTree extends React.Component {
 }
 
 class Article extends React.Component{
-
-  constructor(props){
-    super(props)
-  }
-
-  render()}{
+  render(){
     return (<li><a href='#' onClick={() => this.props.handleClick(this.props.id)}>{this.props.title}</a></li>);
   }
 }
