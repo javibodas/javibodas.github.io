@@ -51,7 +51,7 @@ class ArticlesTree extends React.Component {
 }
 
 function Article(props){
-  return (<li onClick={props.click(props.id)}><a href={props.link}>{props.title}</a></li>);
+  return (<li <a href="#" onClick={props.click(this, props.id)}>{props.title}</a></li>);
 }
 
 function Month(props){

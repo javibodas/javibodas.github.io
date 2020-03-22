@@ -44,7 +44,7 @@ class DesktopVersion extends React.Component{
 
 	}
 
-	handleClickArticle(id){
+	handleClickArticle(e, id){
 		fetch('https://api-bodblog.herokuapp.com/articles/' + id)
     	.then(res => res.json())
 	    .then(
