@@ -5,7 +5,7 @@ class Articles extends React.Component{
     return (<div class="px-3 p-md-5">
               <div class="section-inner">
                   <div class="heading py-2"><h4>Articulos</h4></div>
-                  <ArticlesTree articles={this.props.articles}/>
+                  <ArticlesTree articles={this.props.articles} handleClickArticle={this.handleClickArticle}/>
                 </div>
             </div>);
   }
@@ -34,7 +34,7 @@ class ArticlesTree extends React.Component {
             let articles_title = m.articles;
             
             for(var a of articles_title){
-              articles_html.push(<Article id={a.id} link={a.link} title={a.title}/>);
+              articles_html.push(<Article id={a.id} link={a.link} title={a.title} handleClick={this.props.handleClickArticle}/>);
             }
 
           months_html.push(<Month month={m.month} artics={articles_html} active={m.active}/>);
@@ -54,15 +54,10 @@ class Article extends React.Component{
 
   constructor(props){
     super(props)
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(){
-    console.log('Click article')
   }
 
   render()}{
-    return (<li><a href={this.props.link} onClick={this.handleClick}>{this.props.title}</a></li>);
+    return (<li><a href='#' onClick={() => this.props.handleClick(this.props.id)}>{this.props.title}</a></li>);
   }
 }
 
