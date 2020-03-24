@@ -27,6 +27,16 @@ code{
   	height: auto;
 }
 
+.article-list a:not([href]):not([tabindex]){
+	color: #5D6BA7;
+	cursor: pointer;
+}
+
+.article-list a:not([href]):not([tabindex]):hover{
+	color: #414b77;
+	text-decoration: underline;
+}
+
 
 /**************/
 /** CLASSES **/
