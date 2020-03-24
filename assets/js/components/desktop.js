@@ -67,6 +67,7 @@ class DesktopVersion extends React.Component{
 
 	render(){
 		const { error, isLoadedTree, isLoadedArtDef, articlesTreeList, defaultArticle } = this.state;
+		console.log('Cargando desktop ' + defaultArticle)
 
 		if (error) {
       		return <Error />;
