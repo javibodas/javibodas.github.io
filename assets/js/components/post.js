@@ -13,12 +13,7 @@
 class Post extends React.Component{
 	constructor(props){
 		super(props);
-		this.state = {	article: {}	};
 	}
-
-	componentDidMount() {
-    	this.setState({article: this.props.post})
-  	}
 
   	componentDidUpdate() {
   		document.querySelectorAll('pre code').forEach((block) => {
@@ -27,8 +22,7 @@ class Post extends React.Component{
   	}
 
 	render(){
-		let post = this.state.article
-		console.log('Render post...' + this.props.post.title)
+		let post = this.props.post
 		return(<article class="blog-post px-3 py-5 p-md-5">
 						<div class="container">
 							 <header class="blog-post-header">
