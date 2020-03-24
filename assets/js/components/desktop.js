@@ -67,13 +67,14 @@ class DesktopVersion extends React.Component{
 
 	render(){
 		const { error, isLoadedTree, isLoadedArtDef, articlesTreeList, defaultArticle } = this.state;
-		console.log('Cargando desktop ' + defaultArticle.title)
+		console.log('Cargando desktop ' + defaultArticle.title + '_' + error)
 
 		if (error) {
       		return <Error />;
     	} else if (!isLoadedTree || !isLoadedArtDef) {
       		return <Loading />;
       	}else{
+      		console.log('Cargando desktop ' + isLoadedTree + '_' + isLoadedArtDef)
 			return(<div class="row desktop">
 						<div class="col-lg-9 col-12"><Post post={defaultArticle}/></div>
 						<div class="col-lg-3 col-12 right-bar"><Articles articles={articlesTreeList} handleClickArticle={this.handleClickArticle}/></div>
