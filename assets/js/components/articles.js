@@ -5,7 +5,7 @@ class Articles extends React.Component{
     return (<div class="px-3 p-md-5">
               <div class="section-inner">
                   <div class="heading py-2"><h4>Articulos</h4></div>
-                  <ArticlesTree articles={this.props.articles} handleClickArticle={this.handleClickArticle}/>
+                  <ArticlesTree articles={this.props.articles} handleClickArticle={this.props.handleClickArticle}/>
                 </div>
             </div>);
   }
@@ -51,8 +51,8 @@ class ArticlesTree extends React.Component {
 }
 
 function Article(props){
-    //return (<li><a href='#' onClick={() => props.handleClick(props.id)}>{props.title}</a></li>);
-    return (<li><a href={props.link}>{props.title}</a></li>);
+    return (<li><a href='#' onClick={() => props.handleClick(props.id)}>{props.title}</a></li>);
+    //return (<li><a href={props.link}>{props.title}</a></li>);
 }
 
 function Month(props){
