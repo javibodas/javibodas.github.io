@@ -30,9 +30,20 @@ code{
 .article-list a:not([href]):not([tabindex]){
 	color: #5D6BA7;
 	cursor: pointer;
+	text-decoration: none;
 }
 
 .article-list a:not([href]):not([tabindex]):hover{
+	color: #414b77;
+	text-decoration: underline;
+}
+
+.article-mobile-list a:not([href]):not([tabindex]){
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.article-mobile-list a:not([href]):not([tabindex]):hover{
 	color: #414b77;
 	text-decoration: underline;
 }
@@ -112,20 +123,13 @@ code .fa-check{
 	.container{
 		max-width: 90%!important;
 	}
-	.mobile{
-		display: none;
-	}
 }
 /** MEDIUM SCREEN SETTINGS **/
 @media screen and (max-width: 1280px) and (min-width: 992px) {
 	/** Deleted elements **/
-	.mobile{
-		display: none;
-	}
 	.bio{
 		display: none;
 	}
-
 	.container{
 		max-width: 90%!important;
 	}
@@ -160,12 +164,6 @@ code .fa-check{
 /** TABLET SETTINGS **/
 @media screen and (max-width: 992px) and (min-width: 480px) {
 	/** Deleted elements **/
-	.right-bar{
-		display: none;
-	}
-	.desktop{
-		display: none;
-	}
 	.profile-image{
 		display: none;
 	}
@@ -174,12 +172,6 @@ code .fa-check{
 /** MOBILE SETTINGS **/
 @media screen and (max-width: 479px) {
 	/** Deleted elements **/
-	.right-bar{
-		display: none;
-	}
-	.desktop{
-		display: none;
-	}
 	.profile-image{
 		display: none;
 	}

@@ -1,7 +1,7 @@
 'use strict';
 
 function Header(){
-	return (<header class="header text-center">
+	return (<header className="header text-center">
 				<nav className="navbar navbar-expand-lg navbar-dark" >
 					<React.Fragment>
 						<ButtonHome/><Navigation/>
@@ -44,8 +44,8 @@ function SocialList(){
 function NavigationBar(){
 	return (<ul className="navbar-nav flex-column text-left">
 				<React.Fragment>
-					<NavigationBarItem link='/' text='Blog Home' class='fas fa-home fa-fw mr-2'/>
-					<NavigationBarItem link='/portafolio.html' text='Portafolio' class='fas fa-bookmark fa-fw mr-2'/>
+					<NavigationBarItem link='/' text='Blog Home' className='fas fa-home fa-fw mr-2'/>
+					<NavigationBarItem link='/portafolio.html' text='Portafolio' className='fas fa-bookmark fa-fw mr-2'/>
 				</React.Fragment>
 			</ul>)
 }

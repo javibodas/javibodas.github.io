@@ -1,15 +1,4 @@
-'use strict';
-
-function Articles(props){
-    return (<div class="px-3 p-md-5">
-              <div class="section-inner">
-                  <div class="heading py-2"><h4>Articulos</h4></div>
-                  <ArticlesTree articles={props.articles} handleClickArticle={props.handleClickArticle}/>
-                </div>
-            </div>);
-}
-
-class ArticlesTree extends React.Component {
+class TreeArticles extends React.Component {
   constructor(props) {
     super(props);
     this.state = { articles: [] }; 

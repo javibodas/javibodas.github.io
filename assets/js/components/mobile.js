@@ -1,81 +1,74 @@
 'use strict';
 
-class DesktopVersion extends React.Component{
+class MobileVersion extends React.Component{
 
 	constructor(props){
 		super(props);
-		this.state = { error: null, isLoadedTree: false, isLoadedArtDef: false, articlesTreeList : [], defaultArticle: {} }
-		this.handleClickArticle = this.handleClickArticle.bind(this);
+		this.state = { error: null, isLoadedList: false, isLoadedPost: false, articles: [], post: {}};
+		this.handleClickPost = this.handleClickPost.bind(this);
 	}
 
-	componentDidMount(){
-		fetch('https://api-bodblog.herokuapp.com/articles/home-default')
+	componentDidMount() {
+    	fetch('https://api-bodblog.herokuapp.com/articles')
       	.then(res => res.json())
       	.then(
 	        (result) => {
 	          this.setState({
-	            isLoadedArtDef: true,
-	            defaultArticle: result
+	            isLoadedList: true,
+	            isLoadedPost: false,
+	            articles: result
 	          });
 	        },
 	        (error) => {
 	          this.setState({
-	            isLoadedArtDef: false,
+	            isLoadedList: true,
 	            error
 	          });
 	        }
-      	);
+      	)
+  	}
 
-      	fetch('https://api-bodblog.herokuapp.com/articles/tree')
-    	.then(res => res.json())
-	    .then(
-	      (result) => {
-	        this.setState({
-	          isLoadedTree: true,
-	          articlesTreeList: result
-	        });
-	      },
-	      (error) => {
-	        this.setState({
-	          isLoadedTree: false,
-	          error
-	        });
-	      }
-	    );
-
-	}
-
-	handleClickArticle(id){
+  	handleClickPost(id){
 		fetch('https://api-bodblog.herokuapp.com/articles/' + id)
     	.then(res => res.json())
 	    .then(
 	      (result) => {
 	        this.setState({
-	          isLoadedArtDef: true,
-	          defaultArticle: result
+	          isLoadedPost: true,
+	          isLoadedList: false,
+	          post: result
 	        });
 	      },
 	      (error) => {
 	        this.setState({
-	          isLoadedArtDef: false,
+	          isLoadedPost: false,
 	          error
 	        });
 	      }
 	    );
 	}
 
-	render(){
-		const { error, isLoadedTree, isLoadedArtDef, articlesTreeList, defaultArticle } = this.state;
-
+	render() {
+		const { error, isLoadedList, isLoadedPost, articles, post } = this.state;
 		if (error) {
       		return <Error />;
-    	} else if (!isLoadedTree || !isLoadedArtDef) {
+    	} else if (!isLoadedPost && !isLoadedList) {
       		return <Loading />;
-      	}else{
+    	} else if(isLoadedList) {
+
+			return(<div className="mobile">
+						<div className="sections-wrapper">
+							<section className="blog-list px-3 py-5 p-md-4">
+								<div className="container article-mobile-list"><ArticleMobileList articles={articles} handleClickPost={this.handleClickPost}/>
+								</div>
+							</section>
+						</div>
+					</div>);
+		}else if(isLoadedPost){
 			return(<div className="row desktop">
-						<div className="col-lg-9 col-12"><Post post={defaultArticle}/></div>
-						<div className="col-lg-3 col-12 right-bar"><ArticlesDesktopList articles={articlesTreeList} handleClickArticle={this.handleClickArticle}/></div>
+						<div className="col-lg-9 col-12"><Post post={post}/></div>
 				</div>);
+
 		}
 	}
 }

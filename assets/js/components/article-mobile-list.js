@@ -1,84 +1,20 @@
-'use strict';
-
-class MobileVersion extends React.Component{
-	render() {
-		return(<div class="mobile">
-					<div class="sections-wrapper">
-						<section class="blog-list px-3 py-5 p-md-4">
-							<div class="container article-mobile-list"><ArticleList/>
-							</div>
-						</section>
-					</div>
-				</div>);
-	}
-}
-
-class ArticleList extends React.Component{
-	constructor(props){
-		super(props);
-		this.state = {
-      		error: null,
-      		isLoaded: false,
-      		articles: []
-    	};
-	}
-
-	componentDidMount() {
-    	fetch('https://api-bodblog.herokuapp.com/articles')
-      	.then(res => res.json())
-      	.then(
-	        (result) => {
-	          this.setState({
-	            isLoaded: true,
-	            articles: result
-	          });
-	        },
-	        (error) => {
-	          this.setState({
-	            isLoaded: true,
-	            error
-	          });
-	        }
-      	)
-  	}
+class ArticleMobileList extends React.Component{
 
 	createList() {
 	    let list = [];
-	    let articles = this.state.articles;
+	    let articles = this.props.articles;
 
 	    for(var i = 0; i < articles.length; i++){
-	      list.push(<PostEntry title={articles[i].title} publication_date={articles[i].publication_time} description={articles[i].description} link={articles[i].link}/>);
+	      list.push(<PostEntry title={articles[i].title} publication_date={articles[i].publication_time} description={articles[i].description} id={articles[i].id} handleClickPost={this.props.handleClickPost}/>);
 	    }
 	    return list;
 	}
 
 	render() {
-		const { error, isLoaded, articles } = this.state;
-		if (error) {
-      		return <Error />;
-    	} else if (!isLoaded) {
-      		return <Loading />;
-    	} else {
-			return(this.createList());
-		}
+		return(this.createList());
 	}
 }
 
 function PostEntry(props){
-	return(<div class="item mb-5"><div class="media"><div class="media-body"><h3 class="title mb-1"><a href={props.link}>{props.title}</a></h3><div class="meta mb-1"><span class="date">Publicado {props.publication_date}</span></div><div class="intro">{props.description}</div><a class="more-link" href={props.link}> Leer más &rarr;</a></div></div></div>);
-}
-
-function NextPrevNav(){
-    return (<nav className='blog-nav nav nav-justified my-5'>
-    			<a className='nav-link-prev nav-item nav-link d-none rounded-left' href='#'>Previous<i className='arrow-prev fas fa-long-arrow-alt-left'></i></a>
-				<a className='nav-link-next nav-item nav-link rounded' href='blog-list.html'>Next<i className='arrow-next fas fa-long-arrow-alt-right'></i></a>
-			</nav>);
-}
-
-function Loading(){
-	return(<div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-dark" role="status"><span class="sr-only">Loading...</span></div></div>);
-}
-
-function Error(){
-	return(<div><h2>Ups! Ha habido algún problema al recoger los artículos.</h2></div>);
+	return(<div className="item mb-5"><div className="media"><div className="media-body"><h3 className="title mb-1"><a onClick={() => props.handleClickPost(props.id)}>{props.title}</a></h3><div className="meta mb-1"><span className="date">Publicado {props.publication_date}</span></div><div className="intro">{props.description}</div><a className="more-link" href={props.link}> Leer más &rarr;</a></div></div></div>);
 }
