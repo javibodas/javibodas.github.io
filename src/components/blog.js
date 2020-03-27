@@ -1,4 +1,4 @@
-class App extends React.Component{
+class Blog extends React.Component{
 	render(){
 		return (<React.Fragment>
 					<Header />
@@ -6,5 +6,3 @@ class App extends React.Component{
 				</React.Fragment>)
 	}
 }
-
-ReactDOM.render(<App/>, document.querySelector('body'));
