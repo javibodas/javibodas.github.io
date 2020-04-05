@@ -176,7 +176,7 @@
                 slide.removeClass('animated width-auto height-auto ' + animation)
             }
 
-            $("body").delegate('.fa-chevron-right','click', function(e){
+            $("body").delegate('.fa-chevron-right','click touchstart', function(e){
 
                 const {activeSlide, idActiveSlide} = getActiveSlide()
                 animateActiveSlide(activeSlide, 'slideOutLeft')
@@ -187,7 +187,7 @@
                 hidePreviousSlide(activeSlide, 'slideOutLeft')
             })
 
-            $("body").delegate('.fa-chevron-left','click', function(e){
+            $("body").delegate('.fa-chevron-left','click touchstart', function(e){
 
                 const {activeSlide, idActiveSlide} = getActiveSlide()
                 animateActiveSlide(activeSlide, 'slideOutRight')
