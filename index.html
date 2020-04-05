@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es"> 
 <head>
-     <title>Javi Blog</title>
+    <title>Javi Blog</title>
     
     <!-- Meta -->
     <meta charset="utf-8">
@@ -9,41 +9,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog Template">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="favicon.ico"> 
+    <link rel="shortcut icon" href="../favicon.ico"> 
     
     <!-- FontAwesome JS-->
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/agate.min.css">
-    <link id="theme-style" rel="stylesheet" href="/assets/css/theme.css">
-    <link rel="stylesheet" href="/assets/css/blog.css">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link id="theme-style" rel="stylesheet" href="assets/css/about.css">
+    
+
 </head> 
 
-<body>    
-
-    <!-- jQuery && Bootstrap -->          
-    <script src="/assets/plugins/jquery-3.3.1.min.js"></script> 
-    <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<body class="is-preload">
     
-    <!-- Highlight Code Tags --> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+    <div class="slider-wrapper">
+        <div class="navigate-arrow"><i class="fas fa-chevron-left fa-3x"></i></div>
+        <div class="slider">
+            <div class="slide-0 card text-center animated fadeIn">
+                <div class="card-heading">
+                    <h1>Javier Gonzalez</h1>
+                    <div class="profession font-weight-light font-italic"> Software Developer </div>
+                </div>
+                <div class="card-content">
+                    <div class="social-list">
+                        <ul class="list-inline py-3">
+                            <a href="https://twitter.com/BodasJavier"><li class="list-inline-item"><i class="fab fa-twitter fa-fw fa-lg"></i></li></a>
+                            <a href="https://www.linkedin.com/in/javier-gonz%C3%A1lez-bodas-70a59787/"><li class="list-inline-item"><i class="fab fa-linkedin-in fa-fw fa-lg"></i></li></a>
+                            <a href="https://github.com/javibodas"><li class="list-inline-item"><i class="fab fa-github-alt fa-fw fa-lg"></i></li></a>
+                            <a href="mailto:gonzalezbodasjavier@yahoo.es"><li class="list-inline-item"><i class="fas fa-envelope fa-fw fa-lg"></i></li></a>
+                        </ul><!--//LISTA REDES SOCIALES-->
+                    </div>
+                </div>
+            </div>
+            <div class="slide-1 card hidden">
+                <div class="card-heading"><h1>About me</h1></div>
+                <div class="card-content">
+                    <p> Hi, my name is Javier and welcome to my personal page</p>
+                    <p> I'm a Software Developer with passion of what I do. Since I start Computer Science degree I made in love with all kind of development, especially
+                    with game development
+                    </p>
+                    <p> I started a <a href=""> personal blog </a> that I hope will motivate me to continue learning new technologies. And in this way also share knowledge and struggles with the community </p>
+                    <p> <a href="/cv/Curriculum Vitae Javier Gonzalez_English.pdf"> View my resume </a> </p>
+                </div>
+            </div>
+            <!--<div class="slide-2 card hidden">
+                <div class="card-heading"><h1>Portafolio</h1></div>
+                <div class="card-content">
+                    <div class="row aln-center">
+                        <div class="col-4">
+                            <section class="item mb-5">
+                                <header class="title mb-1">
+                                    <h2>2048</h2>
+                                    <h3>Versión del juego 2048</h3>
+                                </header>
+                                 <ul class="herramientas">
+                                    <li>Jquery</li>
+                                    <li>HMLT, CSS</li>
+                               </ul>
+                                <a class="more-link" href="../projects/2048/index.html"> Acceder &rarr;</a>
+                                <a class="more-link" href="https://github.com/javibodas/2048Js"> Ver en Github &rarr;</a>
+                            </section><!--//GAME-->
+                        <!--</div>
+                        <div class="col-4">
+                            <section class="item mb-5">
+                                <header class="title mb-1">
+                                    <h2>Snake</h2>
+                                    <h3>Versión del clásico videojuego Snake</h3>
+                                </header>
+                                <ul class="herramientas">
+                                    <li>Python</li>
+                                    <li>Pygame</li>
+                               </ul>
+                                <a class="more-link" href="https://github.com/javibodas/SnakePython"> Ver en Github &rarr;</a>
+                            </section><!--//GAME-->
+                        <!--</div>
+                    </div>
+                    <div class="row aln-center">
+                        <div class="col-4 col-6-medium col-12-small">
+                            <section class="item mb-5">
+                                <header class="title mb-1">
+                                    <h2>Blog</h2>
+                                    <h3>Blog personal</h3>
+                                </header>
+                                <ul class="herramientas">
+                                    <li>Node</li>
+                                    <li>React</li>
+                               </ul>
+                                <a class="more-link" href="https://github.com/javibodas/bodblog"> Ver en Github &rarr;</a>
+                            </section><!--//GAME-->
+                        <!--</div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <div class="navigate-arrow"><i class="fas fa-chevron-right fa-3x"></i></div>
+    </div>
 
-    <!-- ReactJs-->
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
 
-    <!-- Custom JS -->
-    <script type="text/babel" src="/src/components/post.js"></script>
-    <script type="text/babel" src="/src/components/article-tree.js"></script>
-    <script type="text/babel" src="/src/components/article-desktop-list.js"></script>
-    <script type="text/babel" src="/src/components/article-mobile-list.js"></script>
-    <script type="text/babel" src="/src/components/mobile.js"></script>
-    <script type="text/babel" src="/src/components/desktop.js"></script>
-    <script type="text/babel" src="/src/components/footer.js"></script>
-    <script type="text/babel" src="/src/components/header.js"></script>
-    <script type="text/babel" src="/src/components/main.js"></script>
-    <script type="text/babel" src="/src/blog.js"></script>
+            var slider = $('.slider')
+            var cards = 2
+
+            var getActiveSlide = function(){
+                const activeSlide = $("[class*='slide-']:not(.hidden)")
+
+                var classesActiveSlide = activeSlide.attr('class').split(' ')
+                var intIdActiveSlide = parseInt(classesActiveSlide[0].substr(6,7))
+                console.log('Slide moved... ' + intIdActiveSlide)
+                return {activeSlide : activeSlide , idActiveSlide : intIdActiveSlide}
+            }
+
+            var getNextSlide = function (idPreSlide, direction){
+                var nextIdSlide = 0
+
+                if(direction === 0){
+                    nextIdSlide = (idPreSlide + 1)%cards
+                }else{
+                    nextIdSlide = (idPreSlide - 1) < 0 ? 1 : (idPreSlide - 1)
+                }
+                var classNextSlide = '.slide-' + nextIdSlide
+                var nextSlide = $(classNextSlide)
+                console.log('Next slide... "' + classNextSlide + "'")
+                return nextSlide
+            }
+
+            var animateActiveSlide = function(slide, animation){
+                slide.removeClass('fadeIn slideInRight slideInLeft');
+                slide.addClass('animated ' + animation)
+            }
+
+            var animateNextSlide = function(preSlide, nextSlide, animation){
+                var contentNextSlide = nextSlide.children('.card-content')
+                var countAnimation = 0;
+
+                nextSlide.css('height','150px')
+
+                nextSlide.removeClass('hidden')
+                nextSlide.addClass('animated ' + animation);
+                nextSlide.css('align-items','center');
+                contentNextSlide.addClass('hide')
+                nextSlide.on('animationend webkitAnimationEnd oAnimationEnd', function(){
+
+                    nextSlide.addClass('width-auto'); console.log('Width auto.')
+                    nextSlide.css('align-items','');
+                    setTimeout( () => {
+                        nextSlide.addClass('height-auto'); console.log('Height auto')
+
+                        setTimeout( () => {
+                            nextSlide.css('height','')
+                            contentNextSlide.removeClass('hide')
+                            console.log('Show slide content')
+                         }, 50)
+                    }, 250)
+                })
+            }
+
+            var hidePreviousSlide = function(slide, animation){
+                slide.addClass('hidden')
+                slide.removeClass('animated width-auto height-auto ' + animation)
+            }
+
+            $("body").delegate('.fa-chevron-right','click', function(e){
+
+                const {activeSlide, idActiveSlide} = getActiveSlide()
+                animateActiveSlide(activeSlide, 'slideOutLeft')
+
+                const nextSlide = getNextSlide(idActiveSlide, 0)
+                animateNextSlide(activeSlide, nextSlide, 'slideInRight')
+
+                hidePreviousSlide(activeSlide, 'slideOutLeft')
+            })
+
+            $("body").delegate('.fa-chevron-left','click', function(e){
+
+                const {activeSlide, idActiveSlide} = getActiveSlide()
+                animateActiveSlide(activeSlide, 'slideOutRight')
+
+                var nextSlide = getNextSlide(idActiveSlide, 1)
+
+                animateNextSlide(activeSlide, nextSlide, 'slideInLeft')
+
+                hidePreviousSlide(activeSlide, 'slideOutRight')
+            })
+        });
+        
+    </script>
+
 </body>
-</html> 
+</html>
