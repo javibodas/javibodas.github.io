@@ -46,11 +46,10 @@
             <div class="slide-1 card hidden">
                 <div class="card-heading"><h1>About me</h1></div>
                 <div class="card-content">
-                    <p> Hi, my name is Javier and welcome to my personal page</p>
-                    <p> I'm a Software Developer with passion of what I do. Since I start Computer Science degree I made in love with all kind of development, especially
-                    with game development
+                    <p> Hi there, Welcome to my personal webpage.</p>
+                    <p> I’m Javier, a Software Developer with a Computer Science degree and a passion for all kinds of software development, specifically related to the gaming industry
                     </p>
-                    <p> I started a <a href=""> personal blog </a> that I hope will motivate me to continue learning new technologies. And in this way also share knowledge and struggles with the community </p>
+                    <p> I created a personal blog with the vision of expanding my knowledge in the continuous pursuit of new technologies, whilst sharing knowledge and problems with the online community </p>
                     <p> <a href="/assets/cv/Curriculum Vitae Javier Gonzalez_English.pdf"> View my resume </a> </p>
                 </div>
             </div>
@@ -176,7 +175,7 @@
                 slide.removeClass('animated width-auto height-auto ' + animation)
             }
 
-            $("body").delegate('.fa-chevron-right','click', function(e){
+            $("body").delegate('.fa-chevron-right','click touchstart', function(e){
 
                 const {activeSlide, idActiveSlide} = getActiveSlide()
                 animateActiveSlide(activeSlide, 'slideOutLeft')
@@ -187,30 +186,7 @@
                 hidePreviousSlide(activeSlide, 'slideOutLeft')
             })
 
-            $("body").delegate('.fa-chevron-left','click', function(e){
-
-                const {activeSlide, idActiveSlide} = getActiveSlide()
-                animateActiveSlide(activeSlide, 'slideOutRight')
-
-                var nextSlide = getNextSlide(idActiveSlide, 1)
-
-                animateNextSlide(activeSlide, nextSlide, 'slideInLeft')
-
-                hidePreviousSlide(activeSlide, 'slideOutRight')
-            })
-
-            $("body").delegate('.fa-chevron-right','touchstart', function(e){
-
-                const {activeSlide, idActiveSlide} = getActiveSlide()
-                animateActiveSlide(activeSlide, 'slideOutLeft')
-
-                const nextSlide = getNextSlide(idActiveSlide, 0)
-                animateNextSlide(activeSlide, nextSlide, 'slideInRight')
-
-                hidePreviousSlide(activeSlide, 'slideOutLeft')
-            })
-
-            $("body").delegate('.fa-chevron-left','touchstart', function(e){
+            $("body").delegate('.fa-chevron-left','click touchstart', function(e){
 
                 const {activeSlide, idActiveSlide} = getActiveSlide()
                 animateActiveSlide(activeSlide, 'slideOutRight')
