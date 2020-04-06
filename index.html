@@ -156,23 +156,23 @@
                 contentNextSlide.addClass('hide')
                 nextSlide.on('animationend webkitAnimationEnd oAnimationEnd', function(){
 
-                    nextSlide.addClass('width-auto'); console.log('Width auto.')
+                    nextSlide.addClass('size-auto'); console.log('Width auto.')
                     nextSlide.css('align-items','');
-                    setTimeout( () => {
-                        nextSlide.addClass('height-auto'); console.log('Height auto')
+                    //setTimeout( () => {
+                        //nextSlide.addClass('height-auto'); console.log('Height auto')
 
                         setTimeout( () => {
                             nextSlide.css('height','')
                             contentNextSlide.removeClass('hide')
                             console.log('Show slide content')
-                         }, 50)
-                    }, 250)
+                         }, 75)
+                    //}, 950)
                 })
             }
 
             var hidePreviousSlide = function(slide, animation){
                 slide.addClass('hidden')
-                slide.removeClass('animated width-auto height-auto ' + animation)
+                slide.removeClass('animated size-auto ' + animation)
             }
 
             $("body").delegate('.fa-chevron-right','click touchstart', function(e){
