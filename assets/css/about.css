@@ -56,12 +56,6 @@ body{
 	text-transform: uppercase;
 	width: 430px;
 	height: 303px;
-	-webkit-transition: width 0.25s ease-in-out;
-	-moz-transition: width 0.25s ease-in-out;
-	-ms-transition: width 0.25s ease-in-out;
-	transition: width 0.25s ease-in-out;
-	transition: height 0.5s ease-in-out;
-	transition: align-items 0.25s ease-in-out;
 	}
 	[class*="slide-"].hidden{
 		display: none;
@@ -99,10 +93,10 @@ body{
 .card-content{
 	margin-top: 2rem;
 	text-transform: none; font-weight: 400;
-	-moz-transition: opacity 1s ease-in-out;
-	-webkit-transition: opacity 1s ease-in-out;
-	-ms-transition: opacity 1s ease-in-out;
-	transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1.65s ease-in-out;
+	-webkit-transition: opacity 1.65s ease-in-out;
+	-ms-transition: opacity 1.65s ease-in-out;
+	transition: opacity 1.65s ease-in-out;
 	}
 	.card-content.hide{
 		opacity: 0;
@@ -111,11 +105,22 @@ body{
 		color: green;
 	}
 
-.width-auto{
+
+[class*="slide-"].size-auto{
+	animation: size-auto 1s forwards;
+	}
+	@media screen and (max-width: 479px) {
+		[class*="slide-"].size-auto{
+			animation: height-auto 1s forwards;
+		}
+	}
+
+
+[class*="slide-"].width-auto{
 	width: 100%;
 }
 
-.height-auto{
+[class*="slide-"].height-auto{
 	height: 100%;
 }
 
@@ -178,6 +183,17 @@ body{
 @keyframes arrow-navigate-animation{
 	from { padding-bottom: 10pt; }
 	to { padding-bottom: 0pt; }
+}
+
+@keyframes size-auto{
+	0%{ width: 430px; height: 150px;}
+	50% { width: 100%; height: 150px;}
+	100% {width:100%; height: 100%;}
+}
+
+@keyframes height-auto{
+	from{ height: 150px; }
+	to { height: 100%; }
 }
 
 
