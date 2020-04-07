@@ -29,10 +29,9 @@ body{
 	justify-content: center;
   	align-items: center;
 
-	background-image: url("../images/background-main.jpg");
+	background-image: url("../images/background-main-compressor.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-
 
 	}
 	@media screen and (max-width: 992px) {
