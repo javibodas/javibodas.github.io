@@ -10,6 +10,9 @@ i.fab{
 	font-size: 10em;
 }
 
+body:not(.loaded){
+	display: none;
+}
 body{
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
 	color: #414f57;
@@ -40,6 +43,7 @@ body{
 		}
 	}
 
+/** SLIDER **/
 .slider{
 	display: flex;
 	flex-direction: row;
@@ -47,6 +51,8 @@ body{
 	align-items: center;
   	overflow: hidden;
 	}
+
+/** SLIDES **/
 
 [class*="slide-"] {
 	background: white;
@@ -59,6 +65,9 @@ body{
 	[class*="slide-"].hidden{
 		display: none;
 	}
+	[class*="slide-"].size-auto{
+	animation: size-auto 1s forwards;
+	}
 	@media screen and (max-width: 479px) {
 		[class*="slide-"] {
 			align-items:  center;
@@ -67,7 +76,14 @@ body{
 			padding: 1em;
 		}
 	}
-.slide-0 .card-heading h1{
+	@media screen and (max-width: 479px) {
+		[class*="slide-"].size-auto{
+			animation: height-auto 1s forwards;
+		}
+	}
+
+/** SLIDES CONTENT **/
+.presentation-card .card-heading h1{
 	font-size: 1.85em; letter-spacing: 0.22em;
 }
 
@@ -104,23 +120,30 @@ body{
 		color: green;
 	}
 
-
-[class*="slide-"].size-auto{
-	animation: size-auto 1s forwards;
-	}
-	@media screen and (max-width: 479px) {
-		[class*="slide-"].size-auto{
-			animation: height-auto 1s forwards;
-		}
-	}
-
-
-[class*="slide-"].width-auto{
-	width: 100%;
+/** RECENT WORKS CONTENT **/
+.recent-work img{
+	border-radius: 20px;
+	max-width: 400px;
+	max-height: 400px;
 }
 
-[class*="slide-"].height-auto{
-	height: 100%;
+.recent-work img:hover{
+	opacity: 0.55;
+	cursor: pointer;
+	}
+
+.recent-work .work-description{
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+  	color: white;
+	}
+	.recent-work .item:hover .work-description{
+		opacity: 1;
+	}
+
+.work-description{
+	cursor: pointer;
 }
 
 /** SOCIAL LIST **/
@@ -194,6 +217,3 @@ body{
 	from{ height: 150px; }
 	to { height: 100%; }
 }
-
-
-

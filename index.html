@@ -22,12 +22,12 @@
 
 </head> 
 
-<body class="is-preload">
+<body onload="document.body.classList.add('loaded')">
     
     <div class="slider-wrapper">
         <div class="navigate-arrow"><i class="fas fa-chevron-left fa-3x"></i></div>
         <div class="slider">
-            <div class="slide-0 card text-center animated fadeIn">
+            <div class="slide-0 card text-center animated fadeIn presentation-card">
                 <div class="card-heading">
                     <h1>Javier Gonzalez</h1>
                     <div class="profession font-weight-light font-italic"> Software Developer </div>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="slide-1 card hidden">
+            <div class="slide-1 card hidden about">
                 <div class="card-heading"><h1>About me</h1></div>
                 <div class="card-content">
                     <p> Hi there, Welcome to my personal webpage.</p>
@@ -53,35 +53,37 @@
                     <p> <a href="/assets/cv/Curriculum Vitae Javier Gonzalez_English.pdf"> View my resume </a> </p>
                 </div>
             </div>
-            <!--<div class="slide-2 card hidden">
-                <div class="card-heading"><h1>Portafolio</h1></div>
+            <!--<div class="slide-2 card hidden recent-work">
+                <div class="card-heading"><h1>Recent Works</h1></div>
                 <div class="card-content">
                     <div class="row aln-center">
-                        <div class="col-4">
+                        <div class="col-sm">
                             <section class="item mb-5">
-                                <header class="title mb-1">
-                                    <h2>2048</h2>
-                                    <h3>Versión del juego 2048</h3>
-                                </header>
-                                 <ul class="herramientas">
-                                    <li>Jquery</li>
-                                    <li>HMLT, CSS</li>
-                               </ul>
-                                <a class="more-link" href="../projects/2048/index.html"> Acceder &rarr;</a>
-                                <a class="more-link" href="https://github.com/javibodas/2048Js"> Ver en Github &rarr;</a>
-                            </section><!--//GAME-->
-                        <!--</div>
-                        <div class="col-4">
+                                <img src="/assets/images/kevinarts.png">
+                                <div class="work-description">
+                                    <header class="title mb-1">
+                                        <h2>Kevin Arts</h2>
+                                    </header>
+                                    <ul class="herramientas">
+                                        <li>Jquery</li>
+                                        <li>HMLT, CSS</li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-sm">
                             <section class="item mb-5">
-                                <header class="title mb-1">
-                                    <h2>Snake</h2>
-                                    <h3>Versión del clásico videojuego Snake</h3>
-                                </header>
-                                <ul class="herramientas">
-                                    <li>Python</li>
-                                    <li>Pygame</li>
-                               </ul>
-                                <a class="more-link" href="https://github.com/javibodas/SnakePython"> Ver en Github &rarr;</a>
+                                <img src="/assets/images/kevinarts.png">
+                                <div class="work-description">
+                                    <header class="title mb-1">
+                                        <h2>Snake</h2>
+                                    </header>
+                                    <ul class="herramientas">
+                                        <li>Python</li>
+                                        <li>Pygame</li>
+                                   </ul>
+                                    <a class="more-link" href="https://github.com/javibodas/SnakePython"> Ver en Github &rarr;</a>
+                                </div>
                             </section><!--//GAME-->
                         <!--</div>
                     </div>
@@ -98,8 +100,8 @@
                                </ul>
                                 <a class="more-link" href="https://github.com/javibodas/bodblog"> Ver en Github &rarr;</a>
                             </section><!--//GAME-->
-                        <!--</div>
-                    </div>
+                        <!--</div>-->
+                    <!--</div>
                 </div>
             </div>-->
         </div>
@@ -115,6 +117,7 @@
 
             var slider = $('.slider')
             var cards = 2
+            var idPreInitCard = 1
 
             var getActiveSlide = function(){
                 const activeSlide = $("[class*='slide-']:not(.hidden)")
@@ -131,7 +134,7 @@
                 if(direction === 0){
                     nextIdSlide = (idPreSlide + 1)%cards
                 }else{
-                    nextIdSlide = (idPreSlide - 1) < 0 ? 1 : (idPreSlide - 1)
+                    nextIdSlide = (idPreSlide - 1) < 0 ? idPreInitCard : (idPreSlide - 1)
                 }
                 var classNextSlide = '.slide-' + nextIdSlide
                 var nextSlide = $(classNextSlide)
