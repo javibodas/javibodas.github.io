@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es"> 
+<head>
+    <title>Javier Gonzalez</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="../favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link id="theme-style" rel="stylesheet" href="assets/css/about.css">
+    
+
+</head> 
+
+<body onload="document.body.classList.add('loaded')">
+    
+    <div class="slider-wrapper">
+        <div class="navigate-arrow"><i class="fas fa-chevron-left fa-3x"></i></div>
+        <div class="slider">
+            <div class="slide-0 card text-center animated fadeIn presentation-card">
+                <div class="card-heading">
+                    <h1>Javier Gonzalez</h1>
+                    <div class="profession font-weight-light font-italic"> Software Developer </div>
+                </div>
+                <div class="card-content">
+                    <div class="social-list">
+                        <ul class="list-inline py-3">
+                            <a href="https://twitter.com/BodasJavier"><li class="list-inline-item"><i class="fab fa-twitter fa-fw fa-lg"></i></li></a>
+                            <a href="https://www.linkedin.com/in/javier-gonz%C3%A1lez-bodas-70a59787/"><li class="list-inline-item"><i class="fab fa-linkedin-in fa-fw fa-lg"></i></li></a>
+                            <a href="https://github.com/javibodas"><li class="list-inline-item"><i class="fab fa-github-alt fa-fw fa-lg"></i></li></a>
+                            <a href="mailto:gonzalezbodasjavier@yahoo.es"><li class="list-inline-item"><i class="fas fa-envelope fa-fw fa-lg"></i></li></a>
+                        </ul><!--//LISTA REDES SOCIALES-->
+                    </div>
+                </div>
+            </div>
+            <div class="slide-1 card hidden about">
+                <div class="card-heading"><h1>About me</h1></div>
+                <div class="card-content">
+                    <p> Hi there, Welcome to my personal webpage.</p>
+                    <p> I’m Javier, a Software Developer with a Computer Science degree and a passion for all kinds of software development, specifically related to the gaming industry
+                    </p>
+                    <p> I created a <a href="https://bodblog.herokuapp.com/"> personal blog </a> with the vision of expanding my knowledge in the continuous pursuit of new technologies, whilst sharing knowledge and problems with the online community </p>
+                    <p> <a href="/assets/cv/Curriculum Vitae Javier Gonzalez_English.pdf"> View my resume </a> </p>
+                </div>
+            </div>
+            <div class="slide-2 card hidden recent-work">
+                <div class="card-heading"><h1>Recent Works</h1></div>
+                <div class="card-content">
+                    <div class="row aln-center">
+                        <div class="col-sm">
+                            <section class="item mb-5">
+                                <img src="assets/images/snake-pixel.png">
+                                <div class="work-description">
+                                    <ul class="work-tools">
+                                        <li>python</li>
+                                        <li>pygame</li>
+                                    </ul>
+                                    <div class="work-links">
+                                        <a class="more-link" href="https://github.com/javibodas/SnakePython"><i class="fab fa-github-alt fa-fw fa-lg"></i></a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div><!-- SNAKE-->
+                        <div class="col-sm">
+                            <section class="item mb-5">
+                                <img src="assets/images/marketvaluescatalog.png">
+                                <div class="work-description">
+                                    <ul class="work-tools">
+                                        <li>spring boot</li>
+                                        <li>bootstrap</li>
+                                    </ul>
+                                    <div class="work-links">
+                                        <a href="https://github.com/javibodas/MarketValuesCatalog"><i class="fab fa-github-alt fa-fw fa-lg"></i></a>
+                                        <a href="https://marketvaluescatalog.herokuapp.com/"><i class="fas fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </section><!--//GAME-->
+                        </div>
+                    </div>
+                    <!--<div class="row aln-center">
+                        <div class="col-4 col-6-medium col-12-small">
+                            <section class="item mb-5">
+                                <header class="title mb-1">
+                                    <h2>Blog</h2>
+                                    <h3>Blog personal</h3>
+                                </header>
+                                <ul class="herramientas">
+                                    <li>Node</li>
+                                    <li>React</li>
+                               </ul>
+                                <a class="more-link" href="https://github.com/javibodas/bodblog"> Ver en Github &rarr;</a>
+                            </section><!--//GAME-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+        <div class="navigate-arrow"><i class="fas fa-chevron-right fa-3x"></i></div>
+    </div>
+
+    <!-- Javascript -->          
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            var slider = $('.slider')
+            var cards = 3
+            var idPreInitCard = 2
+
+            var getActiveSlide = function(){
+                const activeSlide = $("[class*='slide-']:not(.hidden)")
+
+                var classesActiveSlide = activeSlide.attr('class').split(' ')
+                var intIdActiveSlide = parseInt(classesActiveSlide[0].substr(6,7))
+                console.log('Slide moved... ' + intIdActiveSlide)
+                return {activeSlide : activeSlide , idActiveSlide : intIdActiveSlide}
+            }
+
+            var getNextSlide = function (idPreSlide, direction){
+                var nextIdSlide = 0
+
+                if(direction === 0){
+                    nextIdSlide = (idPreSlide + 1)%cards
+                }else{
+                    nextIdSlide = (idPreSlide - 1) < 0 ? idPreInitCard : (idPreSlide - 1)
+                }
+                var classNextSlide = '.slide-' + nextIdSlide
+                var nextSlide = $(classNextSlide)
+                console.log('Next slide... "' + classNextSlide + "'")
+                return nextSlide
+            }
+
+            var animateActiveSlide = function(slide, animation){
+                slide.removeClass('fadeIn slideInRight slideInLeft');
+                slide.addClass('animated ' + animation)
+            }
+
+            var animateNextSlide = function(preSlide, nextSlide, animation){
+                var contentNextSlide = nextSlide.children('.card-content')
+                var countAnimation = 0;
+
+                nextSlide.css('height','150px')
+
+                nextSlide.removeClass('hidden')
+                nextSlide.addClass('animated ' + animation);
+                nextSlide.css('align-items','center');
+                contentNextSlide.addClass('hide')
+                nextSlide.on('animationend webkitAnimationEnd oAnimationEnd', function(){
+
+                    nextSlide.addClass('size-auto'); console.log('Width auto.')
+                    nextSlide.css('align-items','');
+                    //setTimeout( () => {
+                        //nextSlide.addClass('height-auto'); console.log('Height auto')
+
+                        setTimeout( () => {
+                            nextSlide.css('height','')
+                            contentNextSlide.removeClass('hide')
+                            console.log('Show slide content')
+                         }, 75)
+                    //}, 950)
+                })
+            }
+
+            var hidePreviousSlide = function(slide, animation){
+                slide.addClass('hidden')
+                slide.removeClass('animated size-auto ' + animation)
+            }
+
+            $("body").delegate('.fa-chevron-right','click touchstart', function(e){
+
+                const {activeSlide, idActiveSlide} = getActiveSlide()
+                animateActiveSlide(activeSlide, 'slideOutLeft')
+
+                const nextSlide = getNextSlide(idActiveSlide, 0)
+                animateNextSlide(activeSlide, nextSlide, 'slideInRight')
+
+                hidePreviousSlide(activeSlide, 'slideOutLeft')
+            })
+
+            $("body").delegate('.fa-chevron-left','click touchstart', function(e){
+
+                const {activeSlide, idActiveSlide} = getActiveSlide()
+                animateActiveSlide(activeSlide, 'slideOutRight')
+
+                var nextSlide = getNextSlide(idActiveSlide, 1)
+
+                animateNextSlide(activeSlide, nextSlide, 'slideInLeft')
+
+                hidePreviousSlide(activeSlide, 'slideOutRight')
+            })
+        });
+        
+    </script>
+
+</body>
+</html>
