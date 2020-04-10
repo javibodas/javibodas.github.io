@@ -121,30 +121,65 @@ body{
 	}
 
 /** RECENT WORKS CONTENT **/
-.recent-work img{
-	border-radius: 20px;
-	max-width: 400px;
-	max-height: 400px;
-}
-
-.recent-work img:hover{
-	opacity: 0.55;
-	cursor: pointer;
+.recent-work .item{
+	max-width: 100%;
+	max-height: 100%;
+	text-align: center;
 	}
-
-.recent-work .work-description{
-	opacity: 0;
-	position: absolute;
-	top: 50%;
-  	color: white;
+	.recent-work img{
+		width: 200px;
+		height: 200px;
+		border-radius: 30px;
 	}
-	.recent-work .item:hover .work-description{
-		opacity: 1;
+	.recent-work .item:hover img{
+		opacity: 0.3;
+		cursor: auto;
 	}
 
 .work-description{
-	cursor: pointer;
+	opacity: 0;
+  	color: black;
+  	-moz-transition: opacity 0.3s ease-in-out;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-ms-transition: opacity 0.3s ease-in-out;
+  	transition:  opacity 0.3s ease-in-out;
+	}
+
+.item:hover .work-description{
+		opacity: 1;
 }
+
+.work-tools{
+	position: absolute;
+  	top: 10%;
+  	left: 15%;
+  	text-align: left;
+	list-style: none;
+	padding: 0;
+	}
+	.work-tools li{
+		font-size:  1.5rem;
+		font-style: italic;
+	}
+	.work-tools:hover{
+		cursor: default;
+	}
+
+.work-links{
+	position: absolute;
+  	top: 60%;
+  	left: 15%;
+	}
+	.work-links a{
+		padding: 0 5px 0 0;
+	}
+	.work-links svg{
+		color:  black;
+		font-size:  2rem;
+		}
+		.work-links svg:hover{
+		color:  green;
+		}
 
 /** SOCIAL LIST **/
 .social-list a{
