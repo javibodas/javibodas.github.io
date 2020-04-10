@@ -1,0 +1,15 @@
+{
+  "name": "javibodas.github.io",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "servor . index.html 8080 --reload",
+    "build": "webpack"
+  },
+  "author": "Javier Gonzalez Bodas",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
