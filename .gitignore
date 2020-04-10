@@ -1,16 +1,5 @@
 javibodas.sublime-project
 javibodas.sublime-workspace
-index_old.html
-about_old.html
-about_old_minimalist.html
-about.html
-package.json
 package-lock.json
 node_modules
-src
-bin
-public
-routes
-views
-app.js
 private
