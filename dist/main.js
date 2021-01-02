@@ -6,10 +6,10 @@
     var idPreInitCard = 1;
     if (typeof window.orientation !== "undefined") {
       const leftArrow = document.createElement("i");
-      leftArrow.classList.add("fas fa-chevron-left fa-3x");
+      leftArrow.classList.add("fas", "fa-chevron-left", "fa-3x");
       document.getElementById("left-arrow-wrap").appendChild(leftArrow);
       const rightArrow = document.createElement("i");
-      rightArrow.classList.add("fas fa-chevron-right fa-3x");
+      rightArrow.classList.add("fas", "fa-chevron-right", "fa-3x");
       document.getElementById("right-arrow-wrap").appendChild(rightArrow);
     }
     var getActiveSlide = function() {
@@ -42,12 +42,10 @@
       contentNextSlide.addClass("hide");
       nextSlide.on("animationend webkitAnimationEnd oAnimationEnd", function() {
         nextSlide.addClass("size-auto");
-        console.log("Width auto.");
         nextSlide.css("align-items", "");
         setTimeout(() => {
           nextSlide.css("height", "");
           contentNextSlide.removeClass("hide");
-          console.log("Show slide content");
         }, 75);
       });
     };
