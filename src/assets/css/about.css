@@ -119,6 +119,9 @@ body{
 	.card-content a{
 		color: green;
 	}
+	.card-content .link{
+		font-weight: bold;
+	}
 
 /** RECENT WORKS CONTENT **/
 .recent-work .item{
@@ -172,6 +175,7 @@ body{
 	}
 	.work-links a{
 		padding: 0 5px 0 0;
+		font-weight: bold;
 	}
 	.work-links svg{
 		color:  black;
