@@ -7,7 +7,6 @@ about.html
 package.json
 package-lock.json
 node_modules
-src
 bin
 public
 routes

@@ -1,6 +1,6 @@
-/***************/
-/**** TAGS ****/
-/***************/
+/*****************/
+/**** GLOBALS ****/
+/*****************/
 
 * {
 	box-sizing: border-box;
@@ -19,11 +19,7 @@ body{
 	height: 100vh;
 }
 
-
-/**************/
-/** CLASSES **/
-/**************/
-/** MAIN PAGE **/
+/** SLIDER **/
 .slider-wrapper{
 	min-height: 100vh;
 
@@ -43,7 +39,6 @@ body{
 		}
 	}
 
-/** SLIDER **/
 .slider{
 	display: flex;
 	flex-direction: row;
@@ -123,7 +118,7 @@ body{
 		font-weight: bold;
 	}
 
-/** RECENT WORKS CONTENT **/
+/** WORKS CONTENT **/
 .recent-work .item{
 	max-width: 100%;
 	max-height: 100%;

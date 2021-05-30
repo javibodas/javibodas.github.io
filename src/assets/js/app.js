@@ -1,10 +1,12 @@
 $(document).ready(function(){
 
-    var slider = $('.slider')
-    var cards = 2
-    var idPreInitCard = 1
+    const slides = document.getElementsByClassName('card')
+    const ARROW_RIGHT_CODE = '39'
+    const ARROW_LEFT_CODE = '37'
+    const cards = slides.length
+    var idPreInitCard =  slides[cards - 1].classList[0].substr(6,7)
 
-    var getActiveSlide = function(){
+    const getActiveSlide = function(){
         const activeSlide = $("[class*='slide-']:not(.hidden)")
 
         var classesActiveSlide = activeSlide.attr('class').split(' ')
@@ -12,7 +14,7 @@ $(document).ready(function(){
         return {activeSlide : activeSlide , idActiveSlide : intIdActiveSlide}
     }
 
-    var getNextSlide = function (idPreSlide, direction){
+    const getNextSlide = function (idPreSlide, direction){
         var nextIdSlide = 0
 
         if(direction === 0){
@@ -25,12 +27,12 @@ $(document).ready(function(){
         return nextSlide
     }
 
-    var animateActiveSlide = function(slide, animation){
+    const animateActiveSlide = function(slide, animation){
         slide.removeClass('fadeIn slideInRight slideInLeft');
         slide.addClass('animated ' + animation)
     }
 
-    var animateNextSlide = function(preSlide, nextSlide, animation){
+    const animateNextSlide = function(preSlide, nextSlide, animation){
         var contentNextSlide = nextSlide.children('.card-content')
 
         nextSlide.css('height','150px')
@@ -54,13 +56,12 @@ $(document).ready(function(){
         })
     }
 
-    var hidePreviousSlide = function(slide, animation){
+    const hidePreviousSlide = function(slide, animation){
         slide.addClass('hidden')
         slide.removeClass('animated size-auto ' + animation)
     }
 
-    $("body").delegate('.fa-chevron-right','click touchstart', function(e){
-
+    const moveCardRight = function(){
         const {activeSlide, idActiveSlide} = getActiveSlide()
         animateActiveSlide(activeSlide, 'slideOutLeft')
 
@@ -68,17 +69,30 @@ $(document).ready(function(){
         animateNextSlide(activeSlide, nextSlide, 'slideInRight')
 
         hidePreviousSlide(activeSlide, 'slideOutLeft')
-    })
+    }
 
-    $("body").delegate('.fa-chevron-left','click touchstart', function(e){
-
+    const moveCardLeft = function(){
         const {activeSlide, idActiveSlide} = getActiveSlide()
         animateActiveSlide(activeSlide, 'slideOutRight')
 
         var nextSlide = getNextSlide(idActiveSlide, 1)
-
         animateNextSlide(activeSlide, nextSlide, 'slideInLeft')
 
         hidePreviousSlide(activeSlide, 'slideOutRight')
+    }
+
+    $("body").delegate('.fa-chevron-right','click touchstart', function(e){
+        moveCardRight()
+    })
+
+    $("body").delegate('.fa-chevron-left','click touchstart', function(e){
+        moveCardLeft()
+    })
+
+    $(document).keydown(function(event){
+        const keycode = (event.keyCode ? event.keyCode : event.which);
+
+        if(keycode == ARROW_RIGHT_CODE) moveCardRight()
+        else if(keycode == ARROW_LEFT_CODE) moveCardLeft()
     })
 });
