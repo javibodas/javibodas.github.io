@@ -111,9 +111,8 @@ body {
   text-align: center;
 }
 .recent-work img {
-  width: 200px;
+  width: 300px;
   height: 200px;
-  border-radius: 30px;
 }
 .recent-work .item:hover img {
   opacity: 0.3;

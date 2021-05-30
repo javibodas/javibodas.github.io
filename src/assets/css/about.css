@@ -19,7 +19,9 @@ body{
 	height: 100vh;
 }
 
-/** SLIDER **/
+/*****************/
+/**** SLIDER ****/
+/*****************/
 .slider-wrapper{
 	min-height: 100vh;
 
@@ -125,9 +127,8 @@ body{
 	text-align: center;
 	}
 	.recent-work img{
-		width: 200px;
+		width: 300px;
 		height: 200px;
-		border-radius: 30px;
 	}
 	.recent-work .item:hover img{
 		opacity: 0.3;
@@ -180,7 +181,9 @@ body{
 		color:  green;
 		}
 
-/** SOCIAL LIST **/
+/*****************/
+/**** SOCIAL ****/
+/*****************/
 .social-list a{
 	color:  #414f57;
 	padding: 0.5em 0.5em;
@@ -212,7 +215,9 @@ body{
 		color: green;
 	}
 
-/** NAVIGATE ARROW **/
+/************************/
+/**** NAVIGATE ARROW ****/
+/************************/
 [class*="fa-chevron-"] {
 	float: left;
 	margin: 1em;
