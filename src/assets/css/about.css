@@ -1,45 +1,88 @@
-/*****************/
-/**** GLOBALS ****/
-/*****************/
-
 * {
 	box-sizing: border-box;
 }
 
-i.fab{
-	font-size: 10em;
-}
-
-body:not(.loaded){
-	display: none;
-}
 body{
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
 	color: #414f57;
 	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: row;
+	background-image: url("../images/background-main-resized.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-/*****************/
-/**** SLIDER ****/
-/*****************/
-.slider-wrapper{
-	min-height: 100vh;
+header {
+	width: 5vw;
+	height: 100vh;
+	padding: 0 2rem;
+	position: sticky;
+	text-align: center;
+	align-items: center;
+	color: #414f57;
+}
+
+header ul {
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	top: 35%;
+}
+
+header ul li {
+	padding: 2rem 0;
+}
+
+header button {
+	background: none;
+	border: none;
+	outline: inherit;
+	cursor: pointer;
+	padding: 0 1rem;
+}
+
+header button:focus {
+	background: none;
+	border: none;
+	outline: inherit;
+	cursor: pointer;
+}
+
+header button:active {
+	background: none;
+	border: none;
+	outline: inherit;
+	transform: translateY(5px);
+}
+
+header button:hover {
+	color: green;
+}
+
+header button.active {
+	border-right: 2px solid green;
+	color: green;
+}
+
+main {
+	width: 90vw;
+	height: 100vh;
 
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
   	align-items: center;
+	padding: 0 2rem;
+	
+}
 
-	background-image: url("../images/background-main-resized.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-
-	}
-	@media screen and (max-width: 992px) {
-		.slider-wrapper{
+@media screen and (max-width: 992px) {
+	main{
 			flex-direction: column;
-		}
 	}
+}
 
 .slider{
 	display: flex;
@@ -49,15 +92,12 @@ body{
   	overflow: hidden;
 	}
 
-/** SLIDES **/
 
 [class*="slide-"] {
 	background: white;
 	margin: 0 1rem; padding: 3em;
 	border: 5px solid white;
 	text-transform: uppercase;
-	width: 430px;
-	height: 303px;
 	}
 	[class*="slide-"].hidden{
 		display: none;
@@ -79,7 +119,7 @@ body{
 		}
 	}
 
-/** SLIDES CONTENT **/
+
 .presentation-card .card-heading h1{
 	font-size: 1.85em; letter-spacing: 0.22em;
 }
@@ -120,7 +160,7 @@ body{
 		font-weight: bold;
 	}
 
-/** WORKS CONTENT **/
+
 .recent-work .item{
 	max-width: 100%;
 	max-height: 100%;
@@ -181,9 +221,6 @@ body{
 		color:  green;
 		}
 
-/*****************/
-/**** SOCIAL ****/
-/*****************/
 .social-list a{
 	color:  #414f57;
 	padding: 0.5em 0.5em;
@@ -215,35 +252,12 @@ body{
 		color: green;
 	}
 
-/************************/
-/**** NAVIGATE ARROW ****/
-/************************/
-[class*="fa-chevron-"] {
-	float: left;
-	margin: 1em;
-	animation: arrow-navigate-animation 1s;
-  	animation-iteration-count: infinite;
-  	animation-direction: reverse;
-  	color: white;
-	}
-	[class*="fa-chevron-"]:hover{
-		cursor: pointer;
-		animation-play-state: paused;
-	}
-	@media screen and (max-width: 479px) {
-		[class*="fa-chevron-"] {
-			margin: 0.7em;
-			font-size: 2em;
-		}
-	}
+svg {
+	pointer-events: none;
+}
 
-/*****************/
-/** ANIMATIONS **/
-/****************/
-
-@keyframes arrow-navigate-animation{
-	from { padding-bottom: 10pt; }
-	to { padding-bottom: 0pt; }
+i.fab{
+	font-size: 10em;
 }
 
 @keyframes size-auto{

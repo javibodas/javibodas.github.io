@@ -16,18 +16,22 @@
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
     
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="dist/main.css">
 
 </head> 
 
-<body onload="document.body.classList.add('loaded')">
-    
-    <div class="slider-wrapper">
-        <div class="navigate-arrow"><i class="fas fa-chevron-left fa-3x"></i></div>
+<body>
+    <header>
+        <ul>
+            <li><button id="home" class="navigation-button active"><i class="fas fa-home fa-2x"></i></button></li>
+            <li><button id="about" class="navigation-button"><i class="far fa-address-card fa-2x"></i></button></li>
+            <li><button id="recent-work" class="navigation-button"><i class="fas fa-briefcase fa-2x"></i></button></li>
+        </ul>
+    </header>
+    <main>
         <div class="slider">
-            <div class="slide-0 card text-center animated fadeIn presentation-card">
+            <div class="slide-0 card text-center animated fadeIn presentation-card home">
                 <div class="card-heading">
                     <h1>Javier Gonzalez</h1>
                     <div class="profession font-weight-light font-italic"> Software Developer </div>
@@ -89,11 +93,9 @@
                 </div>
             </div>
         </div>
-        <div class="navigate-arrow"><i class="fas fa-chevron-right fa-3x"></i></div>
-    </div>
+    </main>
 
     <!-- Javascript -->          
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="dist/main.js"></script>
 
 </body>

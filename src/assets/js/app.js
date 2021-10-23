@@ -1,98 +1,22 @@
-$(document).ready(function(){
+document.querySelectorAll('header .navigation-button').forEach((navigationButton) => {
+        navigationButton.addEventListener('click', function(event) {
+            event.preventDefault()
+            
+            const buttonMenuClicked = event.target
+            const activeMenu = document.querySelector('header button.active')
 
-    const slides = document.getElementsByClassName('card')
-    const ARROW_RIGHT_CODE = '39'
-    const ARROW_LEFT_CODE = '37'
-    const cards = slides.length
-    var idPreInitCard =  slides[cards - 1].classList[0].substr(6,7)
+            const idMenudClicked = buttonMenuClicked.id
+            const idCurrentActiveMenu = activeMenu.id
 
-    const getActiveSlide = function(){
-        const activeSlide = $("[class*='slide-']:not(.hidden)")
+            const currentActiveMenu = document.querySelector('.' + idCurrentActiveMenu)
+            const menuForActivating = document.querySelector('.' + idMenudClicked)
 
-        var classesActiveSlide = activeSlide.attr('class').split(' ')
-        var intIdActiveSlide = parseInt(classesActiveSlide[0].substr(6,7))
-        return {activeSlide : activeSlide , idActiveSlide : intIdActiveSlide}
-    }
+            currentActiveMenu.classList.add('hidden')
+            menuForActivating.classList.remove('hidden')
 
-    const getNextSlide = function (idPreSlide, direction){
-        var nextIdSlide = 0
+            activeMenu.classList.remove('active')
+            buttonMenuClicked.classList.add('active')
 
-        if(direction === 0){
-            nextIdSlide = (idPreSlide + 1)%cards
-        }else{
-            nextIdSlide = (idPreSlide - 1) < 0 ? idPreInitCard : (idPreSlide - 1)
-        }
-        var classNextSlide = '.slide-' + nextIdSlide
-        var nextSlide = $(classNextSlide)
-        return nextSlide
-    }
-
-    const animateActiveSlide = function(slide, animation){
-        slide.removeClass('fadeIn slideInRight slideInLeft');
-        slide.addClass('animated ' + animation)
-    }
-
-    const animateNextSlide = function(preSlide, nextSlide, animation){
-        var contentNextSlide = nextSlide.children('.card-content')
-
-        nextSlide.css('height','150px')
-
-        nextSlide.removeClass('hidden')
-        nextSlide.addClass('animated ' + animation);
-        nextSlide.css('align-items','center');
-        contentNextSlide.addClass('hide')
-        nextSlide.on('animationend webkitAnimationEnd oAnimationEnd', function(){
-
-            nextSlide.addClass('size-auto');
-            nextSlide.css('align-items','');
-            //setTimeout( () => {
-                //nextSlide.addClass('height-auto'); console.log('Height auto')
-
-                setTimeout( () => {
-                    nextSlide.css('height','')
-                    contentNextSlide.removeClass('hide')
-                }, 75)
-            //}, 950)
+            console.log('Executed change of menu')
         })
-    }
-
-    const hidePreviousSlide = function(slide, animation){
-        slide.addClass('hidden')
-        slide.removeClass('animated size-auto ' + animation)
-    }
-
-    const moveCardRight = function(){
-        const {activeSlide, idActiveSlide} = getActiveSlide()
-        animateActiveSlide(activeSlide, 'slideOutLeft')
-
-        const nextSlide = getNextSlide(idActiveSlide, 0)
-        animateNextSlide(activeSlide, nextSlide, 'slideInRight')
-
-        hidePreviousSlide(activeSlide, 'slideOutLeft')
-    }
-
-    const moveCardLeft = function(){
-        const {activeSlide, idActiveSlide} = getActiveSlide()
-        animateActiveSlide(activeSlide, 'slideOutRight')
-
-        var nextSlide = getNextSlide(idActiveSlide, 1)
-        animateNextSlide(activeSlide, nextSlide, 'slideInLeft')
-
-        hidePreviousSlide(activeSlide, 'slideOutRight')
-    }
-
-    $("body").delegate('.fa-chevron-right','click touchstart', function(e){
-        moveCardRight()
     })
-
-    $("body").delegate('.fa-chevron-left','click touchstart', function(e){
-        moveCardLeft()
-    })
-
-    $(document).keydown(function(event){
-        const keycode = (event.keyCode ? event.keyCode : event.which);
-
-        if(keycode == ARROW_RIGHT_CODE) moveCardRight()
-        else if(keycode == ARROW_LEFT_CODE) moveCardLeft()
-    })
-});
