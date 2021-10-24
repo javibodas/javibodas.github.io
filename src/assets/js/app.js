@@ -1,22 +1,40 @@
-document.querySelectorAll('header .navigation-button').forEach((navigationButton) => {
+document.querySelectorAll('header .btn-navigation').forEach((navigationButton) => {
         navigationButton.addEventListener('click', function(event) {
             event.preventDefault()
             
-            const buttonMenuClicked = event.target
-            const activeMenu = document.querySelector('header button.active')
+            const buttonClicked = event.target
+            const activeSection = document.querySelector('header button.active')
 
-            const idMenudClicked = buttonMenuClicked.id
-            const idCurrentActiveMenu = activeMenu.id
+            const idSectionClicked = buttonClicked.id
+            const idCurrentActiveSection = activeSection.id
 
-            const currentActiveMenu = document.querySelector('.' + idCurrentActiveMenu)
-            const menuForActivating = document.querySelector('.' + idMenudClicked)
+            const currentActiveSection = document.querySelector('section#' + idCurrentActiveSection)
+            const sectionForActivating = document.querySelector('section#' + idSectionClicked)
 
-            currentActiveMenu.classList.add('hidden')
-            menuForActivating.classList.remove('hidden')
+            console.log(currentActiveSection)
+            console.log(sectionForActivating)
 
-            activeMenu.classList.remove('active')
-            buttonMenuClicked.classList.add('active')
+            currentActiveSection.classList.add('hidden')
+            sectionForActivating.classList.remove('hidden')
+
+            activeSection.classList.remove('active')
+            buttonClicked.classList.add('active')
 
             console.log('Executed change of menu')
         })
     })
+
+document.querySelectorAll('main #about .article-selector').forEach((article) => {
+    article.addEventListener('click', function(event) {
+        event.preventDefault()
+
+        const articleClicked = event.target
+        const idArticleClicked = articleClicked.id
+
+        const articleSelected = document.querySelector('article#' + idArticleClicked)
+        const articleButtonSelected = document.querySelector('#' + idArticleClicked + '.article-selector .btn-article')
+
+        articleSelected.classList.toggle('hidden')
+        articleButtonSelected.classList.toggle('active')
+    })
+})
