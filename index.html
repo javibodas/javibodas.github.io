@@ -24,14 +24,13 @@
 <body>
     <header>
         <ul>
-            <li><button id="home" class="navigation-button active"><i class="fas fa-home fa-2x"></i></button></li>
-            <li><button id="about" class="navigation-button"><i class="far fa-address-card fa-2x"></i></button></li>
-            <li><button id="recent-work" class="navigation-button"><i class="fas fa-briefcase fa-2x"></i></button></li>
+            <li><button id="home" class="btn-navigation active"><i class="fas fa-home fa-2x"></i></button></li>
+            <li><button id="about" class="btn-navigation"><i class="far fa-address-card fa-2x"></i></button></li>
+            <li><button id="works" class="btn-navigation"><i class="fas fa-briefcase fa-2x"></i></button></li>
         </ul>
     </header>
     <main>
-        <div class="slider">
-            <div class="slide-0 card text-center animated fadeIn presentation-card home">
+            <section id="home" class="slide-0 card text-center animated fadeIn presentation-card home">
                 <div class="card-heading">
                     <h1>Javier Gonzalez</h1>
                     <div class="profession font-weight-light font-italic"> Software Developer </div>
@@ -46,18 +45,67 @@
                         </ul><!--//LISTA REDES SOCIALES-->
                     </div>
                 </div>
-            </div>
-            <div class="slide-1 card hidden about">
+            </section>
+            <section id="about" class="slide-1 card hidden about">
                 <div class="card-heading"><h1>About me</h1></div>
                 <div class="card-content">
-                    <p> Hi there, Welcome to my personal webpage.</p>
-                    <p> I’m Javier, a Software Developer with a Computer Science degree and a passion for all kinds of software development, specifically related to the gaming industry
-                    </p>
-                    <p> I created a <a class='link' href="https://blog.jabo.dev/"> personal blog </a> with the vision of expanding my knowledge in the continuous pursuit of new technologies, whilst sharing knowledge and problems with the online community </p>
-                    <p> <a class='link' href="/src/assets/cv/Curriculum Vitae Javier Gonzalez_English.pdf"> View my resume </a> </p>
+                    <p> Hi there, I’m Javier, a Software Developer with a Computer Science degree and a passion for all kinds of software development, specifically related to the gaming industry</p>
+                    <p> I'm currently working in the consulting sector and I have experience in different technologies within the sector such as: Java and PHP as well as self-trained for personal projects on: JavaScript and Python.</p>
+                    <p> Also I've created a <a class='link' href="https://blog.jabo.dev/" target="_blank"> personal blog </a> with the vision of expanding my knowledge in the continuous whilst sharing knowledge and problems with the online community </p>
+                    <br>
+                    <p><h4 id="experience" class="article-selector"><span class="btn-article"></span>Experience</h4></p>
+                    <article id="experience" class="hidden">
+                        <p><b>Software Developer in <a href="https://www.atsistemas.com/">ATSistemas</a></b></p>
+                        <p>April 2021 - Actually</p>
+                        <ul>
+                            <li>Integrations Development (PHP, MariaDB, HTML/CSS, JavaScript, Docker)</li>
+                            <li>Control Version Tools (Git)</li>
+                            <li>Deployment tools (Jenkins)</li>
+                        </ul>
+                        <p>May 2018 – Actually</p>
+                        <ul>
+                            <li>BBDD Scripts Development (PL/SQL)</li>
+                            <li>CRM Application Development (Java, Smart Client, Eclipse)</li>
+                            <li>Control Version Tools (SVN, PVCS)</li>
+                        </ul>
+                        <br>
+                        <p><b>IT Engineer in <a href="https://www.ericsson.com/es/about-us/company-facts/ericsson-worldwide/spain">Ericsson</a></b></p>
+                        <p>August 2017 – May 2018</p>
+                        <ul>
+                            <li>BBDD Scripts Development (PL/SQL)</li>
+                            <li>CRM Application Development (Java, Smart Client, Eclipse)</li>
+                            <li>Control Version Tools (SVN, PVCS)</li>
+                        </ul>
+                        <br>
+                        <p><b>SAS Consultant in <a href="https://www.m2c.es/">M2C Consulting & Procedures</a></b></p>
+                        <p>June 2016 – June 2017</p>
+                        <ul>
+                            <li>Process Automation (Batch, Visual Basic)</li>
+                            <li>Data Analisis and Extraction, and Reporting (BOs ,SAS, Excel, Access)</li>
+                        </ul>
+                    </article>
+                    <br>
+                    <p><h4 id="academic" class="article-selector"><span class="btn-article"></span>  Academic</h4></p>
+                    <article id="academic" class="hidden">
+                        <p><b>2011-2016 Degree in Computer Engineering</b></p>
+                        <p>Escuela Técnica Superior de Ingenieros Informáticos</p>
+                        <p>Universidad Politécnica de Madrid</p>
+                    </article>
+                    <br>
+                    <p><h4 id="futher-training" class="article-selector"><span class="btn-article"></span>  Further Training</h4></p>
+                    <article id="futher-training" class="hidden">
+                        <p><a href="https://www.udemy.com/certificate/UC-7HEMR5MW/">Python para Android, iOS, Windows, Linux y MAC - Desde Cero - Udemy</a></p>
+                        <p><a href="https://www.udemy.com/certificate/UC-9754b53c-d2bf-43e5-9fe6-6f33adc242b6/">Curso de Spring Boot 2: Spring MVC+Thymeleaf+MySQL 8 (2020) - Udemy</a></p>
+                    </article>
+                    <br>
+                    <p><h4 id="languages" class="article-selector"><span id="languages" class="btn-article"></span>  Languages</h4></p>
+                    <article id="languages" class="hidden">
+                        <p>English: First Certificate in English (FCE)</p>
+                        <p>Spanish: Native</p>
+                    </article>
                 </div>
-            </div>
-            <div class="slide-2 card hidden recent-work">
+            </section>
+            <section id="works" class="slide-2 card hidden recent-work">
                 <div class="card-heading"><h1>Works</h1></div>
                 <div class="card-content">
                     <div class="row aln-center">
@@ -91,8 +139,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
     </main>
 
     <!-- Javascript -->          

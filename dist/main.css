@@ -3,19 +3,18 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
-  color: #414f57;
-  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: row;
   background-image: url(background-main-resized.LC5TWNAG.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  color: #414f57;
 }
 header {
   width: 5vw;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0 2rem;
   position: sticky;
   text-align: center;
@@ -23,20 +22,20 @@ header {
   color: #414f57;
 }
 header ul {
-  padding: 0;
-  list-style: none;
   position: absolute;
   top: 35%;
+  padding: 0;
+  list-style: none;
 }
 header ul li {
   padding: 2rem 0;
 }
 header button {
+  padding: 0 1rem;
   background: none;
   border: none;
   outline: inherit;
   cursor: pointer;
-  padding: 0 1rem;
 }
 header button:focus {
   background: none;
@@ -59,24 +58,41 @@ header button.active {
 }
 main {
   width: 90vw;
-  height: 100vh;
+  padding: 2rem 2rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0 2rem;
 }
 @media screen and (max-width: 992px) {
   main {
     flex-direction: column;
   }
 }
-.slider {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+.hidden {
+  display: none;
+}
+section#about .article-selector {
+  cursor: pointer;
+}
+section#about .article-selector:hover {
+  color: green;
+}
+section#about .btn-article {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  background-color: black;
+  border: 1px solid black;
+}
+section#about .btn-article.active {
+  background-color: white;
+}
+section#about .article-selector:hover .btn-article {
+  background-color: green;
+  border: 1px solid green;
 }
 [class*=slide-] {
   background: white;
