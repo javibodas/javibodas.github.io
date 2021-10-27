@@ -12,6 +12,7 @@ body{
 	
 	display: flex;
 	flex-direction: row;
+	overflow-x: hidden;
 
 	background-image: url("../images/background-main-resized.jpg");
 	background-repeat: no-repeat;

@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: row;
+  overflow-x: hidden;
   background-image: url(background-main-resized.LC5TWNAG.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,9 +39,6 @@ header {
 header ul {
   padding: 0;
   list-style: none;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
 }
 @media screen and (max-width: 479px) {
   header ul {
