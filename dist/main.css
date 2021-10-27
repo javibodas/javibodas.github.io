@@ -2,8 +2,12 @@
 * {
   box-sizing: border-box;
 }
+svg {
+  pointer-events: none;
+}
 body {
   width: 100vw;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   background-image: url(background-main-resized.LC5TWNAG.jpg);
@@ -12,20 +16,37 @@ body {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   color: #414f57;
 }
+@media screen and (max-width: 479px) {
+  body {
+    flex-direction: column;
+  }
+}
 header {
   width: 5vw;
   min-height: 100vh;
-  padding: 0 2rem;
   position: sticky;
   text-align: center;
   align-items: center;
   color: #414f57;
 }
+@media screen and (max-width: 479px) {
+  header {
+    width: 100vw;
+    min-height: 5vh;
+  }
+}
 header ul {
-  position: absolute;
-  top: 35%;
   padding: 0;
   list-style: none;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+@media screen and (max-width: 479px) {
+  header ul {
+    display: flex;
+    flex-direction: row;
+  }
 }
 header ul li {
   padding: 2rem 0;
@@ -53,8 +74,30 @@ header button:hover {
   color: green;
 }
 header button.active {
-  border-right: 2px solid green;
   color: green;
+}
+@media screen and (max-width: 479px) {
+  header button.active {
+    border-bottom: 2px solid green;
+  }
+}
+@media screen and (min-width: 479px) {
+  header button.active {
+    border-right: 2px solid green;
+  }
+}
+nav {
+  width: 5vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (max-width: 479px) {
+  nav {
+    width: 100vw;
+    min-height: 5vh;
+  }
 }
 main {
   width: 90vw;
@@ -66,6 +109,7 @@ main {
 }
 @media screen and (max-width: 992px) {
   main {
+    width: 100vw;
     flex-direction: column;
   }
 }
@@ -245,12 +289,6 @@ section#about .article-selector:hover .btn-article {
 }
 .social-list li:hover svg {
   color: green;
-}
-svg {
-  pointer-events: none;
-}
-i.fab {
-  font-size: 10em;
 }
 @keyframes size-auto {
   0% {
