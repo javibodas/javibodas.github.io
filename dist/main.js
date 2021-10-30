@@ -25,8 +25,17 @@
       const idArticleClicked = articleClicked.id;
       const articleSelected = document.querySelector("article#" + idArticleClicked);
       const articleButtonSelected = document.querySelector("#" + idArticleClicked + ".article-selector .btn-article");
+      const iconButtonSelected = document.querySelector("#" + idArticleClicked + ".article-selector .btn-article svg");
+      if (articleButtonSelected.classList.contains("active")) {
+        iconButtonSelected.classList.remove("fa-chevron-up");
+        iconButtonSelected.classList.add("fa-chevron-down");
+      } else {
+        iconButtonSelected.classList.remove("fa-chevron-down");
+        iconButtonSelected.classList.add("fa-chevron-up");
+      }
       articleSelected.classList.toggle("hidden");
       articleButtonSelected.classList.toggle("active");
+      console.log(articleButtonSelected.classList.contains("active"));
     });
   });
 })();
