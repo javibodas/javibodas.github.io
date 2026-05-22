@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "servor . index.html 8080 --reload",
-    "build": "esbuild src/index.js --bundle --loader:.jpg=file --outfile=dist/main.js"
+    "start": "vite",
+    "build": "vite build"
   },
   "author": "Javier Gonzalez Bodas",
-  "dependencies": {},
   "devDependencies": {
-    "esbuild": "^0.8.29"
+    "vite": "8.0.14"
   }
 }

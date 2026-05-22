@@ -1,2 +1,2 @@
-import css from "./assets/css/about.css";
-import js from "./assets/js/app.js"
+import "./assets/css/app.css";
+import "./assets/js/app.js"
