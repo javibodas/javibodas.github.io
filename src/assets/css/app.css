@@ -13,8 +13,8 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #fff;
-  color: #1a1a1a;
+  background: #fafafa;
+  color: #000;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,27 +23,51 @@ body {
 main {
   text-align: center;
   max-width: 600px;
-  padding: 2rem;
+  padding: 3rem 3.5rem 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+
+main::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 1.5rem auto 0;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.04em;
   margin-bottom: 0.25rem;
+  color: #000;
 }
 
 .title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 400;
   color: #475569;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: #cbd5e1;
+  margin: 0.75rem auto 0;
 }
 
 .bio {
   font-size: 1rem;
   line-height: 1.7;
-  color: #4a4a4a;
+  color: #475569;
   margin-bottom: 2rem;
 }
 
@@ -52,7 +76,7 @@ h1 {
 }
 
 .social a {
-  color: #1a1a1a;
+  color: #000;
   text-decoration: none;
   margin: 0 0.5rem;
   transition: color 0.2s;
@@ -81,5 +105,12 @@ h1 {
   font-weight: 500;
   color: #475569;
   background: #f1f5f9;
+  border: 1px solid #e2e8f0;
   border-radius: 999px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.tech span:hover {
+  border-color: #94a3b8;
+  transform: translateY(-1px);
 }
